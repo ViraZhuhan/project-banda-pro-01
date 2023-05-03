@@ -1,35 +1,36 @@
 .upcoming__title{
-position: absolute;
-
-@include font-title;
-text-transform: uppercase;
-color: $color-bg-header;
-
-left: 0px;
-top: 0px;
-}
-
-.upcoming__button{
-display: flex;
-flex-direction: row;
-align-items: center;
-text-align: center;
-padding: 12px 24px;
-gap: 10px;  
-
-position: absolute;
-width: 119px;
-height: 40px;
-left: 853px;
-top: 1973px;
-
-font-family: 'Roboto';
-font-style: normal;
-font-weight: 500;
-font-size: 14px;
-line-height: 1.14;
-
-background: linear-gradient(141.22deg, #FFC226 9.4%, #F84119 91.91%);
-border-radius: 74px;
-border: none;
-}
+    position: absolute;
+    
+    @include font-title;
+    text-transform: uppercase;
+    color: $color-bg-header;
+    
+    left: 0px;
+    top: 0px;
+    }
+    
+    .upcoming__button{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    padding: 12px 24px;
+    gap: 10px;  
+    
+    position: absolute;
+    width: 119px;
+    height: 40px;
+    left: 853px;
+    top: 1973px;
+    
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.14;
+    
+    background: linear-gradient(141.22deg, #FFC226 9.4%, #F84119 91.91%);
+    border-radius: 74px;
+    border: none;
+    }
+    
