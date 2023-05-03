@@ -1,9 +1,10 @@
 .upcoming__title{
+position: absolute;
 
 @include font-title;
 text-transform: uppercase;
 color: $color-bg-header;
-position: absolute;
+
 left: 0px;
 top: 0px;
 }
