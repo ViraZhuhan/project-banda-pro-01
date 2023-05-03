@@ -5,7 +5,6 @@
 
     @include tablet {
         height: 119px;
-        @include font-text ();
     }
 }
 
@@ -19,7 +18,6 @@
     padding-top: 40px;
     padding-bottom: 28px;
 
-
     @include tablet {
         flex-direction: row;
         flex-wrap: nowrap;
@@ -32,7 +30,6 @@
     @include desktop {
         padding-top: 60px;
         padding-bottom: 80px;
-
     }
 }
 
@@ -51,5 +48,32 @@
 .team {
     color: inherit;
     text-decoration: underline;
-
 }
+
+.icon-heart {
+    width: 14px;
+    height: 12.88px;
+
+    margin-left: 10px;
+    margin-right: 10px;
+
+    animation-name: changeSize;
+    animation-duration: 1000ms;
+
+    @keyframes changeSize {
+        0% {
+            scale: 1.5;
+        }
+
+        50% {
+            scale: 1.0;
+        }
+
+        100% {
+            scale: 1.5;
+        }
+    }
+}
+    
+
+
