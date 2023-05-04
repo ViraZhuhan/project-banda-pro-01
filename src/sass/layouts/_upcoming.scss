@@ -27,6 +27,33 @@ main{
     @include font-title;
     }
   }
+.upcoming__info{
+  @include desktop{
+    display: flex;
+  }
+}
+.upcoming__info-layout{
+  @include desktop{
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.upcoming__img{
+  width: 280px;
+  height: 402px;
+
+  @include tablet{
+  width: 704px;
+  height: 400px;
+  }
+
+  @include desktop{
+    width: 805px;
+    height: 458px;
+    margin-right: 16px;
+  }
+}
 .upcoming__movie-title{
   margin-top: 24px;
 }
