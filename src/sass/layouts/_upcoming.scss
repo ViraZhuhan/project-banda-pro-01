@@ -1,12 +1,23 @@
+// body{
+//  background-color: $color-bg-primary;
+// }
+.upcoming{
+  position: relative;
+  padding-top: 32px;
+  padding-bottom: 24px;
+  background-color: $color-bg-primary; 
+}
 .upcoming__title{
     position: absolute;
     
-    @include font-title;
+    @include font-title($fs:16, $lh:1.19, $ls:0);
     text-transform: uppercase;
-    color: $color-bg-header;
-    
+    color: $color-text;
     left: 0px;
     top: 0px;
+
+    padding: 32px 106px 24px 20px;
+    
     }
     
     .upcoming__button{
