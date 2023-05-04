@@ -12,7 +12,7 @@ const weekRoute =
 
 //
 const upcoming =
-  'https://api.themoviedb.org/3/all/upcoming?api_key=225e339996bc91260b33199c383c8881';
+  'https://api.themoviedb.org/3/movie/upcoming?api_key=225e339996bc91260b33199c383c8881';
 
 export class Api {
   constructor() {
@@ -36,4 +36,5 @@ export class Api {
     await new Promise(r => setTimeout(r, 1000));
     return fetch(upcoming).then(res => res.json());
   }
+
 }
