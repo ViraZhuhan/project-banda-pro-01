@@ -1,13 +1,10 @@
-// body{
-//  background-color: $color-bg-primary;
-// }
+
 main{
   background-color: $color-bg-primary;
 }
 .upcoming{
   position: relative;
   padding-top: 32px;
-  background-color: $color-bg-primary;
 @include tablet{
   padding-top: 44px;
 }
@@ -17,7 +14,7 @@ main{
 }
 }
 .upcoming__title{
-    
+    margin-bottom: 24px;
     @include font-title($fs:16, $lh:1.19, $ls:0);
     text-transform: uppercase;
     color: $color-text;
@@ -30,28 +27,73 @@ main{
     @include font-title;
     }
   }
-    
-    .upcoming__button{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    text-align: center;
-    padding: 12px 24px;
-    gap: 10px; 
-    margin-top: 20px;
+.upcoming__movie-title{
+  margin-top: 24px;
+}
+.upcoming__item-font-title{
+  font-family: 'Roboto';
+  font-style: normal;
+  text-transform: uppercase;
+  @include font-title($fs:20, $lh:1.15, $ls:0);
+  color: $color-text;
 
-    width: 119px;
-    height: 40px;
-    
-    font-family: 'Roboto';
-    font-style: normal;
-    @include font-title ($fs: 12, $ls: 0);
-    
-    background: linear-gradient(141.22deg, #FFC226 9.4%, #F84119 91.91%);
-    border-radius: 74px;
-    border: none;
+}
+.upcoming__list{
+  list-style: none;
+  margin-top: 20px;
+}  
+.upcoming__item{
+font-family: 'Roboto';
+font-style: normal;
+@include font-title($fs:16, $lh:1.19, $ls:0);
+color: $color-text-secondary;
+}
+.upcoming__item:not(last-child){
+ margin-bottom: 12px; 
 
-    @include tablet{
-    @include font-title($fs: 14, $lh: 1.14, $ls: 0);
-    }
+}
+.upcoming__movie-about{
+display: flex;
+flex-direction: column;
+
+font-family: 'Roboto';
+font-style: normal;
+@include font-title($fs:16, $lh:1.19, $ls:0);
+color: $color-text-secondary;
+text-transform: uppercase;
+
+margin-top: 20px;
+}
+
+.upcoming__item-font-about{
+margin-top: 16px;
+font-family: 'Roboto';
+font-style: normal;
+@include font-text($fs: 14, $lh: 1.14, $ls: 0);
+
+color: $color-text-primary;
+}
+.upcoming__button{  
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  padding: 12px 24px;
+  gap: 10px; 
+  margin-top: 20px;
+
+  width: 119px;
+  height: 40px;
+    
+  font-family: 'Roboto';
+  font-style: normal;
+  @include font-title ($fs: 12, $ls: 0);
+    
+  background: linear-gradient(141.22deg, #FFC226 9.4%, #F84119 91.91%);
+  border-radius: 74px;
+  border: none;
+
+  @include tablet{
+  @include font-title($fs: 14, $lh: 1.14, $ls: 0);
   }
+}
