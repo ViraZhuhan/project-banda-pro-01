@@ -1,0 +1,23 @@
+.hero-library__title {
+  //   @include font-title($fw: 700, $fs: 32, $lh: 1.19);
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 38px;
+  display: flex;
+  align-items: center;
+}
+
+.hero-library__text {
+  //   @include font-text($fs: 14, $lh: 1.14);
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+
+  color: #f8f8f8;
+}
