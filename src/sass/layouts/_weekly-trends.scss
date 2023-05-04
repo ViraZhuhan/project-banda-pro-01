@@ -1,15 +1,178 @@
+.weekly-trends {
+  background-color: #111111;
+  padding-top: 40px;
+  padding-bottom: 32px;
+  @media screen and (min-width: 768px) {
+    padding-top: 52px;
+    padding-bottom: 44px;
+  }
+  @media screen and (min-width: 1280px) {
+    padding-top: 80px;
+    padding-bottom: 60px;
+  }
+}
+.wraper__txt {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  @media screen and (min-width: 1280px) {
+    margin-bottom: 28px;
+  }
+}
+.wekly__title {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.18;
+  text-transform: uppercase;
+  color: #ffffff;
+  @media screen and (min-width: 768px) {
+    font-size: 24px;
+    line-height: 1.16;
+  }
+  @media screen and (min-width: 1280px) {
+    font-size: 28px;
+    line-height: 1.17;
+  }
+}
+.wekly__link {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.18px;
+  color: #f87719;
+  @media screen and (min-width: 768px) {
+    font-size: 24px;
+    line-height: 1.16;
+  }
+  @media screen and (min-width: 1280px) {
+    font-size: 28px;
+    line-height: 1.17;
+  }
+}
+.article__list {
+  display: flex;
+}
+.article__item {
+  position: relative;
+  display: flex;
+  width: 280px;
+  @media screen and (min-width: 768px) {
+    width: 224px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 395px;
+  }
+}
+
+.article__item:not(:last-child) {
+  @media screen and (min-width: 768px) {
+    margin-right: 16px;
+  }
+}
+.article__item:not(:first-child) {
+  display: none;
+  @media screen and (min-width: 768px) {
+    display: block;
+  }
+}
+.article__img {
+  margin: 0;
+  border-radius: 5px;
+}
+
+.details {
+  content: '';
+  position: absolute;
+  width: 280px;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 63.48%,
+    rgba(0, 0, 0, 0.9) 92.16%
+  );
+  border-radius: 5px;
+  bottom: 0;
+  left: 0;
+  padding-top: 100%;
+  padding-right: 12px;
+  padding-bottom: 12px;
+  padding-left: 12px;
+  @media screen and (min-width: 768px) {
+    width: 224px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 395px;
+    padding-top: 100%;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+  }
+}
+.title__txt {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.66;
+  text-transform: uppercase;
+  color: #ffffff;
+
+  @media screen and (min-width: 768px) {
+    line-height: 1.5;
+  }
+  @media screen and (min-width: 1280px) {
+    font-size: 20px;
+    line-height: 1.15;
+    margin-bottom: 8px;
+  }
+}
+.movieGenres {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.66;
+  color: #b7b7b7;
+  @media screen and (min-width: 768px) {
+    line-height: 1.5;
+  }
+  @media screen and (min-width: 1280px) {
+    font-size: 20px;
+    line-height: 1.15px;
+  }
+}
+.rating__value {
+  display: flex;
+  width: 1px;
+  margin-left: auto;
+  margin-right: auto;
+
+  font-size: 1px;
+  color: transparent;
+  text-align: center;
+}
+
+.wraper__details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+// ------------- RATING------------
 .rating {
   display: flex;
   align-items: flex-end;
-  font-size: 20px;
+  font-size: 14px;
   line-height: 0.75;
+  @media screen and (min-width: 768px) {
+    font-size: 10px;
+  }
+  @media screen and (min-width: 1280px) {
+    font-size: 18px;
+  }
 }
 .rating__body {
   position: relative;
 }
 .rating__body::before {
-  content: '★★★★★';
+  content: '✰✰✰✰✰';
   display: block;
+  color: #f84119;
 }
 .rating__active {
   position: absolute;
