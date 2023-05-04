@@ -1,25 +1,35 @@
 // body{
 //  background-color: $color-bg-primary;
 // }
+main{
+  background-color: $color-bg-primary;
+}
 .upcoming{
   position: relative;
-  max-width: 320px;
   padding-top: 32px;
-  padding-bottom: 24px;
-  background-color: $color-bg-primary; 
+  background-color: $color-bg-primary;
+@include tablet{
+  padding-top: 44px;
+}
+
+@include desktop{
+  padding-top: 60px;
+}
 }
 .upcoming__title{
-    position: absolute;
     
     @include font-title($fs:16, $lh:1.19, $ls:0);
     text-transform: uppercase;
     color: $color-text;
     left: 0px;
     top: 0px;
-
-    padding: 32px 106px 24px 20px;
-    
+    @include tablet{
+    @include font-title($fs: 24, $ls: 0.03)
     }
+    @include desktop{
+    @include font-title;
+    }
+  }
     
     .upcoming__button{
     display: flex;
@@ -27,23 +37,21 @@
     align-items: center;
     text-align: center;
     padding: 12px 24px;
-    gap: 10px;
-    margin-left: 21px;  
+    gap: 10px; 
     margin-top: 20px;
-    // position: absolute;
+
     width: 119px;
     height: 40px;
-    // left: 853px;
-    // top: 1973px;
     
     font-family: 'Roboto';
     font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 1.14;
+    @include font-title ($fs: 12, $ls: 0);
     
     background: linear-gradient(141.22deg, #FFC226 9.4%, #F84119 91.91%);
     border-radius: 74px;
     border: none;
+
+    @include tablet{
+    @include font-title($fs: 14, $lh: 1.14, $ls: 0);
     }
-    
+  }
