@@ -1,0 +1,110 @@
+.backdrop {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  overflow-y: scroll;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.modal{
+  position: absolute;
+  max-width: 846px;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: grid;
+  grid-template: 1fr /1fr  1fr;
+  justify-items: center;
+  padding: 60px;
+  background-color: $color-bg-header;
+  box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
+  border-radius: 20px;
+  padding: 60px;
+
+  &__img{
+    margin: 0;
+  }
+
+  &__items{
+    margin-left: 20px;
+    color: $color-text;
+  }
+  &__title {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 1.33;
+    padding-bottom: 28px;
+  }
+  &__popularity{
+    padding-bottom: 10px;
+  }
+  &__popularity span {
+    margin-left: 82px;
+  }
+  &__rating{
+    @include font-text;
+    padding-bottom: 14px;
+  }
+  &__rating .rating {
+    padding: 0 8px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.14;
+    color: $color-bg-header;
+    background-color: $color-text;
+    border-radius: 5px;
+  }
+  &__rating_span{
+    margin-left: 62px;
+  }
+  &__genre{
+    padding-bottom: 20px;
+  }
+
+    &__genre span {
+margin-left: 112px;
+}
+  &__about{
+    margin-bottom: 16px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.43;
+  }
+  &__description{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.43;
+    padding-bottom: 24px;
+  }
+
+}
+.button__close{
+  position: absolute;
+  top: 40;
+  right: 40;
+  width: 24px;
+  height: 24px;
+  background-color: $color-bg-header;
+  border: none;
+
+}
+.button__close svg{
+  width: 14px;
+  height: 14px;
+}
+.button__add{
+  width: 140px;
+  height: 40px;
+  border-radius: 74px;
+  font-size: 12px;
+  line-height: 1.33;
+  background-color: $color-bg-header;
+  border: 1px solid $color-text-focus
+}
+.button__text{
+  color: $color-text;
+  }
+
