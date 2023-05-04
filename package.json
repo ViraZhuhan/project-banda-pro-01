@@ -1,7 +1,7 @@
 {
   "name": "project-banda-pro-01",
   "version": "2.0.0",
-  "description": "",
+  "description": "This project was created with Parcel. For familiarization and setting additional features [refer to documentation](https://parceljs.org/).",
   "homepage": "https://ViraZhuhan.github.io/project-banda-pro-01",
   "scripts": {
     "start": "parcel src/*.html",
@@ -24,6 +24,7 @@
     "@parcel/transformer-sass": "^2.6.0",
     "parcel": "^2.6.0",
     "parcel-reporter-clean-dist": "^1.0.4",
+    "parcel-transformer-hbs": "^1.0.4",
     "posthtml-include": "^1.7.4"
   },
   "browserslist": "> 0.5%, last 2 versions, not dead"
