@@ -21,12 +21,12 @@ refs.backdrop.addEventListener('click', event => {
 });
 
 // !====================
-refs.buttonAdd.addEventListener('click', onClick);
-function onClick() {
-  console.log('click');
-}
+// refs.buttonAdd.addEventListener('click', onClick);
+// function onClick() {
+//   console.log('click');
+// }
 // !====================
 
-const appendHitsTpl = e => {
-  backdrop.insertAdjacentHTML('beforeend', modalTpl(e));
-};
+// const appendHitsTpl = e => {
+//   backdrop.insertAdjacentHTML('beforeend', modalTpl(e));
+// };
