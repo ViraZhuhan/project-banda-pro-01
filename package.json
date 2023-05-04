@@ -1,7 +1,7 @@
 {
   "name": "project-banda-pro-01",
   "version": "2.0.0",
-  "description": "This project was created with Parcel. For familiarization and setting additional features [refer to documentation](https://parceljs.org/).",
+  "description": "",
   "homepage": "https://ViraZhuhan.github.io/project-banda-pro-01",
   "scripts": {
     "start": "parcel src/*.html",
