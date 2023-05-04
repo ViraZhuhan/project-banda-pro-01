@@ -1,26 +1,38 @@
-#search-form {
+.search-input-field {
     display: flex;
     align-items: center;
+    place-content: center;
+        
 }
 
-#search-input {
+.search-input {
     width: 70%;
     padding: 10px;
     font-size: 16px;
-    border: 2px solid #ccc;
+    border: 2px solid #fff;
     border-radius: 4px;
+    
 }
 
-#search-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
+.search-button {
+    padding: center;
+    gap: 10px;
+    margin-left: 21px;
+    margin-top: 20px;
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(141.22deg, #FFC226 9.4%, #F84119 91.91%);
+    border-radius: 50px;
     border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-left: 10px;
 }
 
-#movie-list {
+.icon-search {
+    width: 20px;
+    height: 20px;
+}
+
+
+.movie-list {
     margin-top: 20px;
 }
+
