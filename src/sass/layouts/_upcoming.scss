@@ -3,6 +3,7 @@
 // }
 .upcoming{
   position: relative;
+  max-width: 320px;
   padding-top: 32px;
   padding-bottom: 24px;
   background-color: $color-bg-primary; 
@@ -26,13 +27,14 @@
     align-items: center;
     text-align: center;
     padding: 12px 24px;
-    gap: 10px;  
-    
-    position: absolute;
+    gap: 10px;
+    margin-left: 21px;  
+    margin-top: 20px;
+    // position: absolute;
     width: 119px;
     height: 40px;
-    left: 853px;
-    top: 1973px;
+    // left: 853px;
+    // top: 1973px;
     
     font-family: 'Roboto';
     font-style: normal;
