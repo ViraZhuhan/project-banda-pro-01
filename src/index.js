@@ -1,2 +1,2 @@
-import weeklyTrends from './js/weekly-trends/weeklyTrends'
+import weeklyTrends from './js/weekly-trends'
 
