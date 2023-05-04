@@ -16,6 +16,15 @@
   }
 }
 
+@mixin retina {
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    @content;
+  }
+}
+
+
 @mixin font-primary($fw: 700, $fs: 64, $lh: 1.17, $ls: 0.03) {
   font-weight: $fw;
   font-size: $fs + px;
