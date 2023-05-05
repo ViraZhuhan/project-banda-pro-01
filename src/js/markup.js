@@ -7,7 +7,7 @@ const seachApi = new Api();
 
 async function createDayTrends() {
   try {
-    const response = await seachApi.weekTrends(1);
+    const response = await seachApi.weekTrends();
     console.log(response.results);
     createGallery(response.results);
   } catch (error) {
