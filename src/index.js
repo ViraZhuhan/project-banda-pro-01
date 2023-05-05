@@ -1,1 +1,1 @@
-import weeklyTrends from './js/weekly-trends';
+import weeklyTrends from './js/weekly-trends'
