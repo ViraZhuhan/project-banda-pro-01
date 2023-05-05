@@ -40,7 +40,6 @@ main{
 }
 
 .upcoming__img{
-  // width: 280px;
   height: 402px;
 
   @include tablet{
@@ -75,10 +74,14 @@ font-style: normal;
 @include font-title($fs:16, $lh:1.19, $ls:0);
 color: $color-text-secondary;
 }
+
 .upcoming__item:not(last-child){
  margin-bottom: 12px; 
-
 }
+.upcoming__item-data{
+  color:$color-text-focus;
+}
+
 .upcoming__movie-about{
 display: flex;
 flex-direction: column;
