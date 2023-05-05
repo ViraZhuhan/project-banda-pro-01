@@ -37,14 +37,12 @@ async function modalMovie(id) {
   try {
     const data = await api.getDetailsById(id);
     const idGenres = data.genres;
-    console.log(idGenres);
 
     const newGenreMovie = [];
 
     idGenres.map(elem => {
       newGenreMovie.push(elem.name);
     });
-    console.log(newGenreMovie);
 
     const voteAverage = data.vote_average.toFixed(2);
     const popularity = data.popularity.toFixed(1);
