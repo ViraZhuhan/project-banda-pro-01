@@ -1,7 +1,13 @@
-<div>
-    <form id="search-form">
-        <input type="text" id="search-input" placeholder="Enter a keyword">
-        <button type="submit" id="search-button">Search</button>
+<div class="search-wrapper">
+    <form class="search-form">
+        <input type="text" class="search-input-field" placeholder="Enter a keyword">
+        <button type="submit" class="search-button" aria-label="Search">
+            <svg class="icon-search" width="20" height="20">
+                <use xlink:href="./images/symbol-defs.svg#icon-search" alt="Search icon"></use>
+            </svg>
+        </button>
     </form>
-    <div id="movie-list"></div>
+    <section>
+        <div class="movie-list"></div>
+    </section>
 </div>
