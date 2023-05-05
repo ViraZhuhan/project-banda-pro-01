@@ -1,20 +1,20 @@
 {{#each this }}
-<div class="modal">
+<div class="modal" id="{{id}}">
   <button class="button__close" type="button">
     <svg>
       <use href="./images/symbol-defs.svg#icon-close"></use>
     </svg>
   </button>
-  <img class="modal__img" src="{{poster_path}}" alt="{{original_title}}" loading="lazy">
+  <img class="modal__img" src={{backdrop_path}} alt={{original_name}} loading="lazy">
   <div class="modal__items">
-    <h1 class="modal__title">{{original_title}}</h1>
+    <h1 class="modal__title">{{original_name}}</h1>
     <p class="modal__rating">Vote / Votes
       <span class="modal__rating_span">
-        <span class="rating">{{vote_average}} </span> /
-        <span class="rating">{{vote_count}}</span>
+        <span class="rating-vote">{{vote_average}} </span> /
+        <span class="rating-vote">{{vote_count}}</span>
       </span>
     </p>
-    <p class="modal__popularity">{{popularity}} <span>100.2</span> </p>
+    <p class="modal__popularity">Popularity <span>{{popularity}}</span> </p>
     <p class="modal__genre">Genre <span>Action Thriller Crime</span></p>
     <p class="modal__about">ABOUT</p>
     <p class="modal__description">{{overview}}</p>
