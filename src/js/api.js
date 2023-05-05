@@ -15,7 +15,7 @@ const genresRoute = `${MOVIE_URL}/genre/movie/list?api_key=${API_KEY}`;
 const countriesRoute = `${MOVIE_URL}configuration/countries?api_key=${API_KEY}`;
 
 //
-const upcoming = `${MOVIE_URL}all/upcoming?api_key=${API_KEY}`;;
+const upcoming = `${MOVIE_URL}movie/upcoming?api_key=${API_KEY}`;
 
 export default class Api {
   constructor() {

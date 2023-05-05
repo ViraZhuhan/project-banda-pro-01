@@ -1,14 +1,21 @@
 <div class="upcoming__info">
      <img src="https://image.tmdb.org/t/p/original/{{backdrop_path}}" alt="{{original_title}}"  loading="lazy" class="upcoming__img" />
+     <div class="upcoming__info-btn">
      <div class="upcoming__info-layout">
      <h3 class ="upcoming__movie-title"><span class="upcoming__item-font-title">{{original_title}}</span></h3>
+     <div class="upcoming__list-tablet">
      <ul class="upcoming__list">
-     <li class ="upcoming__item"><span class="upcoming__item-font">Release date </span><span class="upcoming__item-data">{{release_date}}</span></li>
-     <li class ="upcoming__item"><span class="upcoming__item-font">Vote/Votes </span>{{vote_average}}/{{vote_count}}</li>
-     <li class ="upcoming__item"><span class="upcoming__item-font">Popularity </span>{{popularity}}</li>
-     <li class ="upcoming__item"><span class="upcoming__item-font">Genre </span>{{genre_ids}}</li>
+     <li class ="upcoming__item"><span class="upcoming__item-font-date">Release date </span><span class="upcoming__item-data">{{release_date}}</span></li>
+     <li class ="upcoming__item"><span class="upcoming__item-font-vote">Vote/Votes </span><span class="upcoming__item-vote">{{vote_average}}</span>  /  <span class="upcoming__item-votes">{{vote_count}}</span></li>
      </ul>
+     <ul class="upcoming__list">
+     <li class ="upcoming__item"><span class="upcoming__item-font-popularity">Popularity </span>{{popularity}}</li>
+     <li class ="upcoming__item"><span class="upcoming__item-font-genre">Genre </span>{{genre_ids}}</li>
+     </ul>
+     </div>
      <p class ="upcoming__movie-about">About</p>
      <p class="upcoming__item-font-about">{{overview}}</p>
+     </div>
+     <button type="button" class="upcoming__button">Remind me</button>
      </div>
      </div>
