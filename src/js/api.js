@@ -1,40 +1,215 @@
+const MOVIE_URL = `https://api.themoviedb.org/3/`;
 const API_KEY = '225e339996bc91260b33199c383c8881';
 
 // as looking by id
-const example =
-  'https://api.themoviedb.org/3/movie/550?api_key=225e339996bc91260b33199c383c8881';
+const example = `${MOVIE_URL}movie/550?api_key=${API_KEY}`;
 
 // all - movie - tv - person | week - day |
-const dayRoute =
-  'https://api.themoviedb.org/3/trending/all/day?api_key=225e339996bc91260b33199c383c8881';
-const weekRoute =
-  'https://api.themoviedb.org/3/trending/all/week?api_key=225e339996bc91260b33199c383c8881';
+const dayRoute = `${MOVIE_URL}trending/all/dayRoute?api_key=${API_KEY}`;
+const weekRoute = `${MOVIE_URL}trending/all/week?api_key=${API_KEY}`;
+
+// genres
+const genresRoute = `${MOVIE_URL}/genre/movie/list?api_key=${API_KEY}`;
+
+// genres
+const countriesRoute = `${MOVIE_URL}configuration/countries?api_key=${API_KEY}`;
 
 //
 const upcoming =
   'https://api.themoviedb.org/3/movie/upcoming?api_key=225e339996bc91260b33199c383c8881';
 
-export class Api {
+export default class Api {
   constructor() {
-    this.name = 'name';
-    this.year = 0;
-    this.genre = 'genre';
-    this.country = 'country';
+    this.page = 1;
+  }
+
+  nextPage() {
+    this.page += 1;
+  }
+  prevPage() {
+    this.page -= 1;
+  }
+  setPage(value) {
+    this.page = value;
+  }
+  getCurrentPage() {
+    return this.page;
+  }
+  reset() {
+    this.page = 1;
   }
 
   async dayTrends() {
-    await new Promise(r => setTimeout(r, 1000));
-    return fetch(dayRoute).then(res => res.json());
+    try {
+      const response = await fetch(`${dayRoute}&page=${this.page}`);
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      throw new Error('Error fetching movie data: ' + error);
+    }
   }
 
   async weekTrends() {
-    await new Promise(r => setTimeout(r, 1000));
-    return fetch(weekRoute).then(res => res.json());
+    try {
+      const response = await fetch(`${weekRoute}&page=${this.page}`);
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      throw new Error('Error fetching movie data: ' + error);
+    }
   }
 
   async upcoming() {
+    try {
+      const response = await fetch(`${upcoming}&page=${this.page}`);
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      throw new Error('Error fetching movie data: ' + error);
+    }
+  }
+
+    async getDetailsById(id) {
+    const str = `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`;
     await new Promise(r => setTimeout(r, 1000));
-    return fetch(upcoming).then(res => res.json());
+    return fetch(str).then(res => res.json());
+  }
+
+  async fetchGenres() {
+    try {
+      const response = await fetch(genresRoute);
+      const data = await response.json();
+      return data.genres;
+    } catch (error) {
+      throw new Error('Error fetching genres data: ' + error);
+    }
+  }
+
+    async countries() {
+    await new Promise(r => setTimeout(r, 1000));
+    return fetch(`${countriesRoute}&page=${this.page}`).then(res => res.json());
+  }
+
+  async searhByNameYear(obj = {}) {
+    let str = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&include_adult=false`;
+
+    const keys = Object.keys(obj);
+
+    if (keys.length !== 0) {
+      for (const key of keys) {
+        if (
+          ((key === 'year' || key === 'query' || key === 'page') &&
+            obj[key]) !== null
+        ) {
+          str += `&${key}=${obj[key]}`;
+        }
+      }
+    }
+    await new Promise(r => setTimeout(r, 1000));
+    return fetch(str).then(res => res.json());
   }
 
 }
+
+
+// export default class ApiServer {
+//   #API_KEY = '225e339996bc91260b33199c383c8881';
+//   #dayTops = 'https://api.themoviedb.org/3/trending/all/day?';
+//   #weekTops = 'https://api.themoviedb.org/3/trending/all/week?';
+//   #upcoming = 'https://api.themoviedb.org/3/all/upcoming?&language=en-US';
+
+//   constructor() {
+//     this.page = 1;
+//   }
+
+//   nextPage() {
+//     this.page += 1;
+//   }
+//   prevPage() {
+//     this.page -= 1;
+//   }
+//   setPage(value) {
+//     this.page = value;
+//   }
+//   getCurrentPage() {
+//     return this.page;
+//   }
+//   reset() {
+//     this.page = 1;
+//   }
+
+//   // [] для фильма дня
+//   async dayTrends() {
+//     await new Promise(r => setTimeout(r, 1000));
+//     return fetch(
+//       `${this.#dayTops}api_key=${this.#API_KEY}&page=${this.page}`
+//     ).then(res => res.json());
+//   }
+
+//   // [] для фильмов недели
+//   async weekTrends() {
+//     await new Promise(r => setTimeout(r, 1000));
+//     return fetch(
+//       `${this.#weekTops}api_key=${this.#API_KEY}&page=${this.page}`
+//     ).then(res => res.json());
+//   }
+
+//   // [] для новинок
+//   async upcoming() {
+//     await new Promise(r => setTimeout(r, 1000));
+//     return fetch(
+//       `${this.#upcoming}&api_key=${this.#API_KEY}&page=${this.page}`
+//     ).then(res => res.json());
+//   }
+
+//   // {} для модалки с полной инфо
+//   async getDetailsById(id) {
+//     const str = `https://api.themoviedb.org/3/movie/${id}?api_key=${
+//       this.#API_KEY
+//     }`;
+//     await new Promise(r => setTimeout(r, 1000));
+//     return fetch(str).then(res => res.json());
+//   }
+
+//   // [] список всех стран
+//   async countries() {
+//     const str = `https://api.themoviedb.org/3/configuration/countries?api_key=${
+//       this.#API_KEY
+//     }`;
+//     await new Promise(r => setTimeout(r, 1000));
+//     return fetch(str).then(res => res.json());
+//   }
+
+//   // [] список всех жанров
+//   async fetchGenres() {
+//     const str = `https://api.themoviedb.org/3/genre/movie/list?api_key=${
+//       this.#API_KEY
+//     }&language=en-US`;
+//     await new Promise(r => setTimeout(r, 1000));
+//     return fetch(str).then(res => res.json());
+//   }
+
+//   // [] поиск по назв, год, стр, принимает {query: string, year: int, page: int}
+//   // фильтровать по: | 'release_date' | 'genre_ids' | 'origin_country'(не везде)
+//   async searhByNameYear(obj = {}) {
+//     let str = `https://api.themoviedb.org/3/search/movie?api_key=${
+//       this.#API_KEY
+//     }&language=en-US&include_adult=false`;
+
+//     const keys = Object.keys(obj);
+
+//     if (keys.length !== 0) {
+//       for (const key of keys) {
+//         if (
+//           ((key === 'year' || key === 'query' || key === 'page') &&
+//             obj[key]) !== null
+//         ) {
+//           str += `&${key}=${obj[key]}`;
+//         }
+//       }
+//     }
+
+//     await new Promise(r => setTimeout(r, 1000));
+//     return fetch(str).then(res => res.json());
+//   }
+// }

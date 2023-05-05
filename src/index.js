@@ -1,7 +1,3 @@
-import {fetchUpcomingMovie, renderUpcomingMovieCard} from './js/upcoming';
-
-fetchUpcomingMovie();
-renderUpcomingMovieCard();
-
+import weeklyTrends from './js/weekly-trends'
 
 
