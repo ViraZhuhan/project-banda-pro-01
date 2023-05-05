@@ -1,0 +1,24 @@
+{{#each this }}
+<div class="modal">
+  <button class="button__close" type="button">
+    <svg>
+      <use href="./images/symbol-defs.svg#icon-close"></use>
+    </svg>
+  </button>
+  <img class="modal__img" src="{{poster_path}}" alt="{{original_title}}" loading="lazy">
+  <div class="modal__items">
+    <h1 class="modal__title">{{original_title}}</h1>
+    <p class="modal__rating">Vote / Votes
+      <span class="modal__rating_span">
+        <span class="rating">{{vote_average}} </span> /
+        <span class="rating">{{vote_count}}</span>
+      </span>
+    </p>
+    <p class="modal__popularity">{{popularity}} <span>100.2</span> </p>
+    <p class="modal__genre">Genre <span>Action Thriller Crime</span></p>
+    <p class="modal__about">ABOUT</p>
+    <p class="modal__description">{{overview}}</p>
+    <button class="button__add" type="button"><span class="button__text">Add to my library</span> </button>
+  </div>
+</div>
+{{/each}}
