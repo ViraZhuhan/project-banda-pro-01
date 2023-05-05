@@ -3,7 +3,7 @@ main{
   background-color: $color-bg-primary;
 }
 .upcoming{
-  position: relative;
+  // position: relative;
   padding-top: 32px;
 @include tablet{
   padding-top: 44px;
@@ -40,7 +40,7 @@ main{
 }
 
 .upcoming__img{
-  width: 280px;
+  // width: 280px;
   height: 402px;
 
   @include tablet{
@@ -123,4 +123,10 @@ color: $color-text-primary;
   @include tablet{
   @include font-title($fs: 14, $lh: 1.14, $ls: 0);
   }
+  @include desktop{
+  position: absolute;
+  top: 450px;
+  right: 310px;
+  }
+
 }
