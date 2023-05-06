@@ -6,25 +6,25 @@ const refs = {
 }
 const newMovies = new Api();
 
-fetchUpcomingMovie().then(renderUpcomingMovie)
+fetchUpcomingMovie().then(renderUpcomingMovieCard)
 .catch(er =>console.log(er.message));
-renderUpcomingMovie();
+renderUpcomingMovieCard();
 
-fetchUpcomingGenre().then(renderUpcomingGenre).catch(er => console.log(er.message));
+// fetchUpcomingGenre().then(renderUpcomingGenre).catch(er => console.log(er.message));
 
 export function fetchUpcomingMovie(){ 
 return newMovies.upcoming()
 }; 
 
-function renderUpcomingMovie(res){
+export function renderUpcomingMovieCard(res){
   console.log(res);
-const markup = creatUpcomingCard(res.results.slice(0,1))
+const markup = createUpcomingCard(res.results.slice(0,1))
 console.log(markup);
 refs.galleryOfNewMovies.insertAdjacentHTML('beforeend', markup);
 }
 
 
-function creatUpcomingCard(results) {
+function createUpcomingCard(results) {
   console.log(results);
   return results.map(({backdrop_path, original_title, release_date, vote_average, vote_count, popularity, genre_ids, overview })=>{
     return `<div class="upcoming__info"> 
