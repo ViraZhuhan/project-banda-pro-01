@@ -29,33 +29,49 @@ refs.closeModalBtn.addEventListener('click', toggleModal);
 async function modalMovie(id) {
   try {
     const data = await api.getDetailsById(id);
-
-    function addLocalStorage() {
-      const key = data.title;
-      const value = {
-        id,
-        title: data.title,
-        popularity,
-        voteAverage,
-        voteCount: data.vote_count,
-        genres: newGenreMovie,
-        overview: data.overview,
-      };
-      localStorage.setItem(key, JSON.stringify(value));
-    }
-
     const idGenres = data.genres;
     const newGenreMovie = [];
 
     idGenres.map(elem => {
       newGenreMovie.push(elem.name);
     });
-
+    const key = data.title;
     const voteAverage = data.vote_average.toFixed(2);
     const popularity = data.popularity.toFixed(1);
     const imageUrl = data.poster_path
       ? `https://image.tmdb.org/t/p/w500/${data.poster_path}`
       : 'https://via.placeholder.com/395x574?text=No+Image';
+
+    function addLS() {
+      const value = {
+        id,
+        title: data.title,
+        popularity,
+        voteAverage,
+        img: imageUrl,
+        voteCount: data.vote_count,
+        genres: newGenreMovie,
+        overview: data.overview,
+      };
+      localStorage.setItem(key, JSON.stringify(value));
+      buttonAdd.classList.add('hidden');
+      buttonRemove.classList.remove('hidden');
+    }
+
+    function removeLS() {
+      localStorage.removeItem(key);
+      buttonAdd.classList.remove('hidden');
+      buttonRemove.classList.add('hidden');
+    }
+
+    function ls() {
+      const itemLs = localStorage.getItem(key);
+      const parsedSettings = JSON.parse(itemLs);
+      if (key === parsedSettings.title) {
+        buttonAdd.classList.add('hidden');
+        buttonRemove.classList.remove('hidden');
+      }
+    }
 
     refs.modal.insertAdjacentHTML(
       'beforeend',
@@ -74,11 +90,16 @@ async function modalMovie(id) {
       <p class="modal__genre">Genre <span>${newGenreMovie.join(' ')}</span></p>
       <p class="modal__about">ABOUT</p>
       <p class="modal__description">${data.overview}</p>
-      <button class="button__add" type="button"><span class="button__text">Add to my library</span> </button>
+      <button class="button-add" type="button"><span class="button-add__tex">Add to my library</span> </button>
+      <button class="button-remove hidden" type="button"><span class="button-add__tex">Remove from my library</span> </button>
     </div>`
     );
-    const buttonAdd = document.querySelector('.button__add');
-    buttonAdd.addEventListener('click', addLocalStorage);
+
+    const buttonAdd = document.querySelector('.button-add');
+    const buttonRemove = document.querySelector('.button-remove');
+    buttonAdd.addEventListener('click', addLS);
+    buttonRemove.addEventListener('click', removeLS);
+    ls();
   } catch (error) {
     console.error(error);
   }

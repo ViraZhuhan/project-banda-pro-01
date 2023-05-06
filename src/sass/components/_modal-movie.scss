@@ -15,29 +15,42 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  display: grid;
-  grid-template: 1fr /1fr  1fr;
-  justify-items: center;
-  padding: 60px;
+  margin: auto;
+  padding:62px 16px 52px 16px;
   background-color: $color-bg-header;
   box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
   border-radius: 20px;
-  padding: 60px;
+
+    @media screen and (min-width: $tablet) {
+    display: grid;
+    grid-template: 1fr /1fr 1fr;
+    justify-items: center;
+    padding: 60px;
+}
 
   &__img{
-    margin: 0;
+    margin: auto;
     border-radius: 5px;
+    @media screen and (min-width: $tablet) {
+        margin:0;
+      }
   }
 
   &__items{
-    margin-left: 20px;
     color: $color-text;
+      @media screen and (min-width: $tablet) {
+        margin-left: 20px;
+        }
   }
   &__title {
     font-weight: 500;
     font-size: 24px;
     line-height: 1.33;
     padding-bottom: 28px;
+    margin-top: 22px;
+    @media screen and (min-width: $tablet) {
+            margin-top: 0;
+      }
   }
   &__popularity{
     padding-bottom: 10px;
@@ -85,28 +98,56 @@ margin-left: 112px;
 }
 .button__close{
   position: absolute;
-  top: 40;
-  right: 40;
+  top: 20;
+  right: 16;
   width: 24px;
   height: 24px;
   background-color: $color-bg-header;
   border: none;
+  @media screen and (min-width: $tablet) {
+      top: 40;
+      right: 40;
+    }
 
 }
 .button__close svg{
-  width: 14px;
-  height: 14px;
+  width: 24px;
+  height: 24px;
 }
-.button__add{
-  width: 140px;
-  height: 40px;
+.button-add{
+
+  padding: 12px 24px;
   border-radius: 74px;
   font-size: 12px;
   line-height: 1.33;
   background-color: $color-bg-header;
-  border: 1px solid $color-text-focus
-}
-.button__text{
   color: $color-text;
-  }
+  border: 1px solid $color-text-focus;
+}
+
+.button-add:hover{
+  background-color: $color-text-primary;
+  border: 1px solid $color-text-focus;
+  color: $color-bg-header;;
+
+}
+.button-remove {
+
+  padding: 12px 24px;
+  border-radius: 74px;
+  font-size: 12px;
+  line-height: 1.33;
+  background-color: $color-bg-header;
+  color: $color-text;
+  border: 1px solid $color-text-focus;
+}
+
+.button-remove:hover {
+  background-color: $color-text-primary;
+  border: 1px solid $color-text-focus;
+  color: $color-bg-header;
+  ;
+
+}
+
 
