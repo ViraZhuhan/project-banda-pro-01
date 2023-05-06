@@ -1,26 +1,27 @@
-
 .card-catalog {
-     background-color: $color-bg-header;
-}
- 
-.gallery {
+    background-color: $color-bg-header;
     padding-top: 16px;
-    width: 100%;
-    display: flex;
-    gap: 16px;
-    flex-direction: column;
-    flex-wrap: wrap;
 
     @include tablet {
-        gap: 16px;
-    flex-direction: row;
         padding-top: 52px;
-        padding-bottom: 44px;
     }
 
     @include desktop {
         padding-top: 80px;
-        padding-bottom: 60px;
+    }
+}
+
+.gallery {
+    display: flex;
+  
+    column-gap: 16px;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    @include tablet {
+        flex-direction: row;
+        row-gap: 32px;
+        column-gap: 16px;
     }
 }
 
@@ -28,16 +29,11 @@
     position: relative;
     width: 100%;
 
-   @include tablet {
-    width: calc((100% - 32px)/3);
-    
-    }
-
-    @include desktop {
+    @include tablet {
         width: calc((100% - 32px)/3);
     }
 
-    &:hover, &:focus {
+    &:hover {
         scale: 1.05;
     }
 }
@@ -48,10 +44,10 @@
     border-radius: 5px;
 }
 
-.details {
+.gallery__details {
     content: '';
     position: absolute;
-    width: 280px;
+    width: 100%;
     background: linear-gradient(180deg,
             rgba(0, 0, 0, 0) 63.48%,
             rgba(0, 0, 0, 0.9) 92.16%);
@@ -63,12 +59,7 @@
     padding-bottom: 12px;
     padding-left: 12px;
 
-    @include tablet {
-        width: 224px;
-    }
-
     @include desktop {
-        width: 395px;
         padding-top: 100%;
         padding-right: 20px;
         padding-bottom: 20px;
@@ -92,7 +83,8 @@
     }
 }
 
-.movieGenres, .date {
+.movieGenres,
+.date {
     @include font-title ($fs: 12, $lh: 1.66);
     color: $color-text-secondary;
 

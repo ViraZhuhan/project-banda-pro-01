@@ -9,24 +9,20 @@ const seachApi = new Api();
 async function createDayTrends() {
   try {
     const response = await seachApi.weekTrends();
-    const genre = await seachApi.fetchGenres();
-
-
-
+    console.log(response.results)
     createGallery(response.results);
   } catch (error) {
     noFilmError();
   }
 }
 
-
 function createGallery(films) {
   clearGallery();
-  gallery.insertAdjacentHTML('beforeend', cardsTpl(films));
+  refs.gallery.insertAdjacentHTML('beforeend', cardsTpl(films));
 }
 
 function clearGallery() {
-  gallery.innerHTML = '';
+  refs.gallery.innerHTML = '';
 }
 
 
@@ -40,10 +36,6 @@ function findGenreById(listId) {
   }
   return textGenres.join(', ');
 }
-
-
-
-
 
 
 createDayTrends();
