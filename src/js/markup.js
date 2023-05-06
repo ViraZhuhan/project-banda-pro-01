@@ -9,6 +9,7 @@ const seachApi = new Api();
 async function createDayTrends() {
   try {
     const response = await seachApi.weekTrends();
+    console.log(response.results)
     createGallery(response.results);
   } catch (error) {
     noFilmError();
@@ -17,11 +18,11 @@ async function createDayTrends() {
 
 function createGallery(films) {
   clearGallery();
-  gallery.insertAdjacentHTML('beforeend', cardsTpl(films));
+  refs.gallery.insertAdjacentHTML('beforeend', cardsTpl(films));
 }
 
 function clearGallery() {
-  gallery.innerHTML = '';
+  refs.gallery.innerHTML = '';
 }
 
 
