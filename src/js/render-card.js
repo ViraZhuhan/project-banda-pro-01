@@ -1,9 +1,6 @@
 import Api from './api';
 import { Loading } from 'notiflix';
 import {initRatings} from './init-rating'
-import { noFilmError, onFetchError} from './msg-error';
-
-import Api from './api';
 import cardsTpl from '../templates/cards.hbs';
 import { noFilmError, onFetchError} from './msg-error';
 import getRefs from './get-refs';
@@ -55,6 +52,8 @@ const seachApi = new Api();
 //   }
 
 
+
+
 async function createWeekTrends() {
   try {
     const response = await seachApi.weekTrends();
@@ -76,11 +75,11 @@ function clearGallery() {
 }
 
 
-function findGenreById(listId) {
+function findGenreById(idGenres) {
   const arrayGenres = storageAPI.load('genres');
   const textGenres = [];
 
-  for (const id of listId) {
+  for (const id of idGenres) {
     const findedId = arrayGenres.find(genre => genre.id === id);
     textGenres.push(findedId.name);
   }
@@ -88,17 +87,17 @@ function findGenreById(listId) {
 }
 
 
-async function genresList(idGenres) {
-    const genresList = await saveGenresToStorage();
+// async function genresList(idGenres) {
+//     const genresList = await saveGenresToStorage();
     
-      let namesGenres = [];
-      for (let i; i < genresList.length; i += 1) {
-        const item = genres.find(el => el.id === idGenres[i]);
-        namesGenres.push(item.name);
-      }
-      console.log(namesGenres);
-      return namesGenres;
-    }
+//       let namesGenres = [];
+//       for (let i; i < genresList.length; i += 1) {
+//         const item = genres.find(el => el.id === idGenres[i]);
+//         namesGenres.push(item.name);
+//       }
+//       console.log(namesGenres);
+//       return namesGenres;
+//     }
     
     
      async function saveGenresToStorage() {

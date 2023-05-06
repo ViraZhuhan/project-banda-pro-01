@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 const MOVIE_URL = `https://api.themoviedb.org/3/`;
 const API_KEY = '225e339996bc91260b33199c383c8881';
 
@@ -38,6 +40,14 @@ export default class Api {
     this.page = 1;
   }
 
+  async weeklyTrends() {
+    const { data } = await axios.get(`${weekRoute}&page=${this.page}`);
+
+    return data;
+  }
+
+
+  
   async dayTrends() {
     try {
       const response = await fetch(`${dayRoute}&page=${this.page}`);
