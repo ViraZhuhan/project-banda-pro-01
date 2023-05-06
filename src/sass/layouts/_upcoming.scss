@@ -1,6 +1,6 @@
 
 main{
-  background-color: $color-bg-primary;
+  background-color: #111111;
 }
 .upcoming{
   padding-top: 32px;
@@ -78,7 +78,8 @@ flex-direction: column;
 }
 
 .upcoming__item-font-date{
-  margin-right: 57px;
+ margin-right: 57px;
+ 
   @include tablet{
     margin-right:58px;
   }
@@ -106,7 +107,10 @@ flex-direction: column;
 .upcoming__list:first-child{
   list-style: none;
   margin-top: 20px;
-  margin-right: 118px;
+  @include tablet{
+margin-right: 118px;
+  }
+
 }  
 
 
@@ -131,6 +135,8 @@ flex-direction: column;
 }
 
 .upcoming__item{
+display: flex;
+
 font-family: 'Roboto';
 font-style: normal;
 @include font-title($fs:16, $lh:1.19, $ls:0);
@@ -141,6 +147,7 @@ color: $color-text-secondary;
  margin-bottom: 12px; 
 }
 .upcoming__item-data{
+  
   color:$color-text-focus;
   font-size: 16px;
   line-height: 1.19;
@@ -150,7 +157,12 @@ color: $color-text-secondary;
   line-height: 1.19;
   color:#FFFFFF
 }
-
+.upcoming__item-vote{
+  margin-right: 5px;
+}
+.upcoming__item-votes{
+  margin-left: 5px;
+}
 .upcoming__item-vote, .upcoming__item-votes{
   border-radius: 5px;
   padding: 1px 8px;
