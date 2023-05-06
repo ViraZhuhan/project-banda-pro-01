@@ -6,7 +6,6 @@ import { noFilmError, onFetchError} from './msg-error';
 import getRefs from './get-refs';
 import genres from './genres';
 
-
 const weeklyTrendsApi = new Api();
 const refs = getRefs();
 
@@ -42,7 +41,6 @@ function markup(data) {
   }
 
 
-
 async function createWeekTrends() {
   try {
     const response = await seachApi.weekTrends();
@@ -75,7 +73,6 @@ function genresList(idGenres) {
     
     genresList([12, 15]) 
 
-    
 
 
 createWeekTrends();
