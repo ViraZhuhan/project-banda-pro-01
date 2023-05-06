@@ -27,7 +27,7 @@ refs.backdrop.addEventListener('click', event => {
 
 refs.gallery.addEventListener('click', event => {
   toggleModal();
-  let idOfCard = event.target.closest('.gallery__item || .article__item').id;
+  let idOfCard = event.target.closest('.gallery__item ').id;
   console.log(idOfCard);
   modalMovie(idOfCard);
 });
