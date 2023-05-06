@@ -16,6 +16,7 @@ export function fetchUpcomingMovie(){
 return newMovies.upcoming()
 }; 
 
+
 export function renderUpcomingMovieCard (res){
 const movie = res.results[0];
 console.log(movie.genre_ids);
@@ -23,6 +24,8 @@ const markup = createUpcominfOfNewMovieCard(movie);
 console.log(markup);
 refs.galleryOfNewMovies.insertAdjacentHTML('beforeend', markup);
 const genres =  newMovies.fetchGenres().then(genre => console.log(genre));
+
+
 
 }
 
