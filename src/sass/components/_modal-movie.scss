@@ -26,6 +26,7 @@
 
   &__img{
     margin: 0;
+    border-radius: 5px;
   }
 
   &__items{
@@ -48,8 +49,9 @@
     @include font-text;
     padding-bottom: 14px;
   }
-  &__rating .rating {
-    padding: 0 8px;
+  &__rating .rating-vote {
+    margin-right: 5px;
+    padding: 0 5px;
     font-weight: 500;
     font-size: 14px;
     line-height: 1.14;

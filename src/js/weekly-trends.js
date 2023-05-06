@@ -4,13 +4,13 @@ import getRefs from './get-refs';
 const weeklyTrendsApi = new Api();
 const refs = getRefs();
 
-
+// ======================================================
 function initRatings() {
   if (refs.rating.length > 0) {
     for (let index = 0; index < refs.rating.length; index++) {
-    const ratingElement = refs.rating[index];
-    initRating(ratingElement);
-  }
+      const ratingElement = refs.rating[index];
+      initRating(ratingElement);
+    }
   }
 }
 
@@ -18,7 +18,6 @@ function initRating(rating) {
   const ratingActive = rating.querySelector('.rating__active');
   const ratingValue = rating.querySelector('.rating__value');
   const ratingItems = rating.querySelectorAll('.rating__item');
-
 
   ratingItems.forEach(item => {
     item.addEventListener('click', () => {
@@ -33,7 +32,7 @@ function setRatingActiveWidth(ratingActive, ratingValue) {
   const ratingActiveWidth = ratingValue.innerHTML / 0.025;
   ratingActive.style.width = `${ratingActiveWidth}%`;
 }
-
+// ===================================================
 async function renderWeeklyTrends() {
   try {
     const data = await weeklyTrendsApi.weekTrends();
@@ -70,7 +69,9 @@ async function renderWeeklyTrends() {
             
             <div class="rating">
               <div class="rating__body">
-                <div class="rating__active"></div>
+              <div class="rating__active" style="width: ${
+                voteAverage * 10
+              }%;"></div>>
                 <div class="rating__items">
                   <input type="radio" class="rating__item" value="1" name="rating" />
                   <input type="radio" class="rating__item" value="2" name="rating" />
