@@ -5,6 +5,15 @@ export default function getRefs() {
   };
 }
 
+
+export default function getRefs () {
+    return {
+        rating: document.querySelectorAll('.rating'),
+        wrapper: document.querySelector('.article__list'),
+        gallery: document.querySelector('.gallery')
+      };
+}
+
 const refs = {
   body: document.querySelector('body'),
   closeModalBtn: document.querySelector('.modal__close-btn'),
@@ -15,3 +24,4 @@ const refs = {
   modalCloseBtn: document.querySelector('.footer-modal__close-btn'),
   watchedBtn: document.querySelector('button[name=watched]'),
 };
+

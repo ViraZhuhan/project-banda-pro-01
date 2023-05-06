@@ -9,16 +9,11 @@ const seachApi = new Api();
 async function createDayTrends() {
   try {
     const response = await seachApi.weekTrends();
-    const genre = await seachApi.fetchGenres();
-
-
-
     createGallery(response.results);
   } catch (error) {
     noFilmError();
   }
 }
-
 
 function createGallery(films) {
   clearGallery();
@@ -40,10 +35,6 @@ function findGenreById(listId) {
   }
   return textGenres.join(', ');
 }
-
-
-
-
 
 
 createDayTrends();
