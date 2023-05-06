@@ -73,6 +73,10 @@ function genresList(idGenres) {
       return namesGenres;
     }
     
+    genresList([12, 15]) 
+
+    
+
 
 createWeekTrends();
 
