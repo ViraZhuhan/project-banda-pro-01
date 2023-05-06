@@ -17,7 +17,7 @@ const seachApi = new Api();
 function markup(data) {
     return data.map(
       ({ poster_path, title, vote_average, release_date, genre_ids  }) =>
-        `<li class="article__item">
+        `<li class="gallery__item">
         <article>
         <img class="article__img" src="${poster_path
             ? `https://image.tmdb.org/t/p/w500/${poster_path}`
