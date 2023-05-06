@@ -12,6 +12,7 @@ $color-text: #ffffff;
 $color-text-primary: #f8f8f8;
 $color-text-secondary: #b7b7b7;
 $color-text-focus: #f87719;
+$color-stars: #f84119;
 
 $cubic: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
@@ -75,6 +76,7 @@ $color-accent: #f87719;
   --color-text-info: #{$color-neutral-light};           // #111111 - #b7b7b7
   --color-text-data: #{$color-primary-light};           // #282828 - #ffffff
   --color-text-neutral: #{$color-neutral-light};        // #595959 - #b7b7b7
+
 
   // Shadows
   --color-shadow-popup: rgba(255, 107, 8, 0.42);  // rgba(0, 0, 0, 0.22) - rgba(255, 107, 8, 0.42)
