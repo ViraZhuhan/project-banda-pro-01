@@ -1,6 +1,7 @@
 import Api from './api';
 
 const api = new Api();
+modalMovie(493529);
 
 const refs = {
   backdrop: document.querySelector('.backdrop'),
@@ -16,7 +17,6 @@ const toggleModal = () => {
 window.addEventListener('keydown', event => {
   if (event.key === 'Escape') refs.backdrop.classList.add('hidden');
 });
-
 refs.backdrop.addEventListener('click', event => {
   if (event.target.className === 'backdrop') toggleModal();
 });
@@ -26,18 +26,25 @@ refs.gallery.addEventListener('click', event => {
 });
 refs.closeModalBtn.addEventListener('click', toggleModal);
 
-// !====================
-// refs.buttonAdd.addEventListener('click', onClick);
-// function onClick() {
-//   console.log('click');
-// }
-// !====================
-modalMovie(588);
 async function modalMovie(id) {
   try {
     const data = await api.getDetailsById(id);
-    const idGenres = data.genres;
 
+    function addLocalStorage() {
+      const key = data.title;
+      const value = {
+        id,
+        title: data.title,
+        popularity,
+        voteAverage,
+        voteCount: data.vote_count,
+        genres: newGenreMovie,
+        overview: data.overview,
+      };
+      localStorage.setItem(key, JSON.stringify(value));
+    }
+
+    const idGenres = data.genres;
     const newGenreMovie = [];
 
     idGenres.map(elem => {
@@ -70,6 +77,8 @@ async function modalMovie(id) {
       <button class="button__add" type="button"><span class="button__text">Add to my library</span> </button>
     </div>`
     );
+    const buttonAdd = document.querySelector('.button__add');
+    buttonAdd.addEventListener('click', addLocalStorage);
   } catch (error) {
     console.error(error);
   }
