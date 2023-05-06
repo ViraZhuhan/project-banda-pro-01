@@ -1,32 +1,85 @@
-import modalTpl from './templates/modal_movie.hbs';
+import Api from './api';
+
+const api = new Api();
+modalMovie(493529);
 
 const refs = {
   backdrop: document.querySelector('.backdrop'),
   modal: document.querySelector('.modal'),
-  buttonClose: document.querySelector('.button__close'),
-  buttonAdd: document.querySelector('.button__add'),
+  closeModalBtn: document.querySelector('.button__close'),
+  gallery: document.querySelector('.gallery'),
 };
 
-refs.buttonClose.addEventListener(
-  'click',
-  () => (refs.backdrop.classList = 'hidden')
-);
+const toggleModal = () => {
+  refs.backdrop.classList.toggle('hidden');
+};
 
 window.addEventListener('keydown', event => {
-  if (event.key === 'Escape') refs.backdrop.classList = 'hidden';
+  if (event.key === 'Escape') refs.backdrop.classList.add('hidden');
 });
-
 refs.backdrop.addEventListener('click', event => {
-  if (event.target.className === 'backdrop') refs.backdrop.classList = 'hidden';
+  if (event.target.className === 'backdrop') toggleModal();
 });
+refs.gallery.addEventListener('click', event => {
+  if (event.target.nodeName === 'IMG' || event.target.nodeName === 'DIV')
+    toggleModal();
+});
+refs.closeModalBtn.addEventListener('click', toggleModal);
 
-// !====================
-// refs.buttonAdd.addEventListener('click', onClick);
-// function onClick() {
-//   console.log('click');
-// }
-// !====================
+async function modalMovie(id) {
+  try {
+    const data = await api.getDetailsById(id);
 
-// const appendHitsTpl = e => {
-//   backdrop.insertAdjacentHTML('beforeend', modalTpl(e));
-// };
+    function addLocalStorage() {
+      const key = data.title;
+      const value = {
+        id,
+        title: data.title,
+        popularity,
+        voteAverage,
+        voteCount: data.vote_count,
+        genres: newGenreMovie,
+        overview: data.overview,
+      };
+      localStorage.setItem(key, JSON.stringify(value));
+    }
+
+    const idGenres = data.genres;
+    const newGenreMovie = [];
+
+    idGenres.map(elem => {
+      newGenreMovie.push(elem.name);
+    });
+
+    const voteAverage = data.vote_average.toFixed(2);
+    const popularity = data.popularity.toFixed(1);
+    const imageUrl = data.poster_path
+      ? `https://image.tmdb.org/t/p/w500/${data.poster_path}`
+      : 'https://via.placeholder.com/395x574?text=No+Image';
+
+    refs.modal.insertAdjacentHTML(
+      'beforeend',
+      `<img class="modal__img" src=${imageUrl} alt=${
+        data.original_name
+      } loading="lazy">
+    <div class="modal__items">
+      <h1 class="modal__title">${data.title}</h1>
+      <p class="modal__rating">Vote / Votes
+        <span class="modal__rating_span">
+          <span class="rating-vote">${voteAverage}</span> /
+          <span class="rating-vote">${data.vote_count}</span>
+        </span>
+      </p>
+      <p class="modal__popularity">Popularity <span>${popularity}</span> </p>
+      <p class="modal__genre">Genre <span>${newGenreMovie.join(' ')}</span></p>
+      <p class="modal__about">ABOUT</p>
+      <p class="modal__description">${data.overview}</p>
+      <button class="button__add" type="button"><span class="button__text">Add to my library</span> </button>
+    </div>`
+    );
+    const buttonAdd = document.querySelector('.button__add');
+    buttonAdd.addEventListener('click', addLocalStorage);
+  } catch (error) {
+    console.error(error);
+  }
+}
