@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 const MOVIE_URL = `https://api.themoviedb.org/3/`;
 const API_KEY = '225e339996bc91260b33199c383c8881';
 
@@ -15,7 +17,7 @@ const genresRoute = `${MOVIE_URL}/genre/movie/list?api_key=${API_KEY}`;
 const countriesRoute = `${MOVIE_URL}configuration/countries?api_key=${API_KEY}`;
 
 //
-const upcoming = `${MOVIE_URL}all/upcoming?api_key=${API_KEY}`;;
+const upcoming = `${MOVIE_URL}movie/upcoming?api_key=${API_KEY}`;
 
 export default class Api {
   constructor() {
@@ -38,6 +40,14 @@ export default class Api {
     this.page = 1;
   }
 
+  async weeklyTrends() {
+    const { data } = await axios.get(`${weekRoute}&page=${this.page}`);
+
+    return data;
+  }
+
+
+  
   async dayTrends() {
     try {
       const response = await fetch(`${dayRoute}&page=${this.page}`);

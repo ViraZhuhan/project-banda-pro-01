@@ -3,7 +3,6 @@ main{
   background-color: $color-bg-primary;
 }
 .upcoming{
-  // position: relative;
   padding-top: 32px;
 @include tablet{
   padding-top: 44px;
@@ -32,6 +31,16 @@ main{
     display: flex;
   }
 }
+
+.upcoming__info-btn{
+
+@include desktop{
+display: flex;
+justify-content: space-between;
+flex-direction: column;
+  }
+
+}
 .upcoming__info-layout{
   @include desktop{
     display: flex;
@@ -55,6 +64,9 @@ main{
 }
 .upcoming__movie-title{
   margin-top: 24px;
+  @include desktop{
+    margin-top:0;
+  }
 }
 .upcoming__item-font-title{
   font-family: 'Roboto';
@@ -64,10 +76,60 @@ main{
   color: $color-text;
 
 }
-.upcoming__list{
+
+.upcoming__item-font-date{
+  margin-right: 57px;
+  @include tablet{
+    margin-right:58px;
+  }
+}
+.upcoming__item-font-vote{
+  margin-right: 67px;
+  @include tablet{
+    margin-right:68px;
+  }
+}
+
+.upcoming__item-font-popularity{
+  margin-right: 77px;
+  @include tablet{
+    margin-right:78px;
+  }
+}
+.upcoming__item-font-genre{
+  margin-right: 107px;
+  @include tablet{
+    margin-right: 108px;
+  }
+}
+
+.upcoming__list:first-child{
   list-style: none;
   margin-top: 20px;
+  margin-right: 118px;
 }  
+
+
+.upcoming__list:last-child{
+  @include tel {
+    margin-top: 0;
+  }
+  @include tablet{
+    margin-top: 20px;
+  }
+  @include desktop{
+    margin-top:0;
+  }
+}
+.upcoming__list-tablet{
+  @include tablet{
+  display: flex;
+  }
+  @include desktop{
+  flex-direction: column;
+  }
+}
+
 .upcoming__item{
 font-family: 'Roboto';
 font-style: normal;
@@ -80,6 +142,22 @@ color: $color-text-secondary;
 }
 .upcoming__item-data{
   color:$color-text-focus;
+  font-size: 16px;
+  line-height: 1.19;
+}
+.upcoming__item-pop, .upcoming__item-genre{
+  font-size: 16px;
+  line-height: 1.19;
+  color:#FFFFFF
+}
+
+.upcoming__item-vote, .upcoming__item-votes{
+  border-radius: 5px;
+  padding: 1px 8px;
+  font-size: 14px;
+  line-height: 1.14;
+  background: #FFFFFF;
+  color:#111111;
 }
 
 .upcoming__movie-about{
@@ -103,7 +181,7 @@ font-style: normal;
 
 color: $color-text-primary;
 }
-.upcoming__button{  
+.upcoming__button{ 
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -122,14 +200,12 @@ color: $color-text-primary;
   background: linear-gradient(141.22deg, #FFC226 9.4%, #F84119 91.91%);
   border-radius: 74px;
   border: none;
+  
 
   @include tablet{
   @include font-title($fs: 14, $lh: 1.14, $ls: 0);
   }
   @include desktop{
-  position: absolute;
-  top: 450px;
-  right: 310px;
   }
 
 }
