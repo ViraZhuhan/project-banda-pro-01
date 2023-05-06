@@ -18,9 +18,7 @@ function markup(data) {
       ({ poster_path, title, vote_average, release_date, genre_ids  }) =>
         `<li class="gallery__item">
         <article>
-        <img class="article__img" src="${poster_path
-            ? `https://image.tmdb.org/t/p/w500/${poster_path}`
-            : 'https://via.placeholder.com/395x574?text=No+Image'}" alt="${title}" width="395" >
+        <img class="article__img" src="https://image.tmdb.org/t/p/w500/${poster_path}" alt="${title}" width="395" >
           <div class="details">
             <p class="title__txt">${title}</p>
             <div class="wraper__details">
