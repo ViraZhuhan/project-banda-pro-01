@@ -1,7 +1,7 @@
 .footer {
     height: 108px;
 
-    background-color: $color-bg-primary;
+    background-color: var(--bg-primary);
 
     @include tablet {
         height: 119px;
@@ -38,7 +38,7 @@
     color: inherit;
     text-align: center;
     @include font-text ($fw: 400, $fs: 14, $lh: 1.14, $ls: 0.01);
-    color: $color-text-secondary;
+    color: var(--color-text-neutral);
 
     @include tablet {
         @include font-text ();

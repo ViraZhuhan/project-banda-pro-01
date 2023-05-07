@@ -1,6 +1,5 @@
+background-color: var(--bg-primary);
 
-main{
-  background-color: #111111;
 }
 .upcoming{
   padding-top: 32px;
@@ -16,7 +15,7 @@ main{
     margin-bottom: 24px;
     @include font-title($fs:16, $lh:1.19, $ls:0);
     text-transform: uppercase;
-    color: $color-text;
+    color: var(--color-text-primary);
     left: 0px;
     top: 0px;
     @include tablet{
@@ -73,7 +72,7 @@ flex-direction: column;
   font-style: normal;
   text-transform: uppercase;
   @include font-title($fs:20, $lh:1.15, $ls:0);
-  color: $color-text;
+  color: var(--color-text-primary);
 
 }
 
@@ -140,22 +139,23 @@ display: flex;
 font-family: 'Roboto';
 font-style: normal;
 @include font-title($fs:16, $lh:1.19, $ls:0);
-color: $color-text-secondary;
+color: var( --color-text-info);
 }
 
 .upcoming__item:not(last-child){
  margin-bottom: 12px; 
 }
 .upcoming__item-data{
-  
-  color:$color-text-focus;
+
+ color:$color-accent;
+
   font-size: 16px;
   line-height: 1.19;
 }
 .upcoming__item-pop, .upcoming__item-genre{
   font-size: 16px;
   line-height: 1.19;
-  color:#FFFFFF
+  color:var(--color-text-data);
 }
 .upcoming__item-vote{
   margin-right: 5px;
@@ -168,8 +168,8 @@ color: $color-text-secondary;
   padding: 1px 8px;
   font-size: 14px;
   line-height: 1.14;
-  background: #FFFFFF;
-  color:#111111;
+  background: var(--bg-votes);
+  color:var(--color-text-vote);
 }
 
 .upcoming__movie-about{
@@ -179,7 +179,7 @@ flex-direction: column;
 font-family: 'Roboto';
 font-style: normal;
 @include font-title($fs:16, $lh:1.19, $ls:0);
-color: $color-text-secondary;
+color: var(--color-text-info);
 text-transform: uppercase;
 
 margin-top: 20px;
@@ -191,7 +191,7 @@ font-family: 'Roboto';
 font-style: normal;
 @include font-text($fs: 14, $lh: 1.14, $ls: 0);
 
-color: $color-text-primary;
+color: var(--color-text-secondary);
 }
 .upcoming__button{ 
   display: flex;
