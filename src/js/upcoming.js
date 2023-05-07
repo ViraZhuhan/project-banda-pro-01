@@ -18,7 +18,7 @@ return newMovies.upcoming()
 
 
 export async function renderUpcomingMovieCard(res){
-
+try{
 // const release = new Date(res.result.release_date).getDate();
 const genres = await newMovies.fetchGenres();
 // console.log(genres);
@@ -69,9 +69,9 @@ return `<div class="upcoming__info">
 </div>`;
 });
 refs.galleryOfNewMovies.insertAdjacentHTML('beforeend', createUpcomingCard);
+
+} catch {error => console.log(error.message)};
 }
-
-
 
 
 // function createUpcomingCard(results) {
