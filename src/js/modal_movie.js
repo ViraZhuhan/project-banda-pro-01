@@ -51,11 +51,6 @@ export async function modalMovie(id) {
       : 'https://via.placeholder.com/395x574?text=No+Image';
 
     refs.modal.innerHTML = `
-    <button class="button__close" type="button">
-      <svg>
-        <use href="./images/symbol-defs.svg#icon-close"></use>
-      </svg>
-    </button>
     <img class="modal__img" src=${imageUrl} alt=${
       data.original_name
     } loading="lazy">
