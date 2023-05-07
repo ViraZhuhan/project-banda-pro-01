@@ -1,4 +1,4 @@
-import getRefs from './get-refs';
+import getRefs from './components/get-refs';
 const refs = getRefs();
 
 export function initRatings() {

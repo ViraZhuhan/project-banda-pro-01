@@ -2,8 +2,8 @@ import Api from './api';
 import { Loading } from 'notiflix';
 import { initRatings } from './init-rating';
 import { noFilmError, onFetchError } from './msg-error';
-import getRefs from './get-refs';
-import { genresList } from './genre-list';
+import getRefs from './components/get-refs';
+import { genresList } from './components/genre-list';
 
 const seachApi = new Api();
 const refs = getRefs();
@@ -13,7 +13,7 @@ async function createWeekTrends() {
     const response = await seachApi.weekTrends();
     createGallery(response.results.slice(0, 10));
   } catch (error) {
-    console.log(error);
+    noFilmError;
   }
 }
 
@@ -55,10 +55,10 @@ function markup(data) {
             </div>
           </div>
         </article>
-          
         </li>`;
     })
     ;
+    
 }
 
 function createGallery(films) {

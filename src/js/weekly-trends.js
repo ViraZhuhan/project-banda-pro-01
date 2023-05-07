@@ -1,5 +1,5 @@
 import Api from './api';
-import getRefs from './get-refs';
+import getRefs from './components/get-refs';
 
 const weeklyTrendsApi = new Api();
 const refs = getRefs();
