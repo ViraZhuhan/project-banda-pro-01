@@ -59,17 +59,17 @@ function clearGallery() {
 }
 
 
-function genresList(idGenres) {
-      let namesGenres = [];
-      for (let i; i < genresList.length; i += 1) {
-        const item = genres.find(el => el.id === idGenres[i]);
-        namesGenres.push(item.name);
-      }
-      console.log(namesGenres);
-      return namesGenres;
-    }
+// function genresList(idGenres) {
+//       let namesGenres = [];
+//       for (let i; i < idGenres.length; i += 1) {
+//         const item = genres.find(el => el.id === idGenres[i]);
+//         namesGenres.push(item.name);
+//       }
+//       console.log(namesGenres);
+//       return namesGenres;
+//     }
     
-    genresList([12, 15]) 
+//     genresList([12, 15]) 
 
 
 
