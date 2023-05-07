@@ -1,5 +1,20 @@
+.search-form {
+        
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        padding: 0px;
+        gap: 16px;
+    
+        position: absolute;
+        width: 398px;
+        height: 48px;
+        left: 441px;
+        top: 800px;
+}
+
 .search-input-field {
-    display: flex;
+    //display: flex;
     align-items: center;
     place-content: center;
         
