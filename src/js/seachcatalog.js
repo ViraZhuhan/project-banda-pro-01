@@ -1,9 +1,9 @@
 
-// const form = document.getElementById('search-form');
-// const input = document.getElementById('search-input');
-// const movieList = document.getElementById('movie-list');
-// const MOVIE_URL = `https://api.themoviedb.org/3/`;
-// const API_KEY = 'YOUR_API_KEY';
+const form = document.getElementById('search-form');
+const input = document.getElementById('search-input');
+const movieList = document.getElementById('movie-list');
+const MOVIE_URL = `https://api.themoviedb.org/3/`;
+const API_KEY = 'YOUR_API_KEY';
 
 // form.addEventListener('submit', (event) => {
 //   event.preventDefault();
