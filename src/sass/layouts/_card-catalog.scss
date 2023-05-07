@@ -13,7 +13,7 @@
 
 .gallery {
     display: flex;
-  
+    row-gap: 16px;
     column-gap: 16px;
     flex-direction: column;
     flex-wrap: wrap;
@@ -28,7 +28,7 @@
 .gallery__item {
     position: relative;
     width: 100%;
-
+ 
     @include tablet {
         width: calc((100% - 32px)/3);
     }
@@ -39,7 +39,6 @@
 }
 
 .gallery__img {
-    margin: 0;
     width: 100%;
     border-radius: 5px;
 }
@@ -83,8 +82,7 @@
     }
 }
 
-.movieGenres,
-.date {
+.movieGenres {
     @include font-title ($fs: 12, $lh: 1.66);
     color: $color-text-secondary;
 
