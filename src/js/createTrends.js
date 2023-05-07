@@ -1,7 +1,7 @@
 import Api from './api';
 import { initRatings } from './init-rating';
 import { noFilmError, onFetchError } from './msg-error';
-import getRefs from './get-refs';
+import getRefs from './components/get-refs';
 import {markup}  from './render-card';
 
 const seachApi = new Api();
