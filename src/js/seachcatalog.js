@@ -1,3 +1,4 @@
+
 const form = document.getElementById('search-form');
 const input = document.getElementById('search-input');
 const movieList = document.getElementById('movie-list');
@@ -50,6 +51,7 @@ form.addEventListener('submit', (event) => {
 // const movieList = document.getElementById('movie-list');
 // const MOVIE_URL = `https://api.themoviedb.org/3/`;
 // const API_KEY = '225e339996bc91260b33199c383c8881';
+
 
 // const searchForMovies = (apiKey, query) => {
 //   form.addEventListener('submit', (event) => {
