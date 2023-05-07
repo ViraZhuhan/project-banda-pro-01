@@ -1,39 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Cinemania - service for searching films." />
-  <title>My Library</title>
-  <link rel="stylesheet" href="./sass/index.scss" />
-  <!-- Base styles -->
-  <link rel="stylesheet" href="./sass/index.scss" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Cinemania - service for searching films."
+    />
+    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon" />
+    <title>My Library</title>
+    <link rel="stylesheet" href="./sass/index.scss" />
+    <!-- Base styles -->
+    <link rel="stylesheet" href="./sass/index.scss" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-</head>
+  <body>
+    <script src="./js/setTheme.js"></script>
 
-<body>
+    <include src="./partials/header.html"></include>
 
-  <include src="./partials/header.html"></include>
+    <main>
+      <include src="./partials/hero-library.html"></include>
+      <include src="./partials/card-library.html"></include>
+    </main>
 
-  <main>
+    <include src="./partials/footer.html"></include>
 
-    <include src="./partials/hero-library.html"></include>
-    <include src="./partials/card-library.html"></include>
+    <!-- Modal to one movie -->
+    <include src="./partials/modal-movie.html"></include>
 
-  </main>
+    <!-- Modal team -->
+    <include src="./partials/modal-team.html"></include>
 
-  <include src="./partials/footer.html"></include>
-
-  <!-- Modal to one movie -->
-  <include src="./partials/modal-movie.html"></include>
-
-  <!-- Modal team -->
-  <include src="./partials/modal-team.html"></include>
-
-  <script type="module" src="./library.js"></script>
-
-</body>
-
+    <script type="module" src="./library.js"></script>
+  </body>
 </html>
