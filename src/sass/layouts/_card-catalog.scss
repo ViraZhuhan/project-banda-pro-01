@@ -1,5 +1,5 @@
 .card-catalog {
-    background-color: $color-bg-header;
+    background-color: var(--bg-primary);
     padding-top: 16px;
 
     @include tablet {
@@ -70,7 +70,7 @@
 .details__title {
     @include font-title ($fs: 12, $lh: 1.66);
     text-transform: uppercase;
-    color: $color-text;
+    color: $color-primary-light;
 
     @include tablet {
         line-height: 1.5;
@@ -86,7 +86,7 @@
 .movieGenres,
 .date {
     @include font-title ($fs: 12, $lh: 1.66);
-    color: $color-text-secondary;
+    color: $color-neutral-light;
 
     @include tablet {
         line-height: 1.5;
