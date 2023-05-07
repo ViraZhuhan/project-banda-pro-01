@@ -8,25 +8,30 @@
   overflow-y: scroll;
   background-color: rgba(0, 0, 0, 0.5);
 }
-.modal{
+.modal-container{
   position: absolute;
-  max-width: 846px;
-  width: 100%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  margin: auto;
-  padding:62px 16px 52px 16px;
-  background-color: $color-bg-header;
-  box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
-  border-radius: 20px;
+    max-width: 846px;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: $color-bg-header;
+    box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
+    border-radius: 20px;
+
+
+}
+.modal{
+    margin: auto;
+    padding: 62px 16px 52px 16px;
+
 
     @media screen and (min-width: $tablet) {
-    display: grid;
-    grid-template: 1fr /1fr 1fr;
-    justify-items: center;
-    padding: 60px;
-}
+      display: grid;
+      grid-template: 1fr /1fr 1fr;
+      justify-items: center;
+      padding: 60px;
+    }
 
   &__img{
     margin: auto;
