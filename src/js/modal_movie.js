@@ -27,7 +27,6 @@ refs.backdrop.addEventListener('click', event => {
 refs.gallery.addEventListener('click', event => {
   toggleModal();
   let idOfCard = event.target.closest('.gallery__item ').id;
-  console.log(idOfCard);
   modalMovie(idOfCard);
 });
 
@@ -38,9 +37,9 @@ refs.gallery.addEventListener('click', event => {
 export async function modalMovie(id) {
   try {
     const data = await api.getDetailsById(id);
+    console.log(data);
     const idGenres = data.genres;
     const newGenreMovie = [];
-    console.log(idGenres);
     idGenres.map(elem => {
       newGenreMovie.push(elem.name);
     });
@@ -83,10 +82,10 @@ export async function modalMovie(id) {
     closeModalBtn.addEventListener('click', toggleModal);
     buttonAdd.addEventListener('click', addLS);
     buttonRemove.addEventListener('click', removeLS);
-
     ls();
     function addLS() {
       const value = {
+        data: data.release_date,
         id,
         title: data.title,
         popularity,
@@ -100,19 +99,22 @@ export async function modalMovie(id) {
       buttonAdd.classList.add('hidden');
       buttonRemove.classList.remove('hidden');
     }
-
     function removeLS() {
       localStorage.removeItem(key);
       buttonAdd.classList.remove('hidden');
       buttonRemove.classList.add('hidden');
     }
-
     function ls() {
-      const itemLs = localStorage.getItem(key);
-      const parsedSettings = JSON.parse(itemLs);
-      if (key === parsedSettings.title) {
+      try {
+        const itemLs = localStorage.getItem(key);
+        const parceLS = null ? undefined : JSON.parse(itemLs);
+        if (parceLS === null) {
+          return;
+        }
         buttonAdd.classList.add('hidden');
         buttonRemove.classList.remove('hidden');
+      } catch (error) {
+        console.error(error);
       }
     }
   } catch (error) {
