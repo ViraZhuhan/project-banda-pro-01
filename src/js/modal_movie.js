@@ -37,13 +37,12 @@ refs.gallery.addEventListener('click', event => {
 export async function modalMovie(id) {
   try {
     const data = await api.getDetailsById(id);
-    console.log(data);
     const idGenres = data.genres;
     const newGenreMovie = [];
     idGenres.map(elem => {
       newGenreMovie.push(elem.name);
     });
-    const key = data.title;
+
     const voteAverage = data.vote_average.toFixed(2);
     const popularity = data.popularity.toFixed(1);
     const imageUrl = data.poster_path
@@ -77,41 +76,53 @@ export async function modalMovie(id) {
     closeModalBtn.addEventListener('click', toggleModal);
     buttonAdd.addEventListener('click', addLS);
     buttonRemove.addEventListener('click', removeLS);
-    ls();
+
+    const KEY = 'LibraryMovie';
+    const movieItem = {
+      data: data.release_date,
+      id,
+      title: data.title,
+      popularity,
+      voteAverage,
+      img: imageUrl,
+      voteCount: data.vote_count,
+      genres: newGenreMovie,
+      overview: data.overview,
+    };
     function addLS() {
-      const value = {
-        data: data.release_date,
-        id,
-        title: data.title,
-        popularity,
-        voteAverage,
-        img: imageUrl,
-        voteCount: data.vote_count,
-        genres: newGenreMovie,
-        overview: data.overview,
-      };
-      localStorage.setItem(key, JSON.stringify(value));
+      let objects = JSON.parse(localStorage.getItem(KEY)) || [];
+      objects.push(movieItem);
+      localStorage.setItem(KEY, JSON.stringify(objects));
       buttonAdd.classList.add('hidden');
       buttonRemove.classList.remove('hidden');
     }
+
     function removeLS() {
-      localStorage.removeItem(key);
+      let objects = JSON.parse(localStorage.getItem(KEY));
+      const indexMovie = objects.findIndex(obj => obj.id === id);
+      objects.splice(indexMovie, 1);
+      localStorage.setItem(KEY, JSON.stringify(objects));
       buttonAdd.classList.remove('hidden');
       buttonRemove.classList.add('hidden');
     }
     function ls() {
       try {
-        const itemLs = localStorage.getItem(key);
+        const itemLs = localStorage.getItem(KEY);
         const parceLS = null ? undefined : JSON.parse(itemLs);
         if (parceLS === null) {
           return;
         }
-        buttonAdd.classList.add('hidden');
-        buttonRemove.classList.remove('hidden');
+        parceLS.map(elm => {
+          if (elm.id === id) {
+            buttonAdd.classList.add('hidden');
+            buttonRemove.classList.remove('hidden');
+          }
+        });
       } catch (error) {
         console.error(error);
       }
     }
+    ls();
   } catch (error) {
     console.error(error);
   }
