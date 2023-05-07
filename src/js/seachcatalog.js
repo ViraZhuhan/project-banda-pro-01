@@ -1,6 +1,5 @@
 import Api from './api';
-import getRefs from './get-refs';
-import { genresList } from './genre-list';
+
 
 const api = new Api();
 const refs = getRefs();
