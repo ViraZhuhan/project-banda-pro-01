@@ -77,6 +77,7 @@ refs.galleryOfNewMovies.innerHTML = `<div class="upcoming__info">
 remindBtn = document.querySelector('.upcoming__button')
 remindBtn.addEventListener('click', addLS);
 const KEY = 'key';
+
  const value = {
   title: title,
   popularity,
@@ -91,12 +92,19 @@ console.log(value);
 
 function addLS() { 
  const arr = [];
- const saved = localStorage.getItem('key')
+ const saved = localStorage.getItem('key');
+ 
  console.log(saved)
  if( saved === null){
 arr.push(value);
+localStorage.setItem('key', JSON.stringify(arr));
+remindBtn.disabled = true;
+remindBtn.style.backgraund = "grey";
  }
-   localStorage.setItem('key', JSON.stringify(arr));
+ else if(saved ==! null && arr.length >= 1){
+  remindBtn.disabled = true;
+  remindBtn.style.backgraund = "grey";
+ }
 }
 });
 } catch{error => (console.log(error.message))};
