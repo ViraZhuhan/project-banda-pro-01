@@ -1,6 +1,6 @@
 import Api  from './api';
 const refs = {
-  galleryOfNewMovies: document.querySelector('.upcoming'),
+  galleryOfNewMovies: document.querySelector('.upcoming__container'),
   remindBtn: document.querySelector('.upcoming__button')
   
 }
@@ -18,6 +18,7 @@ return newMovies.upcoming()
 
 
 export async function renderUpcomingMovieCard(res){
+  try{
 
 // const release = new Date(res.result.release_date).getDate();
 const genres = await newMovies.fetchGenres();
@@ -71,8 +72,8 @@ return `<div class="upcoming__info">
 </div>`;
 });
 refs.galleryOfNewMovies.insertAdjacentHTML('beforeend', createUpcomingCard);
+} catch{error => (console.log(error.message))};
 }
-
 
 
 
