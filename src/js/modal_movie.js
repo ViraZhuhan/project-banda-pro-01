@@ -4,7 +4,6 @@ const api = new Api();
 const refs = {
   backdrop: document.querySelector('.backdrop'),
   modal: document.querySelector('.modal'),
-  closeModalBtn: document.querySelector('.button__close'),
   gallery: document.querySelector('.gallery'),
 };
 const toggleModal = () => {
@@ -33,7 +32,6 @@ refs.gallery.addEventListener('click', event => {
 });
 
 // ========================CLICK closed=====================
-refs.closeModalBtn.addEventListener('click', toggleModal);
 
 // ========================================================
 
@@ -42,7 +40,7 @@ export async function modalMovie(id) {
     const data = await api.getDetailsById(id);
     const idGenres = data.genres;
     const newGenreMovie = [];
-
+    console.log(idGenres);
     idGenres.map(elem => {
       newGenreMovie.push(elem.name);
     });
@@ -54,6 +52,11 @@ export async function modalMovie(id) {
       : 'https://via.placeholder.com/395x574?text=No+Image';
 
     refs.modal.innerHTML = `
+    <button class="button__close" type="button">
+      <svg>
+        <use href="./images/symbol-defs.svg#icon-close"></use>
+      </svg>
+    </button>
     <img class="modal__img" src=${imageUrl} alt=${
       data.original_name
     } loading="lazy">
@@ -75,8 +78,12 @@ export async function modalMovie(id) {
 
     const buttonAdd = document.querySelector('.button-add');
     const buttonRemove = document.querySelector('.button-remove');
+    const closeModalBtn = document.querySelector('.button__close');
+
+    closeModalBtn.addEventListener('click', toggleModal);
     buttonAdd.addEventListener('click', addLS);
     buttonRemove.addEventListener('click', removeLS);
+
     ls();
     function addLS() {
       const value = {
