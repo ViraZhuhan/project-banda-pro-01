@@ -1,8 +1,6 @@
 import Api  from './api';
 const refs = {
   galleryOfNewMovies: document.querySelector('.upcoming__container'),
-  remindBtn: document.querySelector('.upcoming__button')
-  
 }
 const newMovies = new Api();
 
@@ -76,20 +74,11 @@ refs.galleryOfNewMovies.innerHTML = `<div class="upcoming__info">
 <button type="button" class="upcoming__button">Remind me</button>
 </div>
 </div>`;
-
-refs.remindBtn.addEventListener('click', addLS);
-console.log(refs.remindBtn);
-function addLS() { 
-  console.log('click');
-  //  localStorage.setItem('key', JSON.stringify(arr.push(value)));
-  //   //  refs.remindBtn.disabled = true;
-  //   //  refs.remindBtn.style.backgraundColor = "grey";
-   }
-
-ls();
+remindBtn = document.querySelector('.upcoming__button')
+remindBtn.addEventListener('click', addLS);
 const KEY = 'key';
  const value = {
-  name: title,
+  title: title,
   popularity,
   voteAverage,
   imageUrl,
@@ -98,31 +87,21 @@ const KEY = 'key';
   overview,
 };
 console.log(value);
- const arr = [];
+
 
 function addLS() { 
-console.log('click');
-//  localStorage.setItem('key', JSON.stringify(arr.push(value)));
-//   //  refs.remindBtn.disabled = true;
-//   //  refs.remindBtn.style.backgraundColor = "grey";
+ const arr = [];
+ const saved = localStorage.getItem('key')
+ console.log(saved)
+ if( saved === null){
+arr.push(value);
  }
-console.log(localSTData);
- function ls() {
-  try{
-    const itemLs = localStorage.getItem(key);
-    const parceLS = null ? undefined : JSON.parse(itemLs);
-    if (parceLS === null) {
-      return;
-    }
-    // refs.remindBtn.disabled = true;
-    // refs.remindBtn.style.backgraundColor = "grey";
-  } catch (error) {
-    console.error(error);
-  }
- }
+   localStorage.setItem('key', JSON.stringify(arr));
+}
 });
-// refs.galleryOfNewMovies.insertAdjacentHTML('beforeend', createUpcomingCard);
 } catch{error => (console.log(error.message))};
 };
 
 
+remindBtn.disabled = true;
+remindBtn.style.backgraun = "grey";
