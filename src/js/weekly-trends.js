@@ -37,11 +37,11 @@ async function renderWeeklyTrends() {
   try {
     const data = await weeklyTrendsApi.weekTrends();
     const movies = data.results.slice(0, 3);
-
+    console.log(data);
     const genres = await weeklyTrendsApi.fetchGenres();
 
     const moviesElements = movies.map(movie => {
-      const { poster_path, title, vote_average, release_date, genre_ids } =
+      const { poster_path, title, vote_average, release_date, genre_ids, id } =
         movie;
 
       const voteAverage = vote_average;
@@ -57,7 +57,7 @@ async function renderWeeklyTrends() {
         : 'https://via.placeholder.com/395x574?text=No+Image';
 
       return `
-        <li class="article__item">
+        <li id='${id}' class="article__item">
         <article>
         <img class="article__img" src="${imageUrl}" alt="${title}" width="395" >
           <div class="details">
