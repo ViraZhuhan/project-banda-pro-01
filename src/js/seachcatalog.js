@@ -1,29 +1,26 @@
+import Api from './api';
+import getRefs from './get-refs';
+import { genresList } from './genre-list';
+
+const api = new Api();
+const refs = getRefs();
+
 const form = document.getElementById('search-form');
 const input = document.getElementById('search-input');
 const movieList = document.getElementById('movie-list');
-const MOVIE_URL = `https://api.themoviedb.org/3/`;
-const API_KEY = 'YOUR_API_KEY';
+
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
-
   const searchQuery = input.value;
-
-  // Clear the movie list
   movieList.innerHTML = '';
-
-  // Call API to search for movies
-  fetch(`${MOVIE_URL}search/movie?api_key=${API_KEY}&query=${searchQuery}`)
-    .then(response => response.json())
-    .then(data => {
-      if (data.total_results === 0) {
-        // No results found
+  api.searchMovies(searchQuery)
+    .then(results => {
+      if (results.length === 0) {
         const message = document.createElement('p');
         message.textContent = 'OOPS... We are very sorry! We don’t have any results due to your search.';
         movieList.appendChild(message);
       } else {
-        // Results found
-        const results = data.results;
         results.forEach(result => {
           const movie = document.createElement('div');
           movie.classList.add('movie');
@@ -43,6 +40,7 @@ form.addEventListener('submit', (event) => {
       movieList.appendChild(message);
     });
 });
+
 
 
 // const form = document.getElementById('search-form');
