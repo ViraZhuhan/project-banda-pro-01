@@ -1,5 +1,4 @@
 // import weeklyTrends from './js/weekly-trends';
-
 import header from './js/header';
 import mobileMenu from './js/mobile-menu';
 import themeToggle from './js/themeToggle';
