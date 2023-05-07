@@ -1,7 +1,4 @@
-import Api from './api';
-import { Loading } from 'notiflix';
 import { initRatings } from './init-rating';
-import { noFilmError, onFetchError } from './msg-error';
 import getRefs from './components/get-refs';
 import { genresList } from './components/genre-list';
 
@@ -50,15 +47,23 @@ function markup(data) {
     ;
 }
 
-function createGallery(films) {
+function createGalleryCatalog(films) {
   clearGallery();
   refs.gallery.innerHTML = markup(films).join('');
+  
+}
+
+function createGalleryHome(films) {
+  clearGallery();
+  refs.wrapper.innerHTML = markup(films).join('');
+  console.log('jjjj')
+  
 }
 
 function clearGallery() {
   refs.gallery.innerHTML = '';
 }
 
-export { createGallery };
+export { createGalleryCatalog, createGalleryHome };
 
 
