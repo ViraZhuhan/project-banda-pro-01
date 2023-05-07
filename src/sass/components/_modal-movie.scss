@@ -1,0 +1,159 @@
+.backdrop {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  overflow-y: scroll;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.modal-container{
+  position: absolute;
+    max-width: 846px;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: $color-bg-header;
+    box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
+    border-radius: 20px;
+
+
+}
+.modal{
+    margin: auto;
+    padding: 62px 16px 52px 16px;
+
+
+    @media screen and (min-width: $tablet) {
+      display: grid;
+      grid-template: 1fr /1fr 1fr;
+      justify-items: center;
+      padding: 60px;
+    }
+
+  &__img{
+    margin: auto;
+    border-radius: 5px;
+    @media screen and (min-width: $tablet) {
+        margin:0;
+      }
+  }
+
+  &__items{
+    color: $color-text;
+      @media screen and (min-width: $tablet) {
+        margin-left: 20px;
+        }
+  }
+  &__title {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 1.33;
+    padding-bottom: 28px;
+    margin-top: 22px;
+    @media screen and (min-width: $tablet) {
+            margin-top: 0;
+      }
+  }
+  &__popularity{
+    padding-bottom: 10px;
+  }
+  &__popularity span {
+    margin-left: 82px;
+  }
+  &__rating{
+    @include font-text;
+    padding-bottom: 14px;
+  }
+  &__rating .rating-vote {
+    margin-right: 5px;
+    padding: 0 5px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.14;
+    color: $color-bg-header;
+    background-color: $color-text;
+    border-radius: 5px;
+  }
+  &__rating_span{
+    margin-left: 62px;
+  }
+  &__genre{
+    padding-bottom: 20px;
+  }
+
+    &__genre span {
+margin-left: 112px;
+}
+  &__about{
+    margin-bottom: 16px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.43;
+  }
+  &__description{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.43;
+    padding-bottom: 24px;
+  }
+
+}
+.button__close{
+  position: absolute;
+  top: 20;
+  right: 16;
+  width: 24px;
+  height: 24px;
+  background-color: $color-bg-header;
+  border: none;
+  @media screen and (min-width: $tablet) {
+      top: 40;
+      right: 40;
+    }
+
+}
+.button__close svg{
+  fill:#fff;
+  width: 24px;
+  height: 24px;
+}
+.button-add{
+
+  padding: 12px 24px;
+  border-radius: 74px;
+  font-size: 12px;
+  line-height: 1.33;
+  background-color: $color-bg-header;
+  color: $color-text;
+  border: 1px solid $color-text-focus;
+}
+
+.button-add:hover{
+  background-color: $color-text-primary;
+  border: 1px solid $color-text-focus;
+  color: $color-bg-header;;
+
+}
+.button-remove {
+
+  padding: 12px 24px;
+  border-radius: 74px;
+  font-size: 12px;
+  line-height: 1.33;
+  background-color: $color-bg-header;
+  color: $color-text;
+  border: 1px solid $color-text-focus;
+}
+
+.button-remove:hover {
+  background-color: $color-text-primary;
+  border: 1px solid $color-text-focus;
+  color: $color-bg-header;
+  ;
+
+}
+
+
