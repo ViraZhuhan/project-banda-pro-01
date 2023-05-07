@@ -1,3 +1,26 @@
+.search-wrapper {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    padding-top: 40px;
+    padding-bottom: 28px;
+    
+    @include tablet {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 5px;
+    padding-top: 60px;
+    padding-bottom: 40px;
+    }
+    
+    @include desktop {
+    padding-top: 60px;
+    padding-bottom: 80px;
+    }
+}
+
 .search-form {
     display: flex;
     flex-direction: row;
@@ -7,7 +30,6 @@
     position: absolute;
     width: 264px;
     height: 44px;
-    left: 252px;
     top: 492px;
 }
 
