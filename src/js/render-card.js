@@ -22,9 +22,13 @@ function markup(data) {
     .map(({ poster_path, title, vote_average, release_date, genre_ids, id }) => {
       const genres = genresList(genre_ids);
       const release = new Date(release_date).getFullYear();
-      const imageUrl = poster_path
+
+          const imageUrl = poster_path
         ? `https://image.tmdb.org/t/p/w500/${poster_path}`
         : 'https://via.placeholder.com/395x574?text=No+Image';
+
+            
+        initRatings();
 
       return `<li class="gallery__item" id='${id}'>
         <article>
@@ -54,13 +58,12 @@ function markup(data) {
           
         </li>`;
     })
-    .join('');
+    ;
 }
 
 function createGallery(films) {
   clearGallery();
-  refs.gallery.innerHTML = markup(films);
-  initRatings();
+  refs.gallery.innerHTML = markup(films).join('');
 }
 
 function clearGallery() {
@@ -70,3 +73,6 @@ function clearGallery() {
 createWeekTrends();
 
 export { createWeekTrends };
+
+
+// export {markup}

@@ -37,7 +37,6 @@ async function renderWeeklyTrends() {
   try {
     const data = await weeklyTrendsApi.weekTrends();
     const movies = data.results.slice(0, 3);
-    console.log(data);
     const genres = await weeklyTrendsApi.fetchGenres();
 
     const moviesElements = movies.map(movie => {
