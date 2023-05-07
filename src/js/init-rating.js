@@ -1,3 +1,6 @@
+import getRefs from './components/get-refs';
+const refs = getRefs();
+
 export function initRatings() {
     if (refs.rating.length > 0) {
       for (let index = 0; index < refs.rating.length; index++) {
