@@ -23,6 +23,8 @@ export async function renderUpcomingMovieCard(res){
 const genres = await newMovies.fetchGenres();
 // console.log(genres);
 
+
+
 const results = res.results.slice(0,1);
 
 const createUpcomingCard = results.map(result => {const {backdrop_path, original_title, release_date, vote_average, vote_count, popularity, genre_ids, overview } = result
