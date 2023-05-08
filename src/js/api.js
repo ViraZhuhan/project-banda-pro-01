@@ -72,7 +72,6 @@ export default class Api {
 
     async getDetailsById(id) {
     const str = `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`;
-    await new Promise(r => setTimeout(r, 1000));
     return fetch(str).then(res => res.json());
   }
 
