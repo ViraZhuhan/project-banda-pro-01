@@ -1,14 +1,11 @@
 .weekly-trends {
   background-color: var(--bg-primary);
   padding-top: 40px;
-  padding-bottom: 32px;
   @include tablet {
     padding-top: 52px;
-    padding-bottom: 44px;
   }
   @include desktop {
     padding-top: 80px;
-    padding-bottom: 60px;
   }
 }
 
