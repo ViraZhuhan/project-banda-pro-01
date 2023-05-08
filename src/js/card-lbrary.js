@@ -1,5 +1,5 @@
 // import { modalMovie } from './modal_movie';
-import { markup } from './render-card';
+import { createGallery } from './render-card';
 // import { refs } from './modal_movie';
 
 const noFilmsMessage = document.querySelector('.alert__message');
@@ -16,7 +16,7 @@ function onLoadPage() {
 
   if (localStorage.getItem('LibraryMovie')) {
     console.log(localStorage.getItem('LibraryMovie'));
-    // markup();
+    // createGallery(moviesArr);
   } else {
     noFilmsMessage.classList.remove('hidden');
   }
