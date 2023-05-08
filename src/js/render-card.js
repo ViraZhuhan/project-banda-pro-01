@@ -1,7 +1,4 @@
-import Api from './api';
-import { Loading } from 'notiflix';
 import { initRatings } from './init-rating';
-import { noFilmError, onFetchError } from './msg-error';
 import getRefs from './components/get-refs';
 import { genresList } from './components/genre-list';
 

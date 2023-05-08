@@ -4,7 +4,9 @@ export default function getRefs () {
     return {
         rating: document.querySelectorAll('.rating'),
         wrapper: document.querySelector('.article__list'),
-        gallery: document.querySelector('.gallery')
+        gallery: document.querySelector('.gallery'),
+        pageLinks: document.querySelectorAll('.navigation__link'),
+        pageLinksMobile: document.querySelectorAll('.navigation-menu__link'),
       };
 }
 
