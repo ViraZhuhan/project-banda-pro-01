@@ -1,9 +1,6 @@
 import { modalMovie } from './modal_movie';
 import { markup } from './render-card';
 
-const buttonAdd = document.querySelector('.button-add');
-const searchLibraryBtn = document.querySelector('.library-cards__btn');
-const gallery = document.querySelector('.gallery');
 const noFilmsMessage = document.querySelector('.alert__message');
 
 window.addEventListener('load', onLoadPage);
@@ -14,7 +11,7 @@ const key = 'data.title';
 
 function onLoadPage() {
   const data = localStorage.getItem(key);
-  JSON.parse(data);
+  // const moviesArr = JSON.parse(data);
 
   if (data) {
     markup(data);
