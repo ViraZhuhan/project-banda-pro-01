@@ -1,10 +1,13 @@
 // Higlights active link in navigation menu / mobile menu
+import getRefs from './components/get-refs';
+
+const refs = getRefs();
+
 export default (() => {
-  const pageLinks = document.querySelectorAll('.navigation__link');
-  const pageLinksMobile = document.querySelectorAll('.navigation-menu__link');
+ 
   const pathName = window.location.pathname.split('?')[0];
 
-  pageLinks.forEach(link => {
+  refs.pageLinks.forEach(link => {
     const url = link.getAttribute('href');
     if (pathName === '/index.html' && url === '/') {
       link.classList.add('navigation__link--current');
@@ -16,7 +19,7 @@ export default (() => {
     }
     link.classList.remove('navigation__link--current');
   });
-  pageLinksMobile.forEach(link => {
+  refs.pageLinksMobile.forEach(link => {
     const url = link.getAttribute('href');
     if (pathName === '/index.html' && url === '/') {
       link.classList.add('navigation-menu__link--current');

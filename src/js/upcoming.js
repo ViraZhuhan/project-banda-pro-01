@@ -87,7 +87,7 @@ const KEY = 'key';
   genreUp,
   overview,
 };
-console.log(value);
+// console.log(value);
 
 
 function addLS() { 
@@ -111,5 +111,5 @@ remindBtn.style.backgraund = "grey";
 };
 
 
-remindBtn.disabled = true;
-remindBtn.style.backgraun = "grey";
+// remindBtn.disabled = true;
+// remindBtn.style.backgraun = "grey";

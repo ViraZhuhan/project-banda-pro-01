@@ -40,14 +40,6 @@ export default class Api {
     this.page = 1;
   }
 
-  async weeklyTrends() {
-    const { data } = await axios.get(`${weekRoute}&page=${this.page}`);
-
-    return data;
-  }
-
-
-  
   async dayTrends() {
     try {
       const response = await fetch(`${dayRoute}&page=${this.page}`);
