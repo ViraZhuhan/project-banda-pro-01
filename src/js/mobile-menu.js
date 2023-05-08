@@ -1,20 +1,20 @@
+import getRefs from './components/get-refs';
+
+const refs = getRefs();
+
 export default (() => {
   console.log('hello');
-  const mobileMenu = document.querySelector('.mobile-menu');
-  const headerContainer = document.querySelector('.header-menu');
-  const openMenuBtn = document.querySelector('.menu-open');
+
   /* const closeMenuBtn = document.querySelector('.menu-close'); */
-  const body = document.getElementsByTagName('body')[0];
-  const linkButton = document.querySelectorAll('.navigation-menu__link');
 
   const toggleMenu = () => {
     const isMenuOpen =
-      headerContainer.getAttribute('aria-expanded') === 'true' || false;
-    headerContainer.setAttribute('aria-expanded', !isMenuOpen);
-    mobileMenu.setAttribute('aria-hidden', isMenuOpen);
-    headerContainer.classList.toggle('opened');
-    mobileMenu.classList.toggle('is-hidden');
-    body.classList.toggle('scroll-block');
+      refs.headerContainer.getAttribute('aria-expanded') === 'true' || false;
+    refs.headerContainer.setAttribute('aria-expanded', !isMenuOpen);
+    refs.mobileMenu.setAttribute('aria-hidden', isMenuOpen);
+    refs.headerContainer.classList.toggle('opened');
+    refs.mobileMenu.classList.toggle('is-hidden');
+    refs.body.classList.toggle('scroll-block');
 
     /* const scrollLockMethod = !isMenuOpen
       ? "disableBodyScroll"
@@ -24,18 +24,20 @@ export default (() => {
 
   const hideOnClickOutside = e => e.target === e.currentTarget && toggleMenu();
 
-  openMenuBtn.addEventListener('click', toggleMenu);
+  refs.openMenuBtn.addEventListener('click', toggleMenu);
   /* closeMenuBtn.addEventListener('click', toggleMenu); */
-  linkButton.forEach(button => button.addEventListener('click', toggleMenu));
-  mobileMenu.addEventListener('click', hideOnClickOutside);
+  refs.linkButton.forEach(button =>
+    button.addEventListener('click', toggleMenu)
+  );
+  refs.mobileMenu.addEventListener('click', hideOnClickOutside);
 
   // Close the mobile menu on wider screens if the device orientation changes
   window.matchMedia('(min-width: 768px)').addEventListener('change', e => {
     if (!e.matches) return;
-    mobileMenu.classList.add('is-hidden');
-    headerContainer.setAttribute('aria-expanded', false);
-    headerContainer.classList.remove('opened');
-    body.classList.remove('scroll-block');
+    refs.mobileMenu.classList.add('is-hidden');
+    refs.headerContainer.setAttribute('aria-expanded', false);
+    refs.headerContainer.classList.remove('opened');
+    refs.body.classList.remove('scroll-block');
     /* bodyScrollLock.enableBodyScroll(document.body); */
   });
 })();

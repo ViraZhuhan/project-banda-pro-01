@@ -1,4 +1,6 @@
-import refs from './get-refs';
+import getRefs from './components/get-refs';
+
+const refs = getRefs();
 
 refs.closeModalBtn.addEventListener('click', onCloseModal);
 refs.backdrop.addEventListener('click', onBackdropClick);
