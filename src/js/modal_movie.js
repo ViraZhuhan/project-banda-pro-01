@@ -77,16 +77,17 @@ export async function modalMovie(id) {
     buttonAdd.addEventListener('click', addLS);
     buttonRemove.addEventListener('click', removeLS);
 
+    const ID_GENRE = idGenres.map(({ id }) => id);
     const KEY = 'LibraryMovie';
     const movieItem = {
-      data: data.release_date,
+      release_date: data.release_date,
       id,
       title: data.title,
       popularity,
-      voteAverage,
-      img: imageUrl,
-      voteCount: data.vote_count,
-      genres: newGenreMovie,
+      vote_average: voteAverage,
+      poster_path: imageUrl,
+      vote_count: data.vote_count,
+      genre_ids: ID_GENRE,
       overview: data.overview,
     };
     function addLS() {
