@@ -87,7 +87,7 @@ const KEY = 'LibraryMovie';
   vote_average: voteAverage,
   poster_path: imageUrl,
   vote_count:voteCount,
-  genre_ids: genreUp,
+  genre_ids: idGenre,
   overview,
 };
 console.log(value);
