@@ -1,8 +1,9 @@
-const modalEmptyEl = document.querySelector('.modal-empty__backdrop');
-const closeModalEmptyEl = document.querySelector('.modal-empty__close');
+import getRefs from './components/get-refs';
 
-modalEmptyEl.addEventListener('click', onModalEmpty);
-closeModalEmptyEl.addEventListener('click', onCloseModalEmpty);
+const refs = getRefs();
+
+refs.modalEmptyEl.addEventListener('click', onModalEmpty);
+refs.closeModalEmptyEl.addEventListener('click', onCloseModalEmpty);
 
 export function onOpenModalEmpty() {
   toggleModalEmpty();
@@ -28,9 +29,9 @@ function onTapEsc(e) {
 }
 
 function toggleModalEmpty() {
-  if (modalEmptyEl.classList.contains('modal-empty__backdrop--close')) {
-    modalEmptyEl.classList.remove('modal-empty__backdrop--close');
+  if (refs.modalEmptyEl.classList.contains('modal-empty__backdrop--close')) {
+    refs.modalEmptyEl.classList.remove('modal-empty__backdrop--close');
   } else {
-    modalEmptyEl.classList.add('modal-empty__backdrop--close');
+    refs.modalEmptyEl.classList.add('modal-empty__backdrop--close');
   }
 }
