@@ -1,13 +1,31 @@
 <div class="search-wrapper">
-    <form class="search-form">
-        <input type="text" class="search-input-field" placeholder="Search">
-        <button type="submit" class="search-button" aria-label="Search">
-            <svg class="icon-search" width="20" height="20">
-                <use xlink:href="./images/symbol-defs.svg#icon-search" alt="Search icon"></use>
-            </svg>
-        </button>
-    </form>
-    <section>
-        <div class="movie-list"></div>
-    </section>
+  <form class="search-form">
+    <input type="text" class="search-input-field" placeholder="Search" />
+    <button type="submit" class="search-button" aria-label="Search">
+      <svg class="icon-search" width="20" height="20">
+        <use
+          xlink:href="./images/symbol-defs.svg#icon-search"
+          alt="Search icon"
+        ></use>
+      </svg>
+    </button>
+  </form>
+
+  <section class="cards">
+    <ul class="cards__error" id="cards__error"></ul>
+    <div class="cards__container">
+      <div class="cards__message cards__disabled">
+        <p class="cards__text">
+          OOPS...<br />
+          We are very sorry!<br />
+          We don’t have any results due to your search.
+        </p>
+      </div>
+    </div>
+    <div id="movie-list"></div>
+    <div class="pagination">
+      <button class="btn-back" id="btn-back">Back</button>
+      <button class="btn-next" id="btn-next">Next</button>
+    </div>
+  </section>
 </div>
