@@ -1,21 +1,21 @@
 import { initRatings } from './init-rating';
 import getRefs from './components/get-refs';
 import { genresList } from './components/genre-list';
+import initRating from './init-rating';
 
 const refs = getRefs();
 
 function markup(data) {
-  return data
-    .map(({ poster_path, title, vote_average, release_date, genre_ids, id }) => {
+  return data.map(
+    ({ poster_path, title, vote_average, release_date, genre_ids, id }) => {
       const genres = genresList(genre_ids);
       const release = new Date(release_date).getFullYear();
 
-          const imageUrl = poster_path
+      const imageUrl = poster_path
         ? `https://image.tmdb.org/t/p/w500/${poster_path}`
         : 'https://via.placeholder.com/395x574?text=No+Image';
 
-            
-        initRatings();
+      initRatings();
 
       return `<li class="gallery__item" id='${id}'>
         <article>
@@ -43,27 +43,17 @@ function markup(data) {
           </div>
         </article>
         </li>`;
-    })
-    ;
+    }
+  );
 }
 
-function createGalleryCatalog(films) {
+function createGallery(films) {
   clearGallery();
   refs.gallery.innerHTML = markup(films).join('');
-  
-}
-
-function createGalleryHome(films) {
-  clearGallery();
-  refs.wrapper.innerHTML = markup(films).join('');
-  console.log('jjjj')
-  
 }
 
 function clearGallery() {
   refs.gallery.innerHTML = '';
 }
 
-export { createGalleryCatalog, createGalleryHome };
-
-
+export { createGallery };

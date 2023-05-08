@@ -53,7 +53,8 @@ const createUpcomingCard = results.map(result => {const {backdrop_path, original
  const genreUp = nameGenres.slice(0, 2).join(', ');
 
 
-refs.galleryOfNewMovies.innerHTML = `<div class="upcoming__info"> 
+refs.galleryOfNewMovies.innerHTML = ` <h2 class="upcoming__title">Upcoming this month</h2>
+<div class="upcoming__info"> 
 <img src="https://image.tmdb.org/t/p/original/${imageUrl}" alt="${title}"  loading="lazy" class="upcoming__img" />
 <div class="upcoming__info-btn">
 <div class="upcoming__info-layout">
@@ -76,28 +77,29 @@ refs.galleryOfNewMovies.innerHTML = `<div class="upcoming__info">
 </div>`;
 remindBtn = document.querySelector('.upcoming__button')
 remindBtn.addEventListener('click', addLS);
-const KEY = 'key';
+const KEY = 'LibraryMovie';
 
  const value = {
+  data: formatDate,
   title: title,
   popularity,
   voteAverage,
-  imageUrl,
+  img: imageUrl,
   voteCount,
-  genreUp,
+  genres: genreUp,
   overview,
 };
-console.log(value);
+// console.log(value);
 
 
 function addLS() { 
  const arr = [];
- const saved = localStorage.getItem('key');
+ const saved = localStorage.getItem('LibraryMovie');
  
  console.log(saved)
  if( saved === null){
 arr.push(value);
-localStorage.setItem('key', JSON.stringify(arr));
+localStorage.setItem('LibraryMovie', JSON.stringify(arr));
 remindBtn.disabled = true;
 remindBtn.style.backgraund = "grey";
  }
@@ -109,7 +111,3 @@ remindBtn.style.backgraund = "grey";
 });
 } catch{error => (console.log(error.message))};
 };
-
-
-remindBtn.disabled = true;
-remindBtn.style.backgraun = "grey";
