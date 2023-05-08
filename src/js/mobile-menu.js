@@ -3,8 +3,6 @@ import getRefs from './components/get-refs';
 const refs = getRefs();
 
 export default (() => {
-  console.log('hello');
-
   /* const closeMenuBtn = document.querySelector('.menu-close'); */
 
   const toggleMenu = () => {
