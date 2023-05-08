@@ -91,20 +91,30 @@ export async function modalMovie(id) {
       overview: data.overview,
     };
     function addLS() {
-      let objects = JSON.parse(localStorage.getItem(KEY)) || [];
-      objects.push(movieItem);
-      localStorage.setItem(KEY, JSON.stringify(objects));
-      buttonAdd.classList.add('hidden');
-      buttonRemove.classList.remove('hidden');
+      try {
+        let objects = null
+          ? undefined
+          : JSON.parse(localStorage.getItem(KEY)) || [];
+        objects.push(movieItem);
+        localStorage.setItem(KEY, JSON.stringify(objects));
+        buttonAdd.classList.add('hidden');
+        buttonRemove.classList.remove('hidden');
+      } catch (error) {
+        console.error(error);
+      }
     }
 
     function removeLS() {
-      let objects = JSON.parse(localStorage.getItem(KEY));
-      const indexMovie = objects.findIndex(obj => obj.id === id);
-      objects.splice(indexMovie, 1);
-      localStorage.setItem(KEY, JSON.stringify(objects));
-      buttonAdd.classList.remove('hidden');
-      buttonRemove.classList.add('hidden');
+      try {
+        let objects = null ? undefined : JSON.parse(localStorage.getItem(KEY));
+        const indexMovie = objects.findIndex(obj => obj.id === id);
+        objects.splice(indexMovie, 1);
+        localStorage.setItem(KEY, JSON.stringify(objects));
+        buttonAdd.classList.remove('hidden');
+        buttonRemove.classList.add('hidden');
+      } catch (error) {
+        console.error(error);
+      }
     }
     function ls() {
       try {
