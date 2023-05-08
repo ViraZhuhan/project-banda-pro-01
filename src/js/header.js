@@ -3,10 +3,11 @@ export default (() => {
   const pageLinks = document.querySelectorAll('.navigation__link');
   const pageLinksMobile = document.querySelectorAll('.navigation-menu__link');
   const pathName = window.location.pathname.split('?')[0];
+  const homeHrefs = ['/index.html', '/'];
 
   pageLinks.forEach(link => {
     const url = link.getAttribute('href');
-    if (pathName === '/index.html' && url === '/') {
+    if (homeHrefs.includes(pathName) && homeHrefs.includes(url)) {
       link.classList.add('navigation__link--current');
       return;
     }
@@ -18,7 +19,7 @@ export default (() => {
   });
   pageLinksMobile.forEach(link => {
     const url = link.getAttribute('href');
-    if (pathName === '/index.html' && url === '/') {
+    if (homeHrefs.includes(pathName) && homeHrefs.includes(url)) {
       link.classList.add('navigation-menu__link--current');
       return;
     }
