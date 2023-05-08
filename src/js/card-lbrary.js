@@ -19,3 +19,8 @@ function onLoadPage() {
 const movieClicked = document.querySelector('.library-cards__list');
 
 movieClicked.addEventListener('click', onMovieClicked);
+
+function onMovieClicked(event) {
+  let idOfCard = event.target.closest('.gallery__item ').id;
+  modalMovie(idOfCard);
+}
