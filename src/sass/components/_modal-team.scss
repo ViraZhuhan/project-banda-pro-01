@@ -49,8 +49,9 @@
   min-width: 280px;
   height: 100%;
   padding: 48px 20px 40px 20px;
-  border-radius: 4px;
-  background-color: #fff;
+  background-color: $color-bg-header;
+  box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
+  border-radius: 20px;
 
   transition: transform 250ms ease-in-out;
 
@@ -68,13 +69,10 @@
   }
 }
 .footer-modal__title {
-  font-family: 'Roboto';
-  font-style: normal;
-  text-align: center;
   font-weight: 500;
-  font-size: 20px;
-  line-height: 1.15;
-  color: #111;
+    font-size: 24px;
+    line-height: 1.33;
+    color: $color-text;
   text-transform: uppercase;
 
   margin: 0 0 20px 0;

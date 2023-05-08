@@ -1,6 +1,6 @@
-import Api from './api';
-import { noFilmError, onFetchError } from './msg-error';
-import {createGallery}  from './render-card';
+import Api from '../api';
+import { noFilmError, onFetchError } from '../msg-error';
+import {createGallery}  from '../render-card';
 
 const seachApi = new Api();
 
