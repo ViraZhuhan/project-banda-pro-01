@@ -1,4 +1,5 @@
-.hero-library__container {
+// .hero-library__container
+.hero-library {
   padding-top: 40px;
   padding-bottom: 114px;
   margin-left: auto;
@@ -20,7 +21,7 @@
     (-webkit-min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
-    .hero-library__container {
+    .hero-library {
       background-image: url(/src/images/hero-tel-2x.jpg);
     }
   }
@@ -33,13 +34,15 @@
       ),
       url(/src/images/hero-tab.jpg);
     border: 1px solid #000000;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 
   @media (min-device-pixel-ratio: 2),
     (-webkit-min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
-    .hero-library__container {
+    .hero-library {
       background-image: url(/src/images/hero-tab-2x.jpg);
     }
   }
@@ -52,13 +55,15 @@
       ),
       url(/src/images/hero.jpg);
     border: 1px solid #000000;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 
   @media (min-device-pixel-ratio: 2),
     (-webkit-min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
-    .hero-library__container {
+    .hero-library {
       background-image: url(/src/images/hero-2x.jpg);
     }
   }
