@@ -1,132 +1,109 @@
 import Api from './api';
-// import getRefs from './get-refs';
-// import { noFilmError, onFetchError } from './msg-error';
+// // import getRefs from './get-refs';
+// // import { noFilmError, onFetchError } from './msg-error';
 
-// // import { initRatings } from './init-rating';
+import { initRatings } from './init-rating';
 
 const refs = {
   heroRef: document.querySelector('.hero'),
   heroBtnRef: document.querySelector('.hero__button'),
 };
 
-refs.heroBtnRef.addEventListener('click', renderDayTrends);
+import SubstructBlackDesk from '../images/hero-black-desk.png';
+import SubstructBlackTab from '../images/hero-black-tab.png';
+import homePageBg from '../images/hero-home-desk.jpg';
 
-const heroApi = new Api();
+const pageHeroApi = new Api();
 
-async function createDayTrendsHome() {
+// const refs = {
+//   container: document.querySelector('.hero-decription'),
+//   hero: document.querySelector('.hero'),
+// };
+
+getDayMovieTrend();
+
+async function getDayMovieTrend() {
   try {
-    const response = await heroApi.dayTrends();
-  } catch (error) {
-    console.log(error); //onFilmError
+    const response = await pageHeroApi.dayTrends();
+
+    renderHeroPageMarkup(response.results[0]);
+  } catch (err) {
+    renderDefaultMarkup();
   }
 }
 
-createDayTrendsHome();
+export { getDayMovieTrend, renderHeroPageMarkup };
 
-// export { createDayTrendsHome };
+function renderDefaultMarkup() {
+  refs.heroRef.innerHTML = `<div class="hero__wrapper container ">
+    <h1 class="hero__title">Let’s Make Your Own Cinema</h1>
+  <p class="hero__text paragraphs">Is a guide to creating a personalized movie theater experience.
+   You'll need a projector, screen, and speakers.<span class="paragraph__hidden">Decorate your space,
+   choose your films, and stock up on snacks for the full experience.</span></p>
+   <a href="/src/catalog.html" class="hero__btn buttuns">Get Started</a>
+   </div>`;
 
-function clear() {
-  refs.heroRef.innerHTML = '';
+  changeHeroBackground(homePageBg);
 }
 
-export async function renderDayTrends() {
-  try {
-    const data = await heroApi.dayTrends();
-    const movies = data.results.slice(0, 1);
+function renderHeroPageMarkup({
+  backdrop_path,
+  title,
+  overview,
+  vote_average,
+}) {
+  const url = `https://image.tmdb.org/t/p/original${backdrop_path}`;
 
-    const moviesElements = movies.map(movie => {
-      const { backdrop_path, title, vote_average, overview } = movie;
-
-      //  const voteAverage = vote_average;
-
-      const imageUrl = backdrop_path
-        ? `https://image.tmdb.org/t/p/w500/${backdrop_path}`
-        : 'https://via.placeholder.com/395x574?text=No+Image';
-
-      return `
-<section class="hero">
-
-<img src="https://image.tmdb.org/t/p/original/${imageUrl}" 
-    alt="${title}"  class='hero__bg--img slider-for'/>
-  
-  
-  <div class="hero__movie--wrapper container ">
-    <h1 class="hero__movie-title title">${title}</h1>
+  refs.heroRef.innerHTML = `<div class="hero__wrapper ">
+    <h1 class="hero__movie-title">${title}</h1>
     <div class="rating">
       <div class="rating__body">
         <div class="rating__active" style="width: ${vote_average * 10}%;"></div>
-                <div class="rating__items hero__vote">
-                  <input type="radio" class="rating__item" value="1" name="rating" />
-                  <input type="radio" class="rating__item" value="2" name="rating" />
-                  <input type="radio" class="rating__item" value="3" name="rating" />
-                  <input type="radio" class="rating__item" value="4" name="rating" />
-                  <input type="radio" class="rating__item" value="5" name="rating" />
-                </div>
-              </div>
-              <div class="rating__value">${vote_average}</div>
-            </div>
-    <p class="hero__movie-descripton paragraphs">${overview}</p>
-    
-    <button class="buttons watch__btn">Watch trailer</button>
+        <div class="rating__items hero__vote">
+          <input type="radio" class="rating__item" value="1" name="rating" />
+          <input type="radio" class="rating__item" value="2" name="rating" />
+          <input type="radio" class="rating__item" value="3" name="rating" />
+          <input type="radio" class="rating__item" value="4" name="rating" />
+          <input type="radio" class="rating__item" value="5" name="rating" />
+        </div>
+      </div>
+      <div class="rating__value">${vote_average}</div>
+    </div>
+    <p class="hero__text hero__movie-descripton paragraphs">${overview}</p>
+    <button class=" watch__btn buttons">Watch trailer</button>
+   </div>`;
 
-    <ul class="slider slider-nav">
-  <li class="slider__item">
-     <button class="hero__slider-btn">1</button>
-  </li>
-  <li class="slider__item">
-     <button class="hero__slider-btn">2</button>
-  </li>
-  <li class="slider__item">
-     <button class="hero__slider-btn">3</button>
-  </li>
-  <li class="slider__item">
-    <button class="hero__slider-btn">4</button>
-  </li>
-  <li class="slider__item">
-     <button class="hero__slider-btn">5</button>
-  </li>
-  </div>
-
-
-  
-    
-  <picture>
-    <img class="hero__movie--subtract subtract" srcset="
-          ./images/hero-black-desk.png    1x,
-          ./images/hero-black-desk2x.png 2x
-        " src="./images/hero-black-desk.png" alt="subtract" />
-  </picture>
-
-</section>
-`;
-    });
-
-    // console.log(moviesElements );
-    refs.heroRef.innerHTML = moviesElements.join('');
-    //!=====================SLIDER===========================
-
-    //  $('.slider-for').slick({
-    //    slidesToShow: 1,
-    //    slidesToScroll: 1,
-    //    arrows: false,
-    //    fade: true,
-    //    asNavFor: '.slider-nav',
-    //  });
-    //  $('.slider-nav').slick({
-    //    slidesToShow: 5,
-    //   //  slidesToScroll: 1,
-    //    asNavFor: '.slider-for',
-    //    dots: true,
-    //    centerMode: true,
-    //    focusOnSelect: true,
-    //   //  arrows: true,
-    //  });
-  } catch {
-    err => console.log(err);
-  }
+  changeHeroBackground(url);
 }
 
-// setTimeout(() => {
+function changeHeroBackground(bgImg) {
+  // перевіряємо ширину екрану при завантаженні сторінки та додаємо відповідний фон
+  if (window.matchMedia('(min-width: 1280px)').matches) {
+    refs.heroRef.style.backgroundImage = `url('${SubstructBlackDesk}'), url('${bgImg}')`;
+  } else if (window.matchMedia('(min-width: 768px)').matches) {
+    refs.heroRef.style.backgroundImage = `url('${SubstructBlackTab}'), url('${bgImg}')`;
+  } else {
+    refs.heroRef.style.backgroundImage = `linear-gradient(
+      87.8deg,
+      #0e0e0e 15.61%,
+      rgba(14, 14, 14, 0) 60.39%
+    ), url('${bgImg}')`;
+  }
 
-// }, 1000);
+  window.addEventListener('resize', onPageChangeSize);
 
+  function onPageChangeSize(e) {
+    const currentPageWidth = e.currentTarget.innerWidth;
+    if (currentPageWidth >= 1280) {
+      refs.heroRef.style.backgroundImage = `url('${SubstructBlackDesk}'), url('${bgImg}')`;
+    } else if (currentPageWidth >= 768) {
+      refs.heroRef.style.backgroundImage = `url('${SubstructBlackTab}'), url('${bgImg}')`;
+    } else if (currentPageWidth < 768) {
+      refs.heroRef.style.backgroundImage = `linear-gradient(
+      87.8deg,
+      #0e0e0e 15.61%,
+      rgba(14, 14, 14, 0) 60.39%
+    ), url('${bgImg}')`;
+    }
+  }
+}
