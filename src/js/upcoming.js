@@ -14,7 +14,6 @@ export function fetchUpcomingMovie(){
 return newMovies.upcoming()
 }; 
 
-
 export async function renderUpcomingMovieCard(res){
   try{
   
@@ -50,6 +49,7 @@ const createUpcomingCard = results.map(result => {const {backdrop_path, original
  const formatDate = getFormatDate('.');
  const voteAverage = res.results[0].vote_average;
  const voteCount = res.results[0].vote_count;
+ const movieId = res.results[0].id;
  const genreUp = nameGenres.slice(0, 2).join(', ');
 
 
@@ -79,35 +79,55 @@ remindBtn = document.querySelector('.upcoming__button')
 remindBtn.addEventListener('click', addLS);
 const KEY = 'LibraryMovie';
 
- const value = {
-  data: formatDate,
+ const movieItem = {
+  release_date: formatDate,
+  id: movieId,
   title: title,
   popularity,
-  voteAverage,
-  img: imageUrl,
-  voteCount,
-  genres: genreUp,
+  vote_average: voteAverage,
+  poster_path: imageUrl,
+  vote_count:voteCount,
+  genre_ids: genreUp,
   overview,
 };
-// console.log(value);
+console.log(value);
 
 
 function addLS() { 
  const arr = [];
  const saved = localStorage.getItem('LibraryMovie');
- 
- console.log(saved)
- if( saved === null){
-arr.push(value);
+ console.log(saved);
+ if( saved === null || !saved.includes(movieItem)){
+arr.push(movieItem);
 localStorage.setItem('LibraryMovie', JSON.stringify(arr));
 remindBtn.disabled = true;
 remindBtn.style.backgraund = "grey";
  }
- else if(saved ==! null && arr.length >= 1){
+ else if(saved ==! null && arr.includes(movieItem.data)){
   remindBtn.disabled = true;
   remindBtn.style.backgraund = "grey";
  }
 }
+
+function ls() {
+  try {
+    const itemLs = localStorage.getItem(KEY);
+    const parceLS = null ? undefined : JSON.parse(itemLs);
+    if (parceLS === null) {
+      return;
+    }
+    parceLS.map(elm => {
+      if (elm.id === id) {
+        remindBtn.disabled = true;
+        remindBtn.style.backgraund = "grey";
+      }
+    });
+  } catch (error) {
+    console.error(error);
+  }
+}
+ls();
+
 });
 } catch{error => (console.log(error.message))};
 };
