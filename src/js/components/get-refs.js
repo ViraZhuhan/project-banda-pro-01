@@ -44,5 +44,10 @@ export default function getRefs() {
     // scroll-up
     // Get the button element
     scrollUpBtn: document.getElementById('scroll-up-btn'),
+
+    // init-rating
+    // ratingActive: rating.querySelector('.rating__active'),
+    // ratingValue: rating.querySelector('.rating__value'),
+    // ratingItems: rating.querySelectorAll('.rating__item'),
   };
 }
