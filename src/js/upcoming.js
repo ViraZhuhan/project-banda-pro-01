@@ -49,7 +49,7 @@ const createUpcomingCard = results.map(result => {const {backdrop_path, original
  const formatDate = getFormatDate('.');
  const voteAverage = res.results[0].vote_average;
  const voteCount = res.results[0].vote_count;
- const movieId = res.results[0].id;
+ const movieId = JSON.stringify(res.results[0].id);
  const genreUp = nameGenres.slice(0, 2).join(', ');
 
 
