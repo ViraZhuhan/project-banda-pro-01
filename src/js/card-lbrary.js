@@ -1,4 +1,4 @@
-// import { modalMovie } from './modal_movie';
+import { modalMovie } from './modal_movie';
 import { createGallery } from './render-card';
 // import { refs } from './modal_movie';
 
@@ -16,17 +16,18 @@ function onLoadPage() {
 
   if (localStorage.getItem('LibraryMovie')) {
     console.log(localStorage.getItem('LibraryMovie'));
-    // createGallery(moviesArr);
+    console.log(moviesArr);
+    createGallery(moviesArr);
   } else {
     noFilmsMessage.classList.remove('hidden');
   }
 }
 
-// const movieClicked = document.querySelector('library-cards__list');
+const movieClicked = document.querySelector('.library-cards__list');
 
-// movieClicked.addEventListener('click', onMovieClicked);
+movieClicked.addEventListener('click', onMovieClicked);
 
-// function onMovieClicked(event) {
-//   let idOfCard = event.target.closest('.gallery__item ').id;
-//   modalMovie(idOfCard);
-// }
+function onMovieClicked(event) {
+  let idOfCard = event.target.closest('.gallery__item ').id;
+  modalMovie(idOfCard);
+}
