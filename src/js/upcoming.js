@@ -1,41 +1,56 @@
-import Api  from './api';
+import Api from './api';
 const refs = {
   galleryOfNewMovies: document.querySelector('.upcoming__container'),
-}
+};
 const newMovies = new Api();
 
-fetchUpcomingMovie().then(renderUpcomingMovieCard)
-.catch(er =>console.log(er.message));
+fetchUpcomingMovie()
+  .then(renderUpcomingMovieCard)
+  .catch(er => console.log(er.message));
 renderUpcomingMovieCard();
 
+export function fetchUpcomingMovie() {
+  return newMovies.upcoming();
+}
+
+export async function renderUpcomingMovieCard(res) {
+  try {
+    const genres = await newMovies.fetchGenres();
+    const results = res.results.slice(0, 1);
+
+    const createUpcomingCard = results.map(result => {
+      const {
+        backdrop_path,
+        original_title,
+        release_date,
+        vote_average,
+        vote_count,
+        popularity,
+        genre_ids,
+        overview,
+      } = result;
+      function getFormatDate(join) {
+        join = join || ' '; // разделитель по дефолту
+
+        const release = new Date(release_date);
+        return (
+          release.getDate() +
+          join +
+          release.getMonth() +
+          join +
+          release.getFullYear()
+        );
+      }
+      // console.log(getFormatDate('.'));
+
+      const idGenre = res.results[0].genre_ids;
 
 
-export function fetchUpcomingMovie(){ 
-return newMovies.upcoming()
-}; 
-
-export async function renderUpcomingMovieCard(res){
-  try{
-  
-const genres = await newMovies.fetchGenres();
-const results = res.results.slice(0,1);
-
-const createUpcomingCard = results.map(result => {const {backdrop_path, original_title, release_date, vote_average, vote_count, popularity, genre_ids, overview } = result
-  function getFormatDate(join){
-    join= join || ' '; // разделитель по дефолту
-    
-    const release = new Date(release_date); 
-    return release.getDate() + join + release.getMonth() + join + release.getFullYear();  
-  }
-  // console.log(getFormatDate('.'));
-  
-  const idGenre = res.results[0].genre_ids;
-  
-  let nameGenres=[];
-  for(let i=0; i < idGenre.length; i+=1 ){
-    const item = genres.find(el => el.id === idGenre[i])
-    nameGenres.push(item.name);
-  }
+      let nameGenres = [];
+      for (let i = 0; i < idGenre.length; i += 1) {
+        const item = genres.find(el => el.id === idGenre[i]);
+        nameGenres.push(item.name);
+      }
 
  
  
@@ -53,7 +68,23 @@ const createUpcomingCard = results.map(result => {const {backdrop_path, original
  const genreUp = nameGenres.slice(0, 2).join(', ');
 
 
-refs.galleryOfNewMovies.innerHTML = ` <h2 class="upcoming__title">Upcoming this month</h2>
+//       const data = results[0];
+//       const title = data.original_title;
+//       const key = title;
+//       //  const title = res.results[0].original_title;
+//       const imageUrl = data.backdrop_path
+//         ? `https://image.tmdb.org/t/p/w500/${data.backdrop_path}`
+//         : 'https://via.placeholder.com/395x574?text=No+Image';
+//       const posterUrl = data.poster_path
+//         ? `https://image.tmdb.org/t/p/w500/${data.poster_path}`
+//         : 'https://via.placeholder.com/395x574?text=No+Image';
+//       const formatDate = getFormatDate('.');
+//       const voteAverage = res.results[0].vote_average;
+//       const voteCount = res.results[0].vote_count;
+//       const movieId = res.results[0].id;
+//       const genreUp = nameGenres.slice(0, 2).join(', ');
+
+      refs.galleryOfNewMovies.innerHTML = ` <h2 class="upcoming__title">Upcoming this month</h2>
 <div class="upcoming__info"> 
 <img src="https://image.tmdb.org/t/p/original/${imageUrl}" alt="${title}"  loading="lazy" class="upcoming__img" />
 <div class="upcoming__info-btn">
@@ -75,56 +106,89 @@ refs.galleryOfNewMovies.innerHTML = ` <h2 class="upcoming__title">Upcoming this 
 <button type="button" class="upcoming__button">Remind me</button>
 </div>
 </div>`;
-remindBtn = document.querySelector('.upcoming__button')
-remindBtn.addEventListener('click', addLS);
-const KEY = 'LibraryMovie';
+      remindBtn = document.querySelector('.upcoming__button');
+      remindBtn.addEventListener('click', addLS);
+      const KEY = 'LibraryMovie';
 
- const movieItem = {
-  release_date: formatDate,
-  id: movieId,
-  title: title,
-  popularity,
-  vote_average: voteAverage,
-  poster_path: imageUrl,
-  vote_count:voteCount,
-  genre_ids: idGenre,
-  overview,
-};
-console.log(value);
+      const movieItem = {
+        // release_date: formatDate,
+        release_date: data.release_date,
+        // id: movieId,
+        id: String(data.id),
+        title: title,
+        popularity,
+        vote_average: voteAverage,
+        // poster_path: imageUrl,
+        poster_path: posterUrl,
+        vote_count: voteCount,
+        genre_ids: idGenre,
+        overview,
+      };
+      console.log(value);
 
 
-function addLS() { 
- const arr = [];
- const saved = localStorage.getItem('LibraryMovie');
- console.log(saved);
- if( saved === null || !saved.includes(movieItem)){
-arr.push(movieItem);
-localStorage.setItem('LibraryMovie', JSON.stringify(arr));
+      function addLS() {
+        const arr = [];
+        const saved = localStorage.getItem('LibraryMovie');
+        console.log(saved);
+        if (saved === null || !saved.includes(movieItem)) {
+          arr.push(movieItem);
+          localStorage.setItem('LibraryMovie', JSON.stringify(arr));
+          remindBtn.disabled = true;
+          remindBtn.style.backgraund = 'grey';
+        } else if (saved == !null && arr.includes(movieItem.release_date)) {
+          remindBtn.disabled = true;
+          remindBtn.style.backgraund = 'grey';
+        }
+      }
 
- }
- else if(saved ==! null && arr.includes(movieItem.data)){
-  remindBtn.disabled = true;
- }
-}
+      function ls() {
+        try {
+          const itemLs = localStorage.getItem(KEY);
+          const parceLS = null ? undefined : JSON.parse(itemLs);
+          if (parceLS === null) {
+            return;
+          }
+          parceLS.map(elm => {
+            if (elm.id === id) {
+              remindBtn.disabled = true;
+              remindBtn.style.backgraund = 'grey';
+            }
+          });
+        } catch (error) {
+          console.error(error);
+        }
+      }
+      ls();
 
-function ls() {
-  try {
-    const itemLs = localStorage.getItem(KEY);
-    const parceLS = null ? undefined : JSON.parse(itemLs);
-    if (parceLS === null) {
-      return;
-    }
-    parceLS.map(elm => {
-      if (elm.id === id) {
-        remindBtn.disabled = true;
-         }
-    });
-  } catch (error) {
-    console.error(error);
-  }
-}
-ls();
+// function addLS() { 
+//  const arr = [];
+//  const saved = localStorage.getItem('LibraryMovie');
+//  console.log(saved);
+//  if( saved === null || !saved.includes(movieItem)){
+// arr.push(movieItem);
+// localStorage.setItem('LibraryMovie', JSON.stringify(arr));
 
-});
-} catch{error => (console.log(error.message))};
-};
+//  }
+//  else if(saved ==! null && arr.includes(movieItem.data)){
+//   remindBtn.disabled = true;
+//  }
+// }
+
+// function ls() {
+//   try {
+//     const itemLs = localStorage.getItem(KEY);
+//     const parceLS = null ? undefined : JSON.parse(itemLs);
+//     if (parceLS === null) {
+//       return;
+//     }
+//     parceLS.map(elm => {
+//       if (elm.id === id) {
+//         remindBtn.disabled = true;
+//          }
+
+//     });
+//   } catch {
+//     error => console.log(error.message);
+//   }
+// }
