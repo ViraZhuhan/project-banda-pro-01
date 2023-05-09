@@ -53,7 +53,7 @@ form.country.addEventListener('input', async e => {
         throw new Error(`Error! status: ${res.status}`);
       }
       const country = res.map(item => item.name.common);
-      console.log('Country | ', country);
+      // console.log('Country | ', country);
       showDropdownMenu(e.target);
       fillDropdownMenu(e.target, country);
     } catch (err) {
@@ -71,27 +71,23 @@ async function onSubmit(e) {
 
   const genreId = findGenreId(genre.value);
 
-  searchData.query = query.value;
-  searchData.year = year.value;
-  searchData.genre = genreId;
-  searchData.code = code;
-  searchData.CODE = CODE;
+  searchData.request = null;
+  searchData.response = null;
 
   startSpinner();
 
-  const res = await getDataFromDB(query.value, year.value, code, CODE, 1);
-  console.log(res);
+  searchData.response = await getDataFromDB(
+    query.value,
+    year.value,
+    code,
+    CODE,
+    1
+  );
+  console.log(searchData.response);
 
   stopSpinner();
-
+  console.log(searchData.request);
   // createFirstGalleryPart(res, genreId);
-
-  // searchData.query =
-  //   searchData.year =
-  //   searchData.genre =
-  //   searchData.code =
-  //   searchData.CODE =
-  //     null;
 }
 
 const formFilmStorage = {};

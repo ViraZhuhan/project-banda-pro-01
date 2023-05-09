@@ -97,7 +97,7 @@ export class Api_widely {
         }
       }
     }
-    console.log(str);
+    searchData.request = str;
 
     await new Promise(r => setTimeout(r, 1000));
     return fetch(str).then(res => res.json());
@@ -105,11 +105,8 @@ export class Api_widely {
 }
 
 export const searchData = {
-  query: null,
-  year: null,
-  genre: null,
-  CODE: null,
-  code: null,
+  request: null,
+  response: null,
 };
 
 // [{id, name},{}]
