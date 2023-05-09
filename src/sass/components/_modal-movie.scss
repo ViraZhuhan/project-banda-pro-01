@@ -10,28 +10,28 @@
 }
 .modal-container{
   position: absolute;
-    max-width: 846px;
-    width: 100%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: $color-bg-header;
-    box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
-    border-radius: 20px;
-
-
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 .modal{
-    margin: auto;
-    padding: 62px 16px 52px 16px;
-
-
-    @media screen and (min-width: $tablet) {
-      display: grid;
-      grid-template: 1fr /1fr 1fr;
-      justify-items: center;
-      padding: 60px;
-    }
+  min-width: 280px;
+  box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
+  border-radius: 20px;
+  margin: auto;
+  background-color: $color-bg-header;
+  padding: 52px 16px 52px;
+  @media screen and (min-width: $tablet) {
+    display: grid;
+    grid-template: 1fr /1fr 1fr;
+    justify-items: center;
+    min-width: 704px;
+    padding: 44px;
+  }
+  @media screen and (min-width: $desktop) {
+    max-width: 846px;
+    padding: 60px;
+}
 
   &__img{
     margin: auto;
@@ -49,55 +49,97 @@
   }
   &__title {
     font-weight: 500;
-    font-size: 24px;
-    line-height: 1.33;
+    font-size: 20px;
+    line-height: 1.15;
     padding-bottom: 28px;
     margin-top: 22px;
     @media screen and (min-width: $tablet) {
-            margin-top: 0;
+      margin-top: 0;
+      font-size: 24px;
+      line-height: 1.33;
       }
   }
   &__popularity{
-    padding-bottom: 10px;
+    display: grid;
+    grid-template: 1fr/1fr 1fr;
+    color: $color-neutral-light;
+    font-weight: 500;
+    font-size: 14px;
+    padding-bottom: 12px;
+    line-height: 1.14;
+    @media screen and (min-width: $tablet) {
+        font-weight: 500;
+          font-size: 16px;
+          line-height: 1.19;
+              padding-bottom: 10px;
+      }
   }
   &__popularity span {
-    margin-left: 82px;
+    color:$color-primary-light;
   }
   &__rating{
+    display: grid;
+    grid-template: 1fr/1fr 1fr;
+
     @include font-text;
-    padding-bottom: 14px;
+    color: $color-neutral-light;
+    padding-bottom: 12px;
+    @media screen and (min-width: $tablet) {
+      @include font-text;
+          padding-bottom: 14px;
+      }
   }
   &__rating .rating-vote {
-    margin-right: 5px;
-    padding: 0 5px;
+    padding: 1px 8px;
     font-weight: 500;
     font-size: 14px;
     line-height: 1.14;
     color: $color-bg-header;
     background-color: $color-text;
     border-radius: 5px;
+    @media screen and (min-width: $tablet) {
+      font-weight: 500;
+        font-size: 14px;
+        line-height: 1.14;
+      }
   }
-  &__rating_span{
-    margin-left: 62px;
-  }
+
   &__genre{
+    display: grid;
+      grid-template: 1fr/1fr 1fr;
+    color: $color-neutral-light;
+    font-weight: 500;
+      font-size: 14px;
+      line-height: 1.14;
     padding-bottom: 20px;
+    @media screen and (min-width: $tablet) {
+        font-weight: 500;
+          font-size: 16px;
+          line-height: 1.19;
+      }
   }
 
     &__genre span {
-margin-left: 112px;
+      color: $color-primary-light;
 }
   &__about{
-    margin-bottom: 16px;
-    font-weight: 400;
+    margin-bottom: 12px;
+    font-weight: 500;
     font-size: 14px;
-    line-height: 1.43;
+    line-height: 1.14;
+    color: $color-neutral-light;
+    @media screen and (min-width: $tablet) {
+            margin-bottom: 16px;
+      }
   }
   &__description{
     font-weight: 400;
-    font-size: 14px;
-    line-height: 1.43;
+    font-size: 12px;
+    line-height: 1.67;
+    padding-bottom: 16px;
+    @media screen and (min-width: $tablet) {
     padding-bottom: 24px;
+  }
   }
 
 }

@@ -1,5 +1,4 @@
 import Api from './api';
-import { createGallery } from './render-card';
 const api = new Api();
 
 const refs = {
@@ -34,7 +33,6 @@ refs.gallery.addEventListener('click', event => {
 // ========================================================
 
 export async function modalMovie(id) {
-  console.log(typeof id, id);
   try {
     const data = await api.getDetailsById(id);
     const idGenres = data.genres;

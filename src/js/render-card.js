@@ -24,7 +24,7 @@ function markup(data) {
             <p class="details__title">${title}</p>
             <div class="wraper__details">
             <p class="movieGenres">${genres} | ${release}</p>
-             <div class="rating">
+              <div class="rating">
               <div class="rating__body">
               <div class="rating__active" style="width: ${
                 vote_average * 10
@@ -50,11 +50,10 @@ function markup(data) {
 function createGallery(films) {
   clearGallery();
   refs.gallery.innerHTML = markup(films).join('');
-  refs.galleryCatalog.innerHTML = markup(films).join('');
 }
 
 function clearGallery() {
   refs.gallery.innerHTML = '';
 }
 
-export { createGallery, clearGallery };
+export { createGallery };
