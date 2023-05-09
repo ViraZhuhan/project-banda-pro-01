@@ -28,6 +28,10 @@ export default class Api {
   constructor() {
     this.page = 1;
     this.totalPages = 1;
+
+    this.searchPage = 1;
+    this.totalSearchPages = 1;
+    this.searchQuery = '';
     // this.searchQuery = '';
   }
 
@@ -46,7 +50,33 @@ export default class Api {
   reset() {
     this.page = 1;
   }
+  nextSearchPage() {
+    this.searchPage += 1;
+  }
 
+  prevSearchPage() {
+    this.searchPage -= 1;
+  }
+
+  setSearchPage(value) {
+    this.searchPage = value;
+  }
+
+  getCurrentSearchPage() {
+    return this.searchPage;
+  }
+
+  resetSearchPage() {
+    this.searchPage = 1;
+  }
+
+  setSearchQuery(query) {
+    this.searchQuery = query;
+  }
+
+  getSearchQuery() {
+    return this.searchQuery;
+  }
   // get query() {
   //   return this.seachQuery;
   // }
@@ -85,7 +115,7 @@ export default class Api {
     }
   }
 
-    async getDetailsById(id) {
+  async getDetailsById(id) {
     const str = `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`;
     return fetch(str).then(res => res.json());
   }
@@ -100,7 +130,7 @@ export default class Api {
     }
   }
 
-    async countries() {
+  async countries() {
     await new Promise(r => setTimeout(r, 1000));
     return fetch(`${countriesRoute}&page=${this.page}`).then(res => res.json());
   }
@@ -114,7 +144,6 @@ export default class Api {
     return response.data;
   }
 
- 
   async searhByNameYear(obj = {}) {
     let str = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&include_adult=false`;
 
@@ -133,7 +162,6 @@ export default class Api {
     await new Promise(r => setTimeout(r, 1000));
     return fetch(str).then(res => res.json());
   }
-
 }
 
 
