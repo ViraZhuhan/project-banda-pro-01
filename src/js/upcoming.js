@@ -126,18 +126,17 @@ const KEY = 'LibraryMovie';
 
 
 function addLS() { 
- const arr = [];
- const saved = localStorage.getItem('LibraryMovie');
- console.log(saved);
- if( saved === null || !saved.includes(movieItem)){
-arr.push(movieItem);
-localStorage.setItem('LibraryMovie', JSON.stringify(arr));
-remindBtn.disabled = true;
 
- }
- else if(saved ==! null && arr.includes(movieItem.data)){
-  remindBtn.disabled = true;
- }
+  try {
+    let objects = null
+      ? undefined
+      : JSON.parse(localStorage.getItem(KEY)) || [];
+    objects.push(movieItem);
+    localStorage.setItem(KEY, JSON.stringify(objects));
+    remindBtn.disabled = true;
+  } catch (error) {
+    console.error(error);
+  }
 }
 function ls() {
   try {
@@ -147,13 +146,11 @@ function ls() {
       return;
     }
     parceLS.map(elm => {
-      if (elm.id === id) {
+      if (elm.id === movieItem.id) {
         console.log(elm.id);
         remindBtn.disabled = true;
+
          }
-
-
- 
           });
         } catch (error) {
           console.error(error);
