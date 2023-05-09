@@ -4,6 +4,7 @@ import { createGallery } from './render-card';
 import getRefs from './components/get-refs';
 // import onOpenModalEmpty from './modal-empty';
 
+
 const refs = getRefs();
 
 const searchApi = new Api();
@@ -27,4 +28,5 @@ async function createWeekTrendsCatalog() {
 
 createWeekTrendsCatalog();
 
-export { createWeekTrendsCatalog };
+// export { createWeekTrendsCatalog };
+export { createWeekTrendsCatalog};
