@@ -100,12 +100,10 @@ function addLS() {
  if( saved === null || !saved.includes(movieItem)){
 arr.push(movieItem);
 localStorage.setItem('LibraryMovie', JSON.stringify(arr));
-remindBtn.disabled = true;
-remindBtn.style.backgraund = "grey";
+
  }
  else if(saved ==! null && arr.includes(movieItem.data)){
   remindBtn.disabled = true;
-  remindBtn.style.backgraund = "grey";
  }
 }
 
@@ -119,8 +117,7 @@ function ls() {
     parceLS.map(elm => {
       if (elm.id === id) {
         remindBtn.disabled = true;
-        remindBtn.style.backgraund = "grey";
-      }
+         }
     });
   } catch (error) {
     console.error(error);
