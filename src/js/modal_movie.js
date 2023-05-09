@@ -112,13 +112,6 @@ export async function modalMovie(id) {
         localStorage.setItem(KEY, JSON.stringify(objects));
         buttonAdd.classList.remove('hidden');
         buttonRemove.classList.add('hidden');
-        const movies = JSON.parse(localStorage.getItem(KEY));
-        createGallery(movies);
-        const noFilmsMessage = document.querySelector('.alert__message');
-
-        if ((movies === null || movies.length === 0) && noFilmsMessage) {
-          noFilmsMessage.classList.remove('hidden');
-        }
       } catch (error) {
         console.error(error);
       }
