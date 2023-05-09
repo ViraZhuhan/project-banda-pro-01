@@ -31,8 +31,6 @@ refs.gallery.addEventListener('click', event => {
   modalMovie(idOfCard);
 });
 
-// ========================CLICK closed=====================
-
 // ========================================================
 
 export async function modalMovie(id) {
