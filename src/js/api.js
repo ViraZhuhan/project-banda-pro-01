@@ -29,9 +29,9 @@ export default class Api {
     this.page = 1;
     this.totalPages = 1;
 
-    this.searchPage = 1;
-    this.totalSearchPages = 1;
-    this.searchQuery = '';
+    // this.searchPage = 1;
+    // this.totalSearchPages = 1;
+    // this.searchQuery = '';
     // this.searchQuery = '';
   }
 
@@ -50,33 +50,33 @@ export default class Api {
   reset() {
     this.page = 1;
   }
-  nextSearchPage() {
-    this.searchPage += 1;
-  }
+  // nextSearchPage() {
+  //   this.searchPage += 1;
+  // }
 
-  prevSearchPage() {
-    this.searchPage -= 1;
-  }
+  // prevSearchPage() {
+  //   this.searchPage -= 1;
+  // }
 
-  setSearchPage(value) {
-    this.searchPage = value;
-  }
+  // setSearchPage(value) {
+  //   this.searchPage = value;
+  // }
 
-  getCurrentSearchPage() {
-    return this.searchPage;
-  }
+  // getCurrentSearchPage() {
+  //   return this.searchPage;
+  // }
 
-  resetSearchPage() {
-    this.searchPage = 1;
-  }
+  // resetSearchPage() {
+  //   this.searchPage = 1;
+  // }
 
-  setSearchQuery(query) {
-    this.searchQuery = query;
-  }
+  // setSearchQuery(query) {
+  //   this.searchQuery = query;
+  // }
 
-  getSearchQuery() {
-    return this.searchQuery;
-  }
+  // getSearchQuery() {
+  //   return this.searchQuery;
+  // }
   // get query() {
   //   return this.seachQuery;
   // }
