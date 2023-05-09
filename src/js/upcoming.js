@@ -90,7 +90,6 @@ const KEY = 'LibraryMovie';
   genre_ids: idGenre,
   overview,
 };
-console.log(value);
 
 
 function addLS() { 
@@ -100,13 +99,13 @@ function addLS() {
  if( saved === null || !saved.includes(movieItem)){
 arr.push(movieItem);
 localStorage.setItem('LibraryMovie', JSON.stringify(arr));
+remindBtn.disabled = true;
 
  }
  else if(saved ==! null && arr.includes(movieItem.data)){
   remindBtn.disabled = true;
  }
 }
-
 function ls() {
   try {
     const itemLs = localStorage.getItem(KEY);
@@ -116,6 +115,7 @@ function ls() {
     }
     parceLS.map(elm => {
       if (elm.id === id) {
+        console.log(elm.id);
         remindBtn.disabled = true;
          }
     });
