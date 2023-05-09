@@ -7,9 +7,9 @@ import modalMovie from './js/modal_movie';
 import scrollUp from './js/scroll-up';
 import createWeekTrends from './js/createTrends';
 import './js/pagination';
-import { pagination } from './js/pagination-catalog';
+import pagination from './js/pagination-catalog';
 
 
 
 
-createWeekTrends(1);
+// createWeekTrends(1);

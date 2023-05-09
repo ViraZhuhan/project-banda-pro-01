@@ -13,8 +13,9 @@ pagination.on('beforeMove', async function (eventData) {
   try {
     api.setPage(currentPage);
     const response = await api.weeklyTrends({ itemsPerPage: 10 }); //Почему-то всё равно выводит 20
-    const films = response.results; // Получить массив фильмов из полученных данных
-    console.log(response); //пагинация срабатывает 
+    const films = response.results.slice(0, 10); // Получить массив фильмов из полученных данных
+    //добавил до results .slice(0, 10);
+    console.log(response); //пагинация срабатывает
     createGallery(films); // Обновить галерею на новую страницу
   } catch (error) {
     console.error('Error fetching movie data:', error);
