@@ -51,7 +51,7 @@ export default function getRefs() {
 
     // seach-form
     searchForm: document.querySelector('.search-form'),
-    searchInput: document.querySelector('#search-input'),
+    searchInput: document.querySelector('.input__block'),
     movieList: document.querySelector('#movie-list'),
     prevButton: document.querySelector('#btn-back'),
     nextButton: document.querySelector('#btn-next'),
