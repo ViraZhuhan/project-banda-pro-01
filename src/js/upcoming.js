@@ -160,35 +160,6 @@ export async function renderUpcomingMovieCard(res) {
         }
       }
       ls();
-
-// function addLS() { 
-//  const arr = [];
-//  const saved = localStorage.getItem('LibraryMovie');
-//  console.log(saved);
-//  if( saved === null || !saved.includes(movieItem)){
-// arr.push(movieItem);
-// localStorage.setItem('LibraryMovie', JSON.stringify(arr));
-
-//  }
-//  else if(saved ==! null && arr.includes(movieItem.data)){
-//   remindBtn.disabled = true;
-//  }
-// }
-
-// function ls() {
-//   try {
-//     const itemLs = localStorage.getItem(KEY);
-//     const parceLS = null ? undefined : JSON.parse(itemLs);
-//     if (parceLS === null) {
-//       return;
-//     }
-//     parceLS.map(elm => {
-//       if (elm.id === id) {
-//         remindBtn.disabled = true;
-//          }
-
-//     });
-//   } catch {
-//     error => console.log(error.message);
-//   }
-// }
+    });
+  } catch{error => (console.log(error.message))};
+  };
