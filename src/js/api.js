@@ -137,6 +137,9 @@ export default class Api {
 }
 
 
+
+
+
 // export default class ApiServer {
 //   #API_KEY = '225e339996bc91260b33199c383c8881';
 //   #dayTops = 'https://api.themoviedb.org/3/trending/all/day?';
