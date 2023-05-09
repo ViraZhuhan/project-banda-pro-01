@@ -7,5 +7,6 @@ import scrollUp from './js/scroll-up';
 import createWeekTrendsCatalog from './js/createTrends';
 import './js/pagination';
 import pagination from './js/pagination-catalog';
+import { getDayMovieTrend } from './js/hero';
 // import handleSearchFormSubmit from './js/seachcatalog';
 
