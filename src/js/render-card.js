@@ -56,4 +56,4 @@ function clearGallery() {
   refs.gallery.innerHTML = '';
 }
 
-export { createGallery };
+export { createGallery, clearGallery };
