@@ -56,7 +56,7 @@ async function getGenre(movieId) {
 }
 
 function getYear(dateString) {
-  return dateString ? dateString.slice(0, 4) : '';
+  return dateString ? dateString.slice(0, 10) : '';
 }
 
 // async function renderMovies(movies) {

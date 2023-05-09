@@ -86,8 +86,18 @@
 }
 
 .items__list {
-    margin-top: 20px;
+    position: relative;
+    // display: flex;
+    //     row-gap: 16px;
+    //     column-gap: 16px;
+    //     flex-direction: column;
+    //     flex-wrap: wrap;
+    padding-top: 40px;
+    gap: 16px;
+    height: auto;
+    top: auto;
     margin: auto;
+    width: calc(33.3333% - 10.6667px);
 }
 
 .btn-back {
