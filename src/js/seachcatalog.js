@@ -5,7 +5,7 @@ import { noFilmError, onFetchError } from './msg-error';
 import getRefs from './components/get-refs';
 import { genresList } from './components/genre-list';
 import { createGallery, clearGallery } from './render-card';
-import { updateGalleryBySearch } from './pagination-catalog';
+// import { updateGalleryBySearch } from './pagination-catalog';
 
 const searchApi = new Api();
 const refs = getRefs();

@@ -3,7 +3,7 @@ import { noFilmError, onFetchError } from './msg-error';
 import { createGallery } from './render-card';
 import getRefs from './components/get-refs';
 // import onOpenModalEmpty from './modal-empty';
-import { updateGalleryBySearch } from './pagination-catalog'; 
+
 
 const refs = getRefs();
 
@@ -29,4 +29,4 @@ async function createWeekTrendsCatalog() {
 createWeekTrendsCatalog();
 
 // export { createWeekTrendsCatalog };
-export { createWeekTrendsCatalog, updateGalleryBySearch };
+export { createWeekTrendsCatalog};
