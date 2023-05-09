@@ -117,7 +117,7 @@ const KEY = 'LibraryMovie';
   title: title,
   popularity,
   vote_average: voteAverage,
-  poster_path: imageUrl,
+  poster_path: data.poster_path,
   vote_count:voteCount,
   genre_ids: idGenre,
   overview,
