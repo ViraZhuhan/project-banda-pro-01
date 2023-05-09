@@ -10,5 +10,4 @@ import modalTeam from './js/modal-team';
 
 import modalMovie from './js/modal_movie';
 
-import widelySearch from './js/widelySearch';
 import loader from './js/loader';

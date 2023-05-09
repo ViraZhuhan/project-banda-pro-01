@@ -8,6 +8,7 @@ import {
 import { startSpinner, stopSpinner } from './loader';
 
 const form = document.querySelector('.filmFormWide');
+export const Api_widely_form = new Api_widely();
 
 window.addEventListener('click', hideDropdownMenu);
 form.addEventListener('submit', onSubmit);
@@ -66,28 +67,23 @@ form.country.addEventListener('input', async e => {
 async function onSubmit(e) {
   e.preventDefault();
   const { query, year, genre, country } = e.currentTarget.elements;
-
   const { code, CODE } = await getCodeLang_CodeCountry(country.value);
-
   const genreId = findGenreId(genre.value);
 
-  searchData.request = null;
-  searchData.response = null;
+  Api_widely_form.requestString = null;
+  Api_widely_form.response = null;
 
   startSpinner();
-
-  searchData.response = await getDataFromDB(
+  Api_widely_form.response = searchData.response = await getDataFromDB(
     query.value,
     year.value,
     code,
     CODE,
     1
   );
-  console.log(searchData.response);
-
   stopSpinner();
+  console.log(searchData.response);
   console.log(searchData.request);
-  // createFirstGalleryPart(res, genreId);
 }
 
 const formFilmStorage = {};
@@ -172,9 +168,8 @@ function filterByGenre(array, genreId) {
 }
 
 async function getDataFromDB(query, year, code, CODE, page) {
-  const a = new Api_widely();
   try {
-    const response = await a.searhByNameYearCountry({
+    const response = await Api_widely_form.searhByNameYearCountry({
       query: query || null,
       year: year || null,
       language: code && CODE && `${code}-${CODE}`,
