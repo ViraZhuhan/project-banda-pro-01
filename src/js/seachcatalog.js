@@ -92,6 +92,7 @@ export { onSearchFormSubmit };
 //   }
 // });
 
+
 // const form = document.getElementById('search-form');
 // const input = document.getElementById('search-input');
 // const movieList = document.getElementById('movie-list');
