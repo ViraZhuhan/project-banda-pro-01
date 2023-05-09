@@ -5,7 +5,7 @@
 
   height: 380px;
   //   overflow: hidden;
-  width: 100%;
+  width: 100vw;
   // margin: 0 auto;
 
   margin-left: auto;
@@ -18,7 +18,7 @@
   @include tablet {
     // height: 432px;
     height: 372px;
-    max-width: 768px;
+    // max-width: 768px;
 
     background-position: 0px 0px, 170px 0px;
     background-size: contain, contain;
@@ -26,7 +26,7 @@
 
   @include desktop {
     height: 660px;
-    max-width: 1280px;
+    // max-width: 1280px;
 
     background-size: auto, cover;
     background-repeat: no-repeat;
@@ -43,7 +43,7 @@
   flex-direction: column;
   color: $color-text;
   // width: 464px;
-  z-index: 999;
+  z-index: 1;
   width: 250px;
   height: 100%;
   padding-top: 40px;
@@ -66,10 +66,6 @@
     // padding-bottom: auto;
   }
 }
-
-// .title{
-
-// }
 
 .buttons {
   display: block;
