@@ -2,14 +2,7 @@ import Api from './api';
 // // import getRefs from './get-refs';
 // // import { noFilmError, onFetchError } from './msg-error';
 
-import { initRatings } from './init-rating';
-
-const refs = {
-  heroRef: document.querySelector('.hero'),
-  heroBtnRef: document.querySelector('.hero__button'),
-};
-
-const root = document.documentElement;
+/* import { initRatings } from './init-rating'; */
 
 import SubstructBlackDesk from '../images/hero-black-desk.png';
 import SubstructBlackTab from '../images/hero-black-tab.png';
@@ -18,11 +11,12 @@ import SubstructWhiteTab from '../images/hero-white-tab.png';
 import homePageBg from '../images/hero-home-desk.jpg';
 
 const pageHeroApi = new Api();
+const refs = {
+  heroRef: document.querySelector('.hero'),
+  heroBtnRef: document.querySelector('.hero__button'),
+};
 
-// const refs = {
-//   container: document.querySelector('.hero-decription'),
-//   hero: document.querySelector('.hero'),
-// };
+const root = document.documentElement;
 
 getDayMovieTrend();
 
