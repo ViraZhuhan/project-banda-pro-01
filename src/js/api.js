@@ -28,7 +28,7 @@ export default class Api {
   constructor() {
     this.page = 1;
     this.totalPages = 1;
-    this.searchQuery = '';
+    // this.searchQuery = '';
   }
 
   nextPage() {
@@ -47,13 +47,13 @@ export default class Api {
     this.page = 1;
   }
 
-  get query() {
-    return this.seachQuery;
-  }
+  // get query() {
+  //   return this.seachQuery;
+  // }
 
-  set query(newQuery) {
-    this.seachQuery = newQuery;
-  }
+  // set query(newQuery) {
+  //   this.seachQuery = newQuery;
+  // }
 
   async dayTrends() {
     try {
