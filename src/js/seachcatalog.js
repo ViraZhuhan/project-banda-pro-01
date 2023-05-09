@@ -14,6 +14,10 @@ refs.searchForm.addEventListener('submit', onSearchFormSubmit);
 async function onSearchFormSubmit(e) {
   e.preventDefault();
   const searchQuery = refs.searchInput.value;
+
+  if (searchQuery === '') {
+    onFetchError()
+  }
  
   if (searchQuery) {
     searchMovies(searchQuery);
@@ -25,8 +29,7 @@ async function searchMovies(query) {
     const response = await searchApi.searchMovieByQuery(query);
 
     if (response.results === null || response.results.length === 0) {
-       console.log('not')    
-       noSearchResults();
+      noSearchResults();
       clearGallery();
 
     }
@@ -35,7 +38,7 @@ async function searchMovies(query) {
     }
 
   } catch (error) {
-    console.log(error);
+    noFilmError();
   }
 }
 

@@ -3,11 +3,11 @@
     padding-top: 16px;
 
     @include tablet {
-        padding-top: 52px;
+        padding-top: 36px;
     }
 
     @include desktop {
-        padding-top: 80px;
+        padding-top: 48px;
     }
 }
 
@@ -34,7 +34,7 @@
     }
 
     &:hover {
-        scale: 1.05;
+        scale: 1.01;
     }
 }
 
