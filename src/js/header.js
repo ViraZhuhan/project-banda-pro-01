@@ -4,9 +4,14 @@ import getRefs from './components/get-refs';
 const refs = getRefs();
 
 export default (() => {
- 
   const pathName = window.location.pathname.split('?')[0];
-  const homeHrefs = ['/index.html', '/'];
+  const homeHrefs = [
+    '/index.html',
+    '/',
+    '/project-banda-pro-01',
+    '/project-banda-pro-01/',
+    '/project-banda-pro-01/index.html',
+  ];
 
   refs.pageLinks.forEach(link => {
     const url = link.getAttribute('href');
