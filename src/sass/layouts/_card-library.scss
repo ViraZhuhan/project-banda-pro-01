@@ -1,0 +1,12 @@
+.library-cards {
+  background-color: var(--bg-primary);
+  padding-top: 16px;
+
+  @include tablet {
+    padding-top: 52px;
+  }
+
+  @include desktop {
+    padding-top: 80px;
+  }
+}
