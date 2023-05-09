@@ -5,10 +5,11 @@ import header from './js/header';
 import modalMovie from './js/modal_movie';
 // import { createWeekTrends } from './js/render-card';
 import scrollUp from './js/scroll-up';
-import { createWeekTrends } from './js/createTrends';
+import createWeekTrends from './js/createTrends';
 import './js/pagination';
 import { pagination } from './js/pagination-catalog';
 
-createWeekTrends(1);
 
-    
+
+
+createWeekTrends(1);

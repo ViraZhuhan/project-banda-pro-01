@@ -47,9 +47,7 @@ form.addEventListener('submit', async (event) => {
   }
 });
 
-export async function searchMovies(query, page = 1) {
-  // Ваша текущая реализация функции searchMovies
-}
+
 
 
 
