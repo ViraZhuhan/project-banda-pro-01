@@ -1,26 +1,8 @@
-import Api from './api';
-import { noFilmError, onFetchError } from './msg-error';
-import getRefs from './components/get-refs';
-import {createGallery}  from './render-card';
+import Api from '../api';
+import { noFilmError, onFetchError } from '../msg-error';
+import {createGallery}  from '../render-card';
 
 const seachApi = new Api();
-const refs = getRefs();
-
-async function createWeekTrendsHome() {
-  try {
-    const response = await seachApi.weekTrends();
-    createGallery(response.results.slice(0, 3));
-  } catch (error) {
-    noFilmError;
-  }
-}
-
-createWeekTrendsHome();
-
-export { createWeekTrendsHome };
-
-
-
 
 // // ======================================================
 // function initRatings() {

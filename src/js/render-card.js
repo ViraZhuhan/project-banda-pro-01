@@ -1,24 +1,21 @@
-import Api from './api';
-import { Loading } from 'notiflix';
 import { initRatings } from './init-rating';
-import { noFilmError, onFetchError } from './msg-error';
 import getRefs from './components/get-refs';
 import { genresList } from './components/genre-list';
+import initRating from './init-rating';
 
 const refs = getRefs();
 
 function markup(data) {
-  return data
-    .map(({ poster_path, title, vote_average, release_date, genre_ids, id }) => {
+  return data.map(
+    ({ poster_path, title, vote_average, release_date, genre_ids, id }) => {
       const genres = genresList(genre_ids);
       const release = new Date(release_date).getFullYear();
 
-          const imageUrl = poster_path
+      const imageUrl = poster_path
         ? `https://image.tmdb.org/t/p/w500/${poster_path}`
         : 'https://via.placeholder.com/395x574?text=No+Image';
 
-            
-        initRatings();
+      // initRatings();
 
       return `<li class="gallery__item" id='${id}'>
         <article>
@@ -46,19 +43,18 @@ function markup(data) {
           </div>
         </article>
         </li>`;
-    })
-    ;
+    }
+  );
 }
 
 function createGallery(films) {
   clearGallery();
   refs.gallery.innerHTML = markup(films).join('');
+  refs.galleryCatalog.innerHTML = markup(films).join('');
 }
 
 function clearGallery() {
   refs.gallery.innerHTML = '';
 }
 
-export { createGallery };
-
-
+export { createGallery, clearGallery };

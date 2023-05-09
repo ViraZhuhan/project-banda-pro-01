@@ -1,20 +1,30 @@
 import Api from './api';
 import { noFilmError, onFetchError } from './msg-error';
+import { createGallery } from './render-card';
 import getRefs from './components/get-refs';
-import {createGallery}  from './render-card';
+// import onOpenModalEmpty from './modal-empty';
 
-const seachApi = new Api();
 const refs = getRefs();
 
-async function createWeekTrends() {
+const searchApi = new Api();
+
+async function createWeekTrendsCatalog() {
   try {
-    const response = await seachApi.weekTrends();
-    createGallery(response.results.slice(0, 10));
+    const response = await searchApi.weekTrends();
+    if (response.results === null || response.results.length === 0) {
+      // onOpenModalEmpty();
+    } else if (response.results) {
+      if (refs.gallery.classList.contains('gallery-catalog')) {
+        createGallery(response.results.slice(0, 10));
+      } else {
+        createGallery(response.results.slice(0, 3));
+      }
+    }
   } catch (error) {
     noFilmError;
   }
 }
 
-createWeekTrends();
+createWeekTrendsCatalog();
 
-export { createWeekTrends };
+export { createWeekTrendsCatalog };

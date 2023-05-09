@@ -7,7 +7,7 @@ const API_KEY = '225e339996bc91260b33199c383c8881';
 const example = `${MOVIE_URL}movie/550?api_key=${API_KEY}`;
 
 // all - movie - tv - person | week - day |
-const dayRoute = `${MOVIE_URL}trending/all/dayRoute?api_key=${API_KEY}`;
+const dayRoute = `${MOVIE_URL}trending/all/day?api_key=${API_KEY}`;
 const weekRoute = `${MOVIE_URL}trending/all/week?api_key=${API_KEY}`;
 
 // genres
@@ -19,9 +19,16 @@ const countriesRoute = `${MOVIE_URL}configuration/countries?api_key=${API_KEY}`;
 //
 const upcoming = `${MOVIE_URL}movie/upcoming?api_key=${API_KEY}`;
 
+
+const URL_SEARCH_MOVIE = `${MOVIE_URL}/search/movie`;
+const URL_GET_MOVIE = `${MOVIE_URL}/movie`;
+
+
 export default class Api {
   constructor() {
     this.page = 1;
+    this.totalPages = 1;
+    // this.searchQuery = '';
   }
 
   nextPage() {
@@ -40,14 +47,14 @@ export default class Api {
     this.page = 1;
   }
 
-  async weeklyTrends() {
-    const { data } = await axios.get(`${weekRoute}&page=${this.page}`);
+  // get query() {
+  //   return this.seachQuery;
+  // }
 
-    return data;
-  }
+  // set query(newQuery) {
+  //   this.seachQuery = newQuery;
+  // }
 
-
-  
   async dayTrends() {
     try {
       const response = await fetch(`${dayRoute}&page=${this.page}`);
@@ -80,7 +87,6 @@ export default class Api {
 
     async getDetailsById(id) {
     const str = `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`;
-    await new Promise(r => setTimeout(r, 1000));
     return fetch(str).then(res => res.json());
   }
 
@@ -99,6 +105,16 @@ export default class Api {
     return fetch(`${countriesRoute}&page=${this.page}`).then(res => res.json());
   }
 
+  async searchMovieByQuery(searchQuery) {
+    const response = await axios.get(
+      `${MOVIE_URL}search/movie?api_key=${API_KEY}&query=${searchQuery}&page=${this.page}`
+    );
+
+    // this.incrementPage();
+    return response.data;
+  }
+
+ 
   async searhByNameYear(obj = {}) {
     let str = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&include_adult=false`;
 

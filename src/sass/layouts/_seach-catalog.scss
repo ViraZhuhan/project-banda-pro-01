@@ -1,4 +1,6 @@
 .search-wrapper {
+    background-color: var(--bg-primary);
+
     display: flex;
     gap: 8px;
     flex-wrap: wrap;
@@ -6,7 +8,7 @@
     justify-content: center;
     padding-top: 40px;
     padding-bottom: 28px;
-    
+
     @include tablet {
     flex-direction: row;
     flex-wrap: nowrap;
@@ -14,12 +16,13 @@
     padding-top: 60px;
     padding-bottom: 40px;
     }
-    
+
     @include desktop {
     padding-top: 60px;
     padding-bottom: 80px;
     }
 }
+
 
 .search-form {
     display: flex;
@@ -31,23 +34,24 @@
     width: 264px;
     height: 44px;
     top: auto;
+ 
 }
 
-.search-input-field {
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 12px 10px 12px 20px;
-    gap: 10px;
-    width: 204px;
-    height: 44px;
-    border: 1px solid #FFFFFF;
-    border-radius: 8px;
-    flex: none;
-    order: 0;
-    flex-grow: 0;   
-}
+// .search-input-field {
+//     box-sizing: border-box;
+//     display: flex;
+//     flex-direction: row;
+//     align-items: center;
+//     padding: 12px 10px 12px 20px;
+//     gap: 10px;
+//     width: 204px;
+//     height: 44px;
+//     border: 1px solid #FFFFFF;
+//     border-radius: 8px;
+//     flex: none;
+//     order: 0;
+//     flex-grow: 0;
+// }
 
 .search-button {
     width: 44px;
@@ -65,13 +69,11 @@
     border: none;
 }
 
-.icon-search {
-    width: 20px;
-    height: 20px;
-}
+// .icon-search {
+//     width: 20px;
+//     height: 20px;
+// }
 
-
-.movie-list {
-    margin-top: 20px;
-}
-
+// .movie-list {
+//     margin-top: 20px;
+// }

@@ -1,4 +1,4 @@
-<div class="search-wrapper">
+<!-- <div class="search-wrapper">
     <form class="search-form">
         <input type="text" class="search-input-field" placeholder="Search">
         <button type="submit" class="search-button" aria-label="Search">
@@ -10,4 +10,36 @@
     <section>
         <div class="movie-list"></div>
     </section>
-</div>
+</div> -->
+
+<section class="block section">
+  <div class="search-wrapper">
+        <form class="search-form" id="search-form">
+        <input
+          class="input__block"
+          type="text"
+          name="search"
+          id="search-input"
+          placeholder="Search"
+          autocomplete="off"
+        />
+        <button class="search-button" type="submit" aria-label="search button">
+          <svg class="icon-search" width="20" height="20">
+            <use
+              xlink:href="./images/symbol-defs.svg#icon-search"
+              alt="Search icon"
+            ></use>
+          </svg>
+        </button>
+    </form>
+
+       
+
+      <!-- <div class="pagination">
+        <button class="btn-back" id="btn-back">Prev</button>
+        <button class="btn-next" id="btn-next">Next</button>
+      </div> -->
+  
+  </div>
+  <ul class="gallery gallery-catalog" id="movie-list"></ul>
+</section>

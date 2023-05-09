@@ -37,13 +37,12 @@ refs.gallery.addEventListener('click', event => {
 export async function modalMovie(id) {
   try {
     const data = await api.getDetailsById(id);
-    console.log(data);
     const idGenres = data.genres;
     const newGenreMovie = [];
     idGenres.map(elem => {
       newGenreMovie.push(elem.name);
     });
-    const key = data.title;
+
     const voteAverage = data.vote_average.toFixed(2);
     const popularity = data.popularity.toFixed(1);
     const imageUrl = data.poster_path
@@ -77,41 +76,64 @@ export async function modalMovie(id) {
     closeModalBtn.addEventListener('click', toggleModal);
     buttonAdd.addEventListener('click', addLS);
     buttonRemove.addEventListener('click', removeLS);
-    ls();
+
+    const ID_GENRE = idGenres.map(({ id }) => id);
+    const KEY = 'LibraryMovie';
+    const movieItem = {
+      release_date: data.release_date,
+      id,
+      title: data.title,
+      popularity,
+      vote_average: voteAverage,
+      poster_path: imageUrl,
+      vote_count: data.vote_count,
+      genre_ids: ID_GENRE,
+      overview: data.overview,
+    };
     function addLS() {
-      const value = {
-        data: data.release_date,
-        id,
-        title: data.title,
-        popularity,
-        voteAverage,
-        img: imageUrl,
-        voteCount: data.vote_count,
-        genres: newGenreMovie,
-        overview: data.overview,
-      };
-      localStorage.setItem(key, JSON.stringify(value));
-      buttonAdd.classList.add('hidden');
-      buttonRemove.classList.remove('hidden');
-    }
-    function removeLS() {
-      localStorage.removeItem(key);
-      buttonAdd.classList.remove('hidden');
-      buttonRemove.classList.add('hidden');
-    }
-    function ls() {
       try {
-        const itemLs = localStorage.getItem(key);
-        const parceLS = null ? undefined : JSON.parse(itemLs);
-        if (parceLS === null) {
-          return;
-        }
+        let objects = null
+          ? undefined
+          : JSON.parse(localStorage.getItem(KEY)) || [];
+        objects.push(movieItem);
+        localStorage.setItem(KEY, JSON.stringify(objects));
         buttonAdd.classList.add('hidden');
         buttonRemove.classList.remove('hidden');
       } catch (error) {
         console.error(error);
       }
     }
+
+    function removeLS() {
+      try {
+        let objects = null ? undefined : JSON.parse(localStorage.getItem(KEY));
+        const indexMovie = objects.findIndex(obj => obj.id === id);
+        objects.splice(indexMovie, 1);
+        localStorage.setItem(KEY, JSON.stringify(objects));
+        buttonAdd.classList.remove('hidden');
+        buttonRemove.classList.add('hidden');
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    function ls() {
+      try {
+        const itemLs = localStorage.getItem(KEY);
+        const parceLS = null ? undefined : JSON.parse(itemLs);
+        if (parceLS === null) {
+          return;
+        }
+        parceLS.map(elm => {
+          if (elm.id === id) {
+            buttonAdd.classList.add('hidden');
+            buttonRemove.classList.remove('hidden');
+          }
+        });
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    ls();
   } catch (error) {
     console.error(error);
   }
