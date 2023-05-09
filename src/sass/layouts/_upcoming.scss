@@ -211,12 +211,14 @@ color: var(--color-text-secondary);
     
   background: linear-gradient(141.22deg, #FFC226 9.4%, #F84119 91.91%);
   border-radius: 74px;
-  border: none;
+  border: none; 
   &:hover,
   &:focus {
     background: $color-text;
     border-color: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
     color: $color-accent;
+    border: 1px solid;
+
   }
 
   @include tablet{

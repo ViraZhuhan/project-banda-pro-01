@@ -106,54 +106,54 @@ export async function renderUpcomingMovieCard(res) {
 <button type="button" class="upcoming__button">Remind me</button>
 </div>
 </div>`;
-      remindBtn = document.querySelector('.upcoming__button');
-      remindBtn.addEventListener('click', addLS);
-      const KEY = 'LibraryMovie';
 
-      const movieItem = {
-        // release_date: formatDate,
-        release_date: data.release_date,
-        // id: movieId,
-        id: String(data.id),
-        title: title,
-        popularity,
-        vote_average: voteAverage,
-        // poster_path: imageUrl,
-        poster_path: posterUrl,
-        vote_count: voteCount,
-        genre_ids: idGenre,
-        overview,
-      };
-      console.log(value);
+remindBtn = document.querySelector('.upcoming__button')
+remindBtn.addEventListener('click', addLS);
+const KEY = 'LibraryMovie';
+
+ const movieItem = {
+  release_date: formatDate,
+  id: movieId,
+  title: title,
+  popularity,
+  vote_average: voteAverage,
+  poster_path: imageUrl,
+  vote_count:voteCount,
+  genre_ids: idGenre,
+  overview,
+};
 
 
-      function addLS() {
-        const arr = [];
-        const saved = localStorage.getItem('LibraryMovie');
-        console.log(saved);
-        if (saved === null || !saved.includes(movieItem)) {
-          arr.push(movieItem);
-          localStorage.setItem('LibraryMovie', JSON.stringify(arr));
-          remindBtn.disabled = true;
-          remindBtn.style.backgraund = 'grey';
-        } else if (saved == !null && arr.includes(movieItem.release_date)) {
-          remindBtn.disabled = true;
-          remindBtn.style.backgraund = 'grey';
-        }
-      }
 
-      function ls() {
-        try {
-          const itemLs = localStorage.getItem(KEY);
-          const parceLS = null ? undefined : JSON.parse(itemLs);
-          if (parceLS === null) {
-            return;
-          }
-          parceLS.map(elm => {
-            if (elm.id === id) {
-              remindBtn.disabled = true;
-              remindBtn.style.backgraund = 'grey';
-            }
+function addLS() { 
+ const arr = [];
+ const saved = localStorage.getItem('LibraryMovie');
+ console.log(saved);
+ if( saved === null || !saved.includes(movieItem)){
+arr.push(movieItem);
+localStorage.setItem('LibraryMovie', JSON.stringify(arr));
+remindBtn.disabled = true;
+
+ }
+ else if(saved ==! null && arr.includes(movieItem.data)){
+  remindBtn.disabled = true;
+ }
+}
+function ls() {
+  try {
+    const itemLs = localStorage.getItem(KEY);
+    const parceLS = null ? undefined : JSON.parse(itemLs);
+    if (parceLS === null) {
+      return;
+    }
+    parceLS.map(elm => {
+      if (elm.id === id) {
+        console.log(elm.id);
+        remindBtn.disabled = true;
+         }
+
+
+ 
           });
         } catch (error) {
           console.error(error);
