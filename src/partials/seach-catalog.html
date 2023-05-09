@@ -13,9 +13,8 @@
 </div> -->
 
 <section class="block section">
-  <div class="container__block container">
-    <form class="form__block" id="search-form">
-      <div class="form__wrapper">
+  <div class="search-wrapper">
+        <form class="search-form" id="search-form">
         <input
           class="input__block"
           type="text"
@@ -24,7 +23,7 @@
           placeholder="Search"
           autocomplete="off"
         />
-        <button class="button__block" type="submit" aria-label="search button">
+        <button class="search-button" type="submit" aria-label="search button">
           <svg class="icon-search" width="20" height="20">
             <use
               xlink:href="./images/symbol-defs.svg#icon-search"
@@ -32,26 +31,15 @@
             ></use>
           </svg>
         </button>
-      </div>
     </form>
-    <section class="grid">
-      <ul class="items__error" id="cards__error"></ul>
-      <div class="items__wrapper">
-        <div class="items__message items__disabled">
-          <p class="items__text">
-            OOPS...<br />
-            We are very sorry!<br />
-            We don’t have any results due to your search.
-          </p>
-        </div>
 
-        <ul class="items__list" id="movie-list"></ul>
-      </div>
+       
 
-      <div class="pagination">
+      <!-- <div class="pagination">
         <button class="btn-back" id="btn-back">Prev</button>
         <button class="btn-next" id="btn-next">Next</button>
-      </div>
-    </section>
+      </div> -->
+  
   </div>
+  <ul class="gallery gallery-catalog" id="movie-list"></ul>
 </section>
