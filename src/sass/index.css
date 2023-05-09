@@ -1116,7 +1116,7 @@ input:checked + .switch__marker {
   align-items: flex-start;
   flex-direction: column;
   color: #ffffff;
-  z-index: 999;
+  z-index: 1;
   width: 250px;
   height: 100%;
   padding-top: 40px;
@@ -1269,8 +1269,36 @@ input:checked + .switch__marker {
 }
 
 .hero__btn {
+  display: block;
+  outline: none;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.2;
+  padding: 12px 24px;
+  font-family: "Roboto";
+  font-style: normal;
+  color: #111111;
+  background: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
+  border-radius: 74px;
   width: 110px;
   margin-top: 16px;
+}
+.hero__btn:hover, .hero__btn:focus {
+  background: #ffffff;
+  border-color: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
+  color: #f87719;
+}
+@media screen and (min-width: 768px) {
+  .hero__btn {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .hero__btn {
+    font-size: 16px;
+    line-height: 1.5;
+  }
 }
 @media screen and (min-width: 768px) {
   .hero__btn {
@@ -1898,7 +1926,7 @@ input:checked + .switch__marker {
   align-items: flex-start;
   flex-direction: column;
   color: #ffffff;
-  z-index: 999;
+  z-index: 1;
   width: 250px;
   height: 100%;
   padding-top: 40px;
@@ -2051,8 +2079,36 @@ input:checked + .switch__marker {
 }
 
 .hero__btn {
+  display: block;
+  outline: none;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.2;
+  padding: 12px 24px;
+  font-family: "Roboto";
+  font-style: normal;
+  color: #111111;
+  background: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
+  border-radius: 74px;
   width: 110px;
   margin-top: 16px;
+}
+.hero__btn:hover, .hero__btn:focus {
+  background: #ffffff;
+  border-color: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
+  color: #f87719;
+}
+@media screen and (min-width: 768px) {
+  .hero__btn {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .hero__btn {
+    font-size: 16px;
+    line-height: 1.5;
+  }
 }
 @media screen and (min-width: 768px) {
   .hero__btn {

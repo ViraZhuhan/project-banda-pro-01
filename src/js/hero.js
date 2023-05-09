@@ -1,38 +1,68 @@
 import Api from './api';
 // // import getRefs from './get-refs';
 // // import { noFilmError, onFetchError } from './msg-error';
+import { onOpenHeroModal, getMovieById } from './hero-modal';
 
-import { initRatings } from './init-rating';
+
+// import { initRatings } from './init-rating';
 
 const refs = {
   heroRef: document.querySelector('.hero'),
   heroBtnRef: document.querySelector('.hero__button'),
+
+
 };
 
-import SubstructBlackDesk from '../images/hero-black-desk.png';
-import SubstructBlackTab from '../images/hero-black-tab.png';
+import subDeskBlack from '../images/hero-black-desk.png';
+import subTabBlack from '../images/hero-black-tab.png';
+import subDeskWhite from '../images/hero-white-desk.png';
+import subTabWhite from '../images/hero-white-tab.png';
 import homePageBg from '../images/hero-home-desk.jpg';
 
 const pageHeroApi = new Api();
+
+
+
+  
+getDayMovieTrend();
+  
+export { getDayMovieTrend, renderHeroPageMarkup };
+
 
 // const refs = {
 //   container: document.querySelector('.hero-decription'),
 //   hero: document.querySelector('.hero'),
 // };
 
-getDayMovieTrend();
+let subtractHeroDesk;
+let subtractHeroTab;
+
+document.addEventListener('DOMContentLoaded', handleLoading);
+
 
 async function getDayMovieTrend() {
   try {
     const response = await pageHeroApi.dayTrends();
 
-    renderHeroPageMarkup(response.results[0]);
+    const random = response[Math.floor(Math.random(results.length) * 20)];
+
+    renderHeroPageMarkup(response.results[random]);
+    getMovieById(response.results[random].id);
+
   } catch (err) {
     renderDefaultMarkup();
   }
 }
 
-export { getDayMovieTrend, renderHeroPageMarkup };
+function handleLoading() {
+  if (document.body.classList.contains('light')) {
+    subtractHeroDesk = subDeskWhite;
+    subtractHeroTab = subTabWhite;
+  } else {
+    subtractHeroDesk = subDeskBlack;
+    subtractHeroTab = subTabBlack;
+  }
+}
 
 function renderDefaultMarkup() {
   refs.heroRef.innerHTML = `<div class="hero__wrapper container ">
@@ -43,7 +73,7 @@ function renderDefaultMarkup() {
    <a href="/src/catalog.html" class="hero__btn buttuns">Get Started</a>
    </div>`;
 
-  changeHeroBackground(homePageBg);
+  changeHeroBg(homePageBg);
 }
 
 function renderHeroPageMarkup({
@@ -53,6 +83,7 @@ function renderHeroPageMarkup({
   vote_average,
 }) {
   const url = `https://image.tmdb.org/t/p/original${backdrop_path}`;
+  const switchId = document.getElementById('switch__id');
 
   refs.heroRef.innerHTML = `<div class="hero__wrapper ">
     <h1 class="hero__movie-title">${title}</h1>
@@ -73,15 +104,24 @@ function renderHeroPageMarkup({
     <button class=" watch__btn buttons">Watch trailer</button>
    </div>`;
 
-  changeHeroBackground(url);
+  changeHeroBg(url);
+
+  const watchBtnRef = document.querySelector('.hero__btn');
+
+  watchBtnRef.addEventListener('click', onOpenHeroModal);
+  switchId.addEventListener('click', handleHero);
+
+  function handleHero() {
+    handleLoading();
+    changeHeroBg(url);
+  }
 }
 
-function changeHeroBackground(bgImg) {
-  // перевіряємо ширину екрану при завантаженні сторінки та додаємо відповідний фон
+function changeHeroBg(bgImg) {
   if (window.matchMedia('(min-width: 1280px)').matches) {
-    refs.heroRef.style.backgroundImage = `url('${SubstructBlackDesk}'), url('${bgImg}')`;
+    refs.heroRef.style.backgroundImage = `url('${subtractHeroDesk}'), url('${bgImg}')`;
   } else if (window.matchMedia('(min-width: 768px)').matches) {
-    refs.heroRef.style.backgroundImage = `url('${SubstructBlackTab}'), url('${bgImg}')`;
+    refs.heroRef.style.backgroundImage = `url('${subtractHeroTab}'), url('${bgImg}')`;
   } else {
     refs.heroRef.style.backgroundImage = `linear-gradient(
       87.8deg,
@@ -93,12 +133,12 @@ function changeHeroBackground(bgImg) {
   window.addEventListener('resize', onPageChangeSize);
 
   function onPageChangeSize(e) {
-    const currentPageWidth = e.currentTarget.innerWidth;
-    if (currentPageWidth >= 1280) {
-      refs.heroRef.style.backgroundImage = `url('${SubstructBlackDesk}'), url('${bgImg}')`;
-    } else if (currentPageWidth >= 768) {
-      refs.heroRef.style.backgroundImage = `url('${SubstructBlackTab}'), url('${bgImg}')`;
-    } else if (currentPageWidth < 768) {
+    const currentWidth = e.currentTarget.innerWidth;
+    if (currentWidth >= 1280) {
+      refs.heroRef.style.backgroundImage = `url('${subtractHeroDesk}'), url('${bgImg}')`;
+    } else if (currentWidth >= 768) {
+      refs.heroRef.style.backgroundImage = `url('${subtractHeroTab}'), url('${bgImg}')`;
+    } else {
       refs.heroRef.style.backgroundImage = `linear-gradient(
       87.8deg,
       #0e0e0e 15.61%,
@@ -107,3 +147,4 @@ function changeHeroBackground(bgImg) {
     }
   }
 }
+

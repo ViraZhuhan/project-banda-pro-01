@@ -43,7 +43,7 @@
   flex-direction: column;
   color: $color-text;
   // width: 464px;
-  z-index: 999;
+  z-index: 1;
   width: 250px;
   height: 100%;
   padding-top: 40px;
@@ -276,6 +276,39 @@
 }
 
 .hero__btn {
+  display: block;
+  //   margin-top: 16px;
+  outline: none;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.2;
+  // height: 48px;
+  padding: 12px 24px;
+  font-family: 'Roboto';
+  font-style: normal;
+  color: $color-primary-dark;
+
+  background: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
+  border-radius: 74px;
+  //   border: solid 1px;
+
+  &:hover,
+  &:focus {
+    background: $color-text;
+    border-color: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
+    color: $color-accent;
+  }
+
+  @include tablet {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  @include desktop {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
   width: 110px;
   margin-top: 16px;
   @include tablet {

@@ -2,6 +2,8 @@
 import header from './js/header';
 import mobileMenu from './js/mobile-menu';
 import themeToggle from './js/themeToggle';
+import { onOpenHeroModal, getMovieById } from './js/hero-modal';
+
 import { getDayMovieTrend } from './js/hero';
 import { fetchUpcomingMovie, renderUpcomingMovieCard } from './js/upcoming';
 import createWeekTrendsCatalog from './js/createTrends';
