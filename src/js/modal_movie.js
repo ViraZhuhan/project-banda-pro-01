@@ -1,4 +1,5 @@
 import Api from './api';
+import { createGallery } from './render-card';
 const api = new Api();
 
 const refs = {
@@ -35,6 +36,7 @@ refs.gallery.addEventListener('click', event => {
 // ========================================================
 
 export async function modalMovie(id) {
+  console.log(typeof id, id);
   try {
     const data = await api.getDetailsById(id);
     const idGenres = data.genres;
@@ -112,6 +114,13 @@ export async function modalMovie(id) {
         localStorage.setItem(KEY, JSON.stringify(objects));
         buttonAdd.classList.remove('hidden');
         buttonRemove.classList.add('hidden');
+        const movies = JSON.parse(localStorage.getItem(KEY));
+        createGallery(movies);
+        const noFilmsMessage = document.querySelector('.alert__message');
+
+        if ((movies === null || movies.length === 0) && noFilmsMessage) {
+          noFilmsMessage.classList.remove('hidden');
+        }
       } catch (error) {
         console.error(error);
       }

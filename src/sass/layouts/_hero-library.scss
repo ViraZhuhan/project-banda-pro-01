@@ -144,16 +144,20 @@
 }
 
 .library-cards__btn {
-  font-family: 'Roboto';
   @include font-text($fw: 500, $fs: 12, $lh: 1.16);
+
+  padding: 12px 24px;
+  border-radius: 74px;
+  font-size: 12px;
+  line-height: 1.33;
+  background: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
+  color: $color-bg-header;
+  border: 1px solid $color-text-focus;
+
   display: block;
   margin-left: auto;
   margin-right: auto;
-  padding: 12px, 24px;
   margin-bottom: 42px;
-
-  background: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
-  border-radius: 74px;
 
   @include tablet {
     @include font-text($fs: 14, $lh: 1.14);
@@ -164,4 +168,10 @@
     margin-bottom: 108px;
     @include font-text($fs: 18, $lh: 1.5);
   }
+}
+
+.library-cards__btn:hover {
+  background-color: $color-text-primary;
+  border: 1px solid $color-text-focus;
+  color: $color-bg-header;
 }
