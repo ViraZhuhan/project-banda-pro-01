@@ -9,8 +9,12 @@ const refs = {
   heroBtnRef: document.querySelector('.hero__button'),
 };
 
+const root = document.documentElement;
+
 import SubstructBlackDesk from '../images/hero-black-desk.png';
 import SubstructBlackTab from '../images/hero-black-tab.png';
+import SubstructWhiteDesk from '../images/hero-white-desk.png';
+import SubstructWhiteTab from '../images/hero-white-tab.png';
 import homePageBg from '../images/hero-home-desk.jpg';
 
 const pageHeroApi = new Api();
@@ -79,9 +83,15 @@ function renderHeroPageMarkup({
 function changeHeroBackground(bgImg) {
   // перевіряємо ширину екрану при завантаженні сторінки та додаємо відповідний фон
   if (window.matchMedia('(min-width: 1280px)').matches) {
-    refs.heroRef.style.backgroundImage = `url('${SubstructBlackDesk}'), url('${bgImg}')`;
+    const bgDecorator = root.classList.contains('light')
+      ? SubstructWhiteDesk
+      : SubstructBlackDesk;
+    refs.heroRef.style.backgroundImage = `url('${bgDecorator}'), url('${bgImg}')`;
   } else if (window.matchMedia('(min-width: 768px)').matches) {
-    refs.heroRef.style.backgroundImage = `url('${SubstructBlackTab}'), url('${bgImg}')`;
+    const bgDecorator = root.classList.contains('light')
+      ? SubstructWhiteTab
+      : SubstructBlackTab;
+    refs.heroRef.style.backgroundImage = `url('${bgDecorator}'), url('${bgImg}')`;
   } else {
     refs.heroRef.style.backgroundImage = `linear-gradient(
       87.8deg,
@@ -95,9 +105,15 @@ function changeHeroBackground(bgImg) {
   function onPageChangeSize(e) {
     const currentPageWidth = e.currentTarget.innerWidth;
     if (currentPageWidth >= 1280) {
-      refs.heroRef.style.backgroundImage = `url('${SubstructBlackDesk}'), url('${bgImg}')`;
+      const bgDecorator = root.classList.contains('light')
+        ? SubstructWhiteDesk
+        : SubstructBlackDesk;
+      refs.heroRef.style.backgroundImage = `url('${bgDecorator}'), url('${bgImg}')`;
     } else if (currentPageWidth >= 768) {
-      refs.heroRef.style.backgroundImage = `url('${SubstructBlackTab}'), url('${bgImg}')`;
+      const bgDecorator = root.classList.contains('light')
+        ? SubstructWhiteTab
+        : SubstructBlackTab;
+      refs.heroRef.style.backgroundImage = `url('${bgDecorator}'), url('${bgImg}')`;
     } else if (currentPageWidth < 768) {
       refs.heroRef.style.backgroundImage = `linear-gradient(
       87.8deg,
