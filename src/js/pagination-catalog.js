@@ -1,4 +1,72 @@
 
+
+// import Api from './api';
+// import { createGallery } from './render-card';
+// import { pagination } from './pagination';
+
+// const api = new Api();
+
+// // Установка обработчика события при смене страницы трендовых фильмов
+// pagination.on('beforeMove', async function (eventData) {
+//   const currentPage = eventData.page;
+//   try {
+//     api.setPage(currentPage);
+//     const response = await api.weekTrends({ itemsPerPage: 10 });
+//     const films = response.results.slice(0, 10);
+//     createGallery(films);
+//   } catch (error) {
+//     console.error('Error fetching movie data:', error);
+//   }
+// });
+
+// // Обновление галереи при поиске фильмов
+// async function updateGalleryBySearch(query) {
+//   try {
+//     api.setSearchQuery(query);
+//     api.resetSearchPage();
+//     const response = await api.searchMovieByQuery(query, { itemsPerPage: 10 });
+//     const films = response.results.slice(0, 10);
+//     createGallery(films);
+//     pagination.reset(response.total_results);
+//   } catch (error) {
+//     console.error('Error updating gallery with search results:', error);
+//   }
+// }
+
+// // Инициализация пагинации при загрузке страницы
+// async function initializePagination(initializationType) {
+//   try {
+//     let response;
+//     let totalItems;
+
+//     if (initializationType === 'trends') {
+//       response = await api.weekTrends({ itemsPerPage: 10 });
+//       totalItems = response.total_results;
+//     } else if (initializationType === 'search') {
+//       response = await api.searchMovieByQuery(api.getSearchQuery(), {
+//         itemsPerPage: 10,
+//       });
+//       totalItems = response.total_results;
+//     }
+
+//     pagination.reset(totalItems);
+//   } catch (error) {
+//     console.error('Error initializing pagination:', error);
+//   }
+// }
+
+// // Инициализация пагинации при загрузке страницы
+// initializePagination('trends');
+
+// export { updateGalleryBySearch };
+
+
+
+
+
+// Старе
+
+
   //последний с ошибкой пойска
 
 // import Api from './api';
@@ -78,69 +146,6 @@
 
 
 // export { updateGalleryBySearch };
-
-
-
-
-import Api from './api';
-import { createGallery } from './render-card';
-import { pagination } from './pagination';
-
-const api = new Api();
-
-// Установка обработчика события при смене страницы трендовых фильмов
-pagination.on('beforeMove', async function (eventData) {
-  const currentPage = eventData.page;
-  try {
-    api.setPage(currentPage);
-    const response = await api.weekTrends({ itemsPerPage: 10 });
-    const films = response.results.slice(0, 10);
-    createGallery(films);
-  } catch (error) {
-    console.error('Error fetching movie data:', error);
-  }
-});
-
-// Обновление галереи при поиске фильмов
-async function updateGalleryBySearch(query) {
-  try {
-    api.setSearchQuery(query);
-    api.resetSearchPage();
-    const response = await api.searchMovieByQuery(query, { itemsPerPage: 10 });
-    const films = response.results.slice(0, 10);
-    createGallery(films);
-    pagination.reset(response.total_results);
-  } catch (error) {
-    console.error('Error updating gallery with search results:', error);
-  }
-}
-
-// Инициализация пагинации при загрузке страницы
-async function initializePagination(initializationType) {
-  try {
-    let response;
-    let totalItems;
-
-    if (initializationType === 'trends') {
-      response = await api.weekTrends({ itemsPerPage: 10 });
-      totalItems = response.total_results;
-    } else if (initializationType === 'search') {
-      response = await api.searchMovieByQuery(api.getSearchQuery(), {
-        itemsPerPage: 10,
-      });
-      totalItems = response.total_results;
-    }
-
-    pagination.reset(totalItems);
-  } catch (error) {
-    console.error('Error initializing pagination:', error);
-  }
-}
-
-// Инициализация пагинации при загрузке страницы
-initializePagination('trends');
-
-export { updateGalleryBySearch };
 
 
 
