@@ -14,7 +14,7 @@ refs.searchForm.addEventListener('submit', onSearchFormSubmit);
 async function onSearchFormSubmit(e) {
   e.preventDefault();
   searchApi.query = refs.searchInput.value;
-  searchQuery = searchApi.query;
+  const searchQuery = searchApi.query;
 
   if (searchQuery) {
     searchMovies(searchQuery);
