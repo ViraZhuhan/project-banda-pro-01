@@ -22,7 +22,7 @@ export default (() => {
 function changeStyles(bgStyles, newBg) {
   const styles = [...bgStyles];
   styles[0] = `url(${newBg})`;
-  styles[1] ??= styles[1].replaceAll('"', '');
+  styles[1] &&= styles[1].replaceAll('"', '');
   return styles.join(',');
 }
 
