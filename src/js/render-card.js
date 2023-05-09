@@ -15,7 +15,7 @@ function markup(data) {
         ? `https://image.tmdb.org/t/p/w500/${poster_path}`
         : 'https://via.placeholder.com/395x574?text=No+Image';
 
-      initRatings();
+      // initRatings();
 
       return `<li class="gallery__item" id='${id}'>
         <article>
@@ -50,10 +50,11 @@ function markup(data) {
 function createGallery(films) {
   clearGallery();
   refs.gallery.innerHTML = markup(films).join('');
+  refs.galleryCatalog.innerHTML = markup(films).join('');
 }
 
 function clearGallery() {
   refs.gallery.innerHTML = '';
 }
 
-export { createGallery };
+export { createGallery, clearGallery };

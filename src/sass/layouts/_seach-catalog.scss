@@ -1,39 +1,41 @@
-// .search-wrapper {
-//     background-color: var(--bg-primary);
+.search-wrapper {
+    background-color: var(--bg-primary);
 
-//     display: flex;
-//     gap: 8px;
-//     flex-wrap: wrap;
-//     align-content: center;
-//     justify-content: center;
-//     padding-top: 40px;
-//     padding-bottom: 28px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    padding-top: 40px;
+    padding-bottom: 28px;
 
-//     @include tablet {
-//     flex-direction: row;
-//     flex-wrap: nowrap;
-//     gap: 5px;
-//     padding-top: 60px;
-//     padding-bottom: 40px;
-//     }
+    @include tablet {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 5px;
+    padding-top: 60px;
+    padding-bottom: 40px;
+    }
 
-//     @include desktop {
-//     padding-top: 60px;
-//     padding-bottom: 80px;
-//     }
-// }
+    @include desktop {
+    padding-top: 60px;
+    padding-bottom: 80px;
+    }
+}
 
-// .search-form {
-//     display: flex;
-//     flex-direction: row;
-//     align-items: flex-start;
-//     padding: 0px;
-//     gap: 16px;
-//     position: absolute;
-//     width: 264px;
-//     height: 44px;
-//     top: auto;
-// }
+
+.search-form {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 16px;
+    position: absolute;
+    width: 264px;
+    height: 44px;
+    top: auto;
+ 
+}
 
 // .search-input-field {
 //     box-sizing: border-box;
@@ -51,21 +53,21 @@
 //     flex-grow: 0;
 // }
 
-// .search-button {
-//     width: 44px;
-//     height: 44px;
-//     flex: none;
-//     order: 1;
-//     flex-grow: 0;
-//     padding: center;
-//     gap: 10px;
-//     margin-left: 16px;
-//     width: 44px;
-//     height: 44px;
-//     background: linear-gradient(141.22deg, #FFC226 9.4%, #F84119 91.91%);
-//     border-radius: 50px;
-//     border: none;
-// }
+.search-button {
+    width: 44px;
+    height: 44px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    padding: center;
+    gap: 10px;
+    margin-left: 16px;
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(141.22deg, #FFC226 9.4%, #F84119 91.91%);
+    border-radius: 50px;
+    border: none;
+}
 
 // .icon-search {
 //     width: 20px;
