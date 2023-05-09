@@ -8,5 +8,5 @@ import createWeekTrendsCatalog from './js/createTrends';
 import './js/pagination';
 import pagination from './js/pagination-catalog';
 import { getDayMovieTrend } from './js/hero';
+import modalTeam from './js/modal-team';
 // import handleSearchFormSubmit from './js/seachcatalog';
-

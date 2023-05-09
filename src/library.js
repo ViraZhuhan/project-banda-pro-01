@@ -3,4 +3,5 @@ import themeToggle from './js/themeToggle';
 import header from './js/header';
 import scrollUp from './js/scroll-up';
 import cardLibrary from './js/card-lbrary';
+import modalTeam from './js/modal-team';
 // LocalStorageService
