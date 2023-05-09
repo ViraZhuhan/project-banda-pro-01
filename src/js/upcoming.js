@@ -45,27 +45,44 @@ export async function renderUpcomingMovieCard(res) {
 
       const idGenre = res.results[0].genre_ids;
 
+
       let nameGenres = [];
       for (let i = 0; i < idGenre.length; i += 1) {
         const item = genres.find(el => el.id === idGenre[i]);
         nameGenres.push(item.name);
       }
 
-      const data = results[0];
-      const title = data.original_title;
-      const key = title;
-      //  const title = res.results[0].original_title;
-      const imageUrl = data.backdrop_path
-        ? `https://image.tmdb.org/t/p/w500/${data.backdrop_path}`
-        : 'https://via.placeholder.com/395x574?text=No+Image';
-      const posterUrl = data.poster_path
-        ? `https://image.tmdb.org/t/p/w500/${data.poster_path}`
-        : 'https://via.placeholder.com/395x574?text=No+Image';
-      const formatDate = getFormatDate('.');
-      const voteAverage = res.results[0].vote_average;
-      const voteCount = res.results[0].vote_count;
-      const movieId = res.results[0].id;
-      const genreUp = nameGenres.slice(0, 2).join(', ');
+ 
+ 
+ const data = results[0];
+ const title = data.original_title;
+ const key = title;
+//  const title = res.results[0].original_title;
+ const imageUrl = data.backdrop_path
+ ? `https://image.tmdb.org/t/p/w500/${data.backdrop_path}`
+ : 'https://via.placeholder.com/395x574?text=No+Image'; 
+ const formatDate = getFormatDate('.');
+ const voteAverage = res.results[0].vote_average;
+ const voteCount = res.results[0].vote_count;
+ const movieId = JSON.stringify(res.results[0].id);
+ const genreUp = nameGenres.slice(0, 2).join(', ');
+
+
+//       const data = results[0];
+//       const title = data.original_title;
+//       const key = title;
+//       //  const title = res.results[0].original_title;
+//       const imageUrl = data.backdrop_path
+//         ? `https://image.tmdb.org/t/p/w500/${data.backdrop_path}`
+//         : 'https://via.placeholder.com/395x574?text=No+Image';
+//       const posterUrl = data.poster_path
+//         ? `https://image.tmdb.org/t/p/w500/${data.poster_path}`
+//         : 'https://via.placeholder.com/395x574?text=No+Image';
+//       const formatDate = getFormatDate('.');
+//       const voteAverage = res.results[0].vote_average;
+//       const voteCount = res.results[0].vote_count;
+//       const movieId = res.results[0].id;
+//       const genreUp = nameGenres.slice(0, 2).join(', ');
 
       refs.galleryOfNewMovies.innerHTML = ` <h2 class="upcoming__title">Upcoming this month</h2>
 <div class="upcoming__info"> 
@@ -109,6 +126,7 @@ export async function renderUpcomingMovieCard(res) {
       };
       console.log(value);
 
+
       function addLS() {
         const arr = [];
         const saved = localStorage.getItem('LibraryMovie');
@@ -142,8 +160,35 @@ export async function renderUpcomingMovieCard(res) {
         }
       }
       ls();
-    });
-  } catch {
-    error => console.log(error.message);
-  }
-}
+
+// function addLS() { 
+//  const arr = [];
+//  const saved = localStorage.getItem('LibraryMovie');
+//  console.log(saved);
+//  if( saved === null || !saved.includes(movieItem)){
+// arr.push(movieItem);
+// localStorage.setItem('LibraryMovie', JSON.stringify(arr));
+
+//  }
+//  else if(saved ==! null && arr.includes(movieItem.data)){
+//   remindBtn.disabled = true;
+//  }
+// }
+
+// function ls() {
+//   try {
+//     const itemLs = localStorage.getItem(KEY);
+//     const parceLS = null ? undefined : JSON.parse(itemLs);
+//     if (parceLS === null) {
+//       return;
+//     }
+//     parceLS.map(elm => {
+//       if (elm.id === id) {
+//         remindBtn.disabled = true;
+//          }
+
+//     });
+//   } catch {
+//     error => console.log(error.message);
+//   }
+// }

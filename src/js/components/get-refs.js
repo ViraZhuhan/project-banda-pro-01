@@ -8,6 +8,8 @@ export default function getRefs() {
     // render-cards
     rating: document.querySelectorAll('.rating'),
     gallery: document.querySelector('.gallery'),
+    galleryCatalog: document.querySelector('.gallery-catalog'),
+   
 
     // header
     pageLinks: document.querySelectorAll('.navigation__link'),
@@ -45,9 +47,15 @@ export default function getRefs() {
     // Get the button element
     scrollUpBtn: document.getElementById('scroll-up-btn'),
 
-    // init-rating
-    // ratingActive: rating.querySelector('.rating__active'),
-    // ratingValue: rating.querySelector('.rating__value'),
-    // ratingItems: rating.querySelectorAll('.rating__item'),
+    rating: document.querySelector('.rating'),
+
+    // seach-form
+    searchForm: document.querySelector('.search-form'),
+    searchInput: document.querySelector('.search-input-field'),
+    movieList: document.querySelector('#movie-list'),
+    prevButton: document.querySelector('#btn-back'),
+    nextButton: document.querySelector('#btn-next'),
+    noSearchCatalog: document.querySelector('.items__message'),
+    
   };
 }
