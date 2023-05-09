@@ -1,68 +1,37 @@
-import Api from './api.js';
-import tuiPagination from 'tui-pagination';
+import Api from './api';
+// import { createGallery } from './render-card';
+import { createWeekTrends } from './createTrends.js';
+import { createGallery } from './render-card';
+import { pagination } from './pagination';
+
 
 const api = new Api();
 
-const PAGE_SIZE = 10;
-let currentPage = 1;
-let totalPages = 0;
+// Установка обработчика события при смене страницы
+pagination.on('beforeMove', async function (eventData) {
+  const currentPage = eventData.page;
+  try {
+    api.setPage(currentPage);
+    const response = await api.weeklyTrends({ itemsPerPage: 10 }); //Почему-то всё равно выводит 20
+    const films = response.results; // Получить массив фильмов из полученных данных
+    console.log(response); //пагинация срабатывает 
+    createGallery(films); // Обновить галерею на новую страницу
+  } catch (error) {
+    console.error('Error fetching movie data:', error);
+  }
+});
 
-const paginationContainer = document.getElementById('pagination');
-const listContainer = document.getElementById('list');
-
-async function init() {
-  const data = await api.dayTrends();
-  renderList(data.results);
-  totalPages = data.total_pages;
-  renderPagination();
+// Инициализация пагинации при загрузке страницы
+async function initializePagination() {
+  try {
+    const response = await api.weeklyTrends({ itemsPerPage: 10 }); //Почему-то всё равно выводит 20
+    const totalItems = response.total_results;
+    pagination.reset(totalItems);
+  } catch (error) {
+    console.error('Error initializing pagination:', error);
+  }
 }
 
-function renderList(items) {
-  listContainer.innerHTML = '';
-  items.forEach(item => {
-    const li = document.createElement('li');
-    li.textContent = item.title;
-    listContainer.appendChild(li);
-  });
-}
+initializePagination();
 
-function renderPagination() {
-  const options = {
-    totalItems: totalPages,
-    itemsPerPage: PAGE_SIZE,
-    visiblePages: 5,
-    currentPage,
-    centerAlign: true,
-    template: {
-      page: '<a href="#" class="tui-page-btn">{{page}}</a>',
-      currentPage:
-        '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
-      moveButton:
-        '<a href="#" class="tui-page-btn tui-{{type}}-btn">' +
-        '<span class="tui-ico-{{type}}"></span>' +
-        '</a>',
-      disabledMoveButton:
-        '<span class="tui-page-btn tui-is-disabled tui-{{type}}-btn">' +
-        '<span class="tui-ico-{{type}}"></span>' +
-        '</span>',
-      moreButton:
-        '<a href="#" class="tui-page-btn tui-{{type}}-btn tui-has-next-page">' +
-        '<span class="tui-ico-ellipses"></span>' +
-        '</a>',
-    },
-  };
 
-  const pagination = new tuiPagination(paginationContainer, options);
-
-  pagination.on('beforeMove', event => {
-    const currentPage = event.page;
-    loadPage(currentPage);
-  });
-}
-
-async function loadPage(pageNumber) {
-  const data = await api.dayTrends(pageNumber);
-  renderList(data.results);
-}
-
-init();
