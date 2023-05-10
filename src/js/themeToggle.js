@@ -1,11 +1,11 @@
 import getRefs from './components/get-refs';
-import SubstructBlackDesk from '../images/hero-black-desk.png';
-import SubstructBlackTab from '../images/hero-black-tab.png';
-import SubstructWhiteDesk from '../images/hero-white-desk.png';
-import SubstructWhiteTab from '../images/hero-white-tab.png';
+// import SubstructBlackDesk from '../images/hero-black-desk.png';
+// import SubstructBlackTab from '../images/hero-black-tab.png';
+// import SubstructWhiteDesk from '../images/hero-white-desk.png';
+// import SubstructWhiteTab from '../images/hero-white-tab.png';
 
 const refs = getRefs();
-const hero = document.querySelector('.hero');
+// const hero = document.querySelector('.hero');
 
 // Switch theme by changing root element class based on checkbox input state
 export default (() => {
@@ -25,15 +25,15 @@ function changeStyles(bgStyles, newBg) {
   return styles;
 }
 
-function changeHeroBackground() {
-  const root = document.documentElement;
-  const bgStyle = document.querySelector('.hero').style.backgroundImage;
-  const stylesArr = bgStyle.split(',');
-  if (window.matchMedia('(min-width: 1280px)').matches) {
-    const bgDecorator = root.classList.contains('light') ? SubstructWhiteDesk : SubstructBlackDesk;
-    hero.style.backgroundImage = changeStyles(stylesArr, bgDecorator);
-  } else if (window.matchMedia('(min-width: 768px)').matches) {
-    const bgDecorator = root.classList.contains('light') ? SubstructWhiteTab : SubstructBlackTab;
-    hero.style.backgroundImage = changeStyles(stylesArr, bgDecorator);
-  }
-}
+// function changeHeroBackground() {
+//   const root = document.documentElement;
+//   const bgStyle = document.querySelector('.hero').style.backgroundImage;
+//   const stylesArr = bgStyle.split(',');
+//   if (window.matchMedia('(min-width: 1280px)').matches) {
+//     const bgDecorator = root.classList.contains('light') ? SubstructWhiteDesk : SubstructBlackDesk;
+//     hero.style.backgroundImage = changeStyles(stylesArr, bgDecorator);
+//   } else if (window.matchMedia('(min-width: 768px)').matches) {
+//     const bgDecorator = root.classList.contains('light') ? SubstructWhiteTab : SubstructBlackTab;
+//     hero.style.backgroundImage = changeStyles(stylesArr, bgDecorator);
+//   }
+// }
