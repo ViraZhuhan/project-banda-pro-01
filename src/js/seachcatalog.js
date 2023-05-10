@@ -36,7 +36,7 @@ async function searchMovies(query) {
     }
     else if (response.results) {
       createGallery(response.results.slice(0, 10));
-      updateGalleryBySearch(query); // вызываем функцию обновления галереи по поиску с передачей запроса
+      // updateGalleryBySearch(query); // вызываем функцию обновления галереи по поиску с передачей запроса
     }
 
   } catch (error) {
@@ -56,8 +56,8 @@ function noSearchResults() {
 }
 
 
-// export { onSearchFormSubmit };
-export { onSearchFormSubmit, updateGalleryBySearch };  
+export { onSearchFormSubmit };
+// export { onSearchFormSubmit, updateGalleryBySearch };  
 
 // Володя
 
