@@ -114,6 +114,7 @@
 }
 
 .library-cards__sorry {
+  color: var(--color-text-primary);
   @include font-text($fs: 20, $lh: 1.4);
   // text color for night theme:
   // color: $color-text;

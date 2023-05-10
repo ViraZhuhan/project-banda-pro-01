@@ -6,6 +6,7 @@ import SubstructWhiteTab from '../images/hero-white-tab.png';
 
 const refs = getRefs();
 const hero = document.querySelector('.hero');
+const root = document.documentElement;
 
 // Switch theme by changing root element class based on checkbox input state
 export default (() => {
@@ -21,13 +22,13 @@ export default (() => {
 function changeStyles(bgStyles, newBg) {
   const styles = [...bgStyles];
   styles[0] = `url(${newBg})`;
-  styles[1] = styles[1].replaceAll('"', '');
-  return styles;
+  styles[1] &&= styles[1].replaceAll('"', '');
+  return styles.join(',');
 }
 
 function changeHeroBackground() {
-  const root = document.documentElement;
-  const bgStyle = document.querySelector('.hero').style.backgroundImage;
+  if (!root || !hero) return;
+  const bgStyle = hero.style.backgroundImage;
   const stylesArr = bgStyle.split(',');
   if (window.matchMedia('(min-width: 1280px)').matches) {
     const bgDecorator = root.classList.contains('light') ? SubstructWhiteDesk : SubstructBlackDesk;

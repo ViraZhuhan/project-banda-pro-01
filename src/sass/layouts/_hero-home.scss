@@ -111,7 +111,7 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 16px;
-  color: #f8f8f8;
+  color: var(--color-text-secondary);
 
   @include desktop {
     font-size: 16px;
@@ -448,7 +448,7 @@
   order: 0;
   flex-grow: 0;
 
-  color: $color-text;
+  color: var(--color-text-primary);
 
   @include tablet {
     font-size: 44px;
