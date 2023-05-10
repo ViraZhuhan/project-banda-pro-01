@@ -19,9 +19,20 @@ const countriesRoute = `${MOVIE_URL}configuration/countries?api_key=${API_KEY}`;
 //
 const upcoming = `${MOVIE_URL}movie/upcoming?api_key=${API_KEY}`;
 
+
+const URL_SEARCH_MOVIE = `${MOVIE_URL}/search/movie`;
+const URL_GET_MOVIE = `${MOVIE_URL}/movie`;
+
+
 export default class Api {
   constructor() {
     this.page = 1;
+    this.totalPages = 1;
+
+    this.searchPage = 1;
+    this.totalSearchPages = 1;
+    this.searchQuery = '';
+    // this.searchQuery = '';
   }
 
   nextPage() {
@@ -39,6 +50,40 @@ export default class Api {
   reset() {
     this.page = 1;
   }
+  nextSearchPage() {
+    this.searchPage += 1;
+  }
+
+  prevSearchPage() {
+    this.searchPage -= 1;
+  }
+
+  setSearchPage(value) {
+    this.searchPage = value;
+  }
+
+  getCurrentSearchPage() {
+    return this.searchPage;
+  }
+
+  resetSearchPage() {
+    this.searchPage = 1;
+  }
+
+  setSearchQuery(query) {
+    this.searchQuery = query;
+  }
+
+  getSearchQuery() {
+    return this.searchQuery;
+  }
+  // get query() {
+  //   return this.seachQuery;
+  // }
+
+  // set query(newQuery) {
+  //   this.seachQuery = newQuery;
+  // }
 
   async dayTrends() {
     try {
@@ -70,7 +115,7 @@ export default class Api {
     }
   }
 
-    async getDetailsById(id) {
+  async getDetailsById(id) {
     const str = `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`;
     return fetch(str).then(res => res.json());
   }
@@ -85,9 +130,18 @@ export default class Api {
     }
   }
 
-    async countries() {
+  async countries() {
     await new Promise(r => setTimeout(r, 1000));
     return fetch(`${countriesRoute}&page=${this.page}`).then(res => res.json());
+  }
+
+  async searchMovieByQuery(searchQuery) {
+    const response = await axios.get(
+      `${MOVIE_URL}search/movie?api_key=${API_KEY}&query=${searchQuery}&page=${this.page}`
+    );
+
+    // this.incrementPage();
+    return response.data;
   }
 
   async searhByNameYear(obj = {}) {
@@ -108,7 +162,6 @@ export default class Api {
     await new Promise(r => setTimeout(r, 1000));
     return fetch(str).then(res => res.json());
   }
-
 }
 
 

@@ -1098,7 +1098,6 @@ input:checked + .switch__marker {
     height: 372px;
     max-width: 768px;
     background-position: 0px 0px, 170px 0px;
-    background-size: contain, contain;
   }
 }
 @media screen and (min-width: 1280px) {
@@ -1111,29 +1110,29 @@ input:checked + .switch__marker {
   }
 }
 
+.hero__additional-container {
+  padding-right: 32px;
+  padding-left: 32px;
+}
+
 .hero__wrapper {
   display: flex;
+  justify-content: center;
   align-items: flex-start;
   flex-direction: column;
   color: #ffffff;
   z-index: 1;
-  width: 250px;
+  width: 300px;
   height: 100%;
-  padding-top: 40px;
-  margin-left: 20px;
 }
 @media screen and (min-width: 768px) {
   .hero__wrapper {
-    padding-top: 36px;
-    width: 350px;
-    margin-left: 32px;
+    width: 340px;
   }
 }
 @media screen and (min-width: 1280px) {
   .hero__wrapper {
     width: 464px;
-    margin-left: 130px;
-    padding-top: 118px;
   }
 }
 
@@ -1228,6 +1227,17 @@ input:checked + .switch__marker {
   }
 }
 
+.hero__vote {
+  display: flex;
+  align-items: center;
+  margin-top: 12px;
+}
+@media screen and (min-width: 1280px) {
+  .hero__vote {
+    margin-top: 16px;
+  }
+}
+
 .hero__title {
   font-size: 32px;
   line-height: 38px;
@@ -1236,6 +1246,7 @@ input:checked + .switch__marker {
   flex: none;
   order: 0;
   flex-grow: 0;
+  max-height: 200px;
 }
 @media screen and (min-width: 768px) {
   .hero__title {
@@ -1245,16 +1256,33 @@ input:checked + .switch__marker {
 }
 @media screen and (min-width: 1280px) {
   .hero__title {
+    max-height: 500px;
     font-size: 64px;
     line-height: 75px;
   }
 }
 
 .hero__text {
+  width: 166px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
   margin-top: 8px;
+  color: var(--seconday-txt-color);
+}
+@media screen and (min-width: 768px) {
+  .hero__text {
+    font-size: 14px;
+    line-height: 16px;
+    width: 100%;
+  }
 }
 @media screen and (min-width: 1280px) {
   .hero__text {
+    font-size: 16px;
+    line-height: 19px;
     margin-top: 16px;
   }
 }
@@ -1327,8 +1355,26 @@ input:checked + .switch__marker {
 }
 
 .hero__movie-descripton {
-  width: 100%;
+  margin-top: 16px;
+  max-height: 160px;
   overflow: hidden;
+}
+@media screen and (max-width: 767px) {
+  .hero__movie-descripton {
+    max-height: 80px;
+    width: 200px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .hero__movie-descripton {
+    max-height: 80px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .hero__movie-descripton {
+    max-height: none;
+    margin-top: 28px;
+  }
 }
 
 .hero__vote {
@@ -1343,13 +1389,11 @@ input:checked + .switch__marker {
 }
 
 .hero__movie-title {
+  width: 100%;
   font-size: 32px;
   line-height: 38px;
   display: flex;
   align-items: center;
-  flex: none;
-  order: 0;
-  flex-grow: 0;
   color: #ffffff;
 }
 @media screen and (min-width: 768px) {
@@ -1908,7 +1952,6 @@ input:checked + .switch__marker {
     height: 372px;
     max-width: 768px;
     background-position: 0px 0px, 170px 0px;
-    background-size: contain, contain;
   }
 }
 @media screen and (min-width: 1280px) {
@@ -1921,29 +1964,29 @@ input:checked + .switch__marker {
   }
 }
 
+.hero__additional-container {
+  padding-right: 32px;
+  padding-left: 32px;
+}
+
 .hero__wrapper {
   display: flex;
+  justify-content: center;
   align-items: flex-start;
   flex-direction: column;
   color: #ffffff;
   z-index: 1;
-  width: 250px;
+  width: 300px;
   height: 100%;
-  padding-top: 40px;
-  margin-left: 20px;
 }
 @media screen and (min-width: 768px) {
   .hero__wrapper {
-    padding-top: 36px;
-    width: 350px;
-    margin-left: 32px;
+    width: 340px;
   }
 }
 @media screen and (min-width: 1280px) {
   .hero__wrapper {
     width: 464px;
-    margin-left: 130px;
-    padding-top: 118px;
   }
 }
 
@@ -2038,6 +2081,17 @@ input:checked + .switch__marker {
   }
 }
 
+.hero__vote {
+  display: flex;
+  align-items: center;
+  margin-top: 12px;
+}
+@media screen and (min-width: 1280px) {
+  .hero__vote {
+    margin-top: 16px;
+  }
+}
+
 .hero__title {
   font-size: 32px;
   line-height: 38px;
@@ -2046,6 +2100,7 @@ input:checked + .switch__marker {
   flex: none;
   order: 0;
   flex-grow: 0;
+  max-height: 200px;
 }
 @media screen and (min-width: 768px) {
   .hero__title {
@@ -2055,16 +2110,33 @@ input:checked + .switch__marker {
 }
 @media screen and (min-width: 1280px) {
   .hero__title {
+    max-height: 500px;
     font-size: 64px;
     line-height: 75px;
   }
 }
 
 .hero__text {
+  width: 166px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
   margin-top: 8px;
+  color: var(--seconday-txt-color);
+}
+@media screen and (min-width: 768px) {
+  .hero__text {
+    font-size: 14px;
+    line-height: 16px;
+    width: 100%;
+  }
 }
 @media screen and (min-width: 1280px) {
   .hero__text {
+    font-size: 16px;
+    line-height: 19px;
     margin-top: 16px;
   }
 }
@@ -2137,8 +2209,26 @@ input:checked + .switch__marker {
 }
 
 .hero__movie-descripton {
-  width: 100%;
+  margin-top: 16px;
+  max-height: 160px;
   overflow: hidden;
+}
+@media screen and (max-width: 767px) {
+  .hero__movie-descripton {
+    max-height: 80px;
+    width: 200px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .hero__movie-descripton {
+    max-height: 80px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .hero__movie-descripton {
+    max-height: none;
+    margin-top: 28px;
+  }
 }
 
 .hero__vote {
@@ -2153,13 +2243,11 @@ input:checked + .switch__marker {
 }
 
 .hero__movie-title {
+  width: 100%;
   font-size: 32px;
   line-height: 38px;
   display: flex;
   align-items: center;
-  flex: none;
-  order: 0;
-  flex-grow: 0;
   color: #ffffff;
 }
 @media screen and (min-width: 768px) {
@@ -2613,4 +2701,155 @@ input:checked + .switch__marker {
     line-height: 1.5;
     letter-spacing: 0.03em;
   }
+}
+
+.hero-modal {
+  opacity: 0;
+  visibility: hidden;
+  z-index: 20;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: black;
+  box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
+  width: 280px;
+  height: 289px;
+  border-radius: 16px;
+  padding: 10px 10px 10px 10px;
+}
+@media screen and (min-width: 768px) {
+  .hero-modal {
+    width: 609px;
+    height: 400px;
+    padding: 10px 10px 10px 10px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .hero-modal {
+    width: 700px;
+    height: 400px;
+    padding: 35px;
+    padding: 10px 10px 10px 10px;
+  }
+}
+
+.hero-modal-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+@media screen and (min-width: 768px) {
+  .hero-modal-container {
+    align-items: flex-start;
+  }
+}
+
+.hero-close-btn {
+  position: absolute;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  stroke: #f8f8f8;
+  transition: stroke 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  top: 10px;
+  right: 10px;
+}
+@media screen and (min-width: 768px) {
+  .hero-close-btn {
+    width: 30px;
+    height: 30px;
+    top: 14px;
+    right: 14px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .hero-close-btn {
+    top: 10px;
+    right: 10px;
+  }
+}
+
+.close-btn:hover,
+.close-btn:focus {
+  stroke: orange;
+}
+
+.hero-overlay {
+  opacity: 0;
+  visibility: hidden;
+  z-index: 10;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.hero-overlay.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.hero-modal.active,
+.hero-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+@media screen and (min-width: 768px) {
+  .hero-modal-box {
+    margin-top: 120px;
+    margin-left: 32px;
+  }
+}
+@media screen and (min-width: 768px) and (min-width: 1280px) {
+  .hero-modal-box {
+    margin-top: 135px;
+    margin-left: 40px;
+  }
+}
+
+.hero-modal-text {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: white;
+}
+@media screen and (min-width: 768px) {
+  .hero-modal-text {
+    font-size: 24px;
+    line-height: 28px;
+  }
+}
+
+.hero-modal-img {
+  width: 160px;
+}
+@media screen and (min-width: 768px) {
+  .hero-modal-img {
+    width: 270px;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .hero-modal-img {
+    width: 330px;
+    right: 0px;
+    bottom: 0px;
+  }
+}
+
+.light .hero-modal {
+  background-color: white;
+  box-shadow: 1px 1px 14px 4px rgba(0, 0, 0, 0.22);
+  color: black;
 }/*# sourceMappingURL=index.css.map */

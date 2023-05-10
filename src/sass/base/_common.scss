@@ -2,6 +2,7 @@
 
 html {
   box-sizing: border-box;
+  // background-color: $color-primary-dark;
 }
 
 * {
@@ -76,7 +77,6 @@ img {
     padding-left: 32px;
     padding-right: 32px;
   }
-
 
   @media screen and (min-width: 1280px) {
     width: 1280px;
